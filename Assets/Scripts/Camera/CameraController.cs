@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Game game;
+    [HideInInspector]
     public GameObject StickToObject;
     private Vector3 Offset;
     void Start()
