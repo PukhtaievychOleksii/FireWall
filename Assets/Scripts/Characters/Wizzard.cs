@@ -14,7 +14,6 @@ public class Wizzard : Character
     void Start()
     {
         Controller = GetComponent<Controller>();
-        Controller.Game = Game;
     }
 
     // Update is called once per frame

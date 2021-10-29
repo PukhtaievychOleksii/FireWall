@@ -17,6 +17,8 @@ public class Game : MonoBehaviour
 
     void Awake()
     {
+        DataHolder.SetGame(this);
+       
         Wizzard = Spawner.SpawnWizzard(this);
         Match = new Match();
       //  Viruses.Add(Spawner.SpawnVirus(this));

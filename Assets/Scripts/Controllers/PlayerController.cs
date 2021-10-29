@@ -14,5 +14,7 @@ public class PlayerController : Controller
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab) && ControlledCharacter is Wizzard) (ControlledCharacter as Wizzard).ChangeLocation();
+
+        if (Input.GetMouseButtonDown(0)) DataHolder.Cannon.FireOnMousePosition();
     }
 }

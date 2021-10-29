@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class BattleField : MonoBehaviour
 {
-    public Character ControlledCharacter;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnMouseOver()
+    {
+        DataHolder.Cannon.FollowMouse();
     }
 }

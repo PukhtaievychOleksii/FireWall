@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Game game;
     [HideInInspector]
     public GameObject StickToObject;
     private Vector3 Offset;
     void Start()
     {
-        StickToObject = game.Wizzard.gameObject;
+        StickToObject = DataHolder.Game.Wizzard.gameObject;
         Offset = transform.position - StickToObject.transform.position;
+        DataHolder.SetMainCamera(GetComponent<Camera>());
     }
 
     // Update is called once per frame

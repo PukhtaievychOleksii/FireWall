@@ -101,6 +101,8 @@ MonoBehaviour:
   Game: {fileID: 0}
   CharacterGameObject: {fileID: 0}
   MovementComponent: {fileID: 0}
+  Damage: 1
+  Health: 1
 --- !u!114 &146828622218513785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2fe61d55fc86546a5ad3dccf9183d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovingSpeed: 0.1
+  MovingSpeed: 0.01
   Destination: {x: 0, y: 0, z: 0}
   IShouldMove: 0
   Owner: {fileID: 0}
@@ -127,7 +129,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

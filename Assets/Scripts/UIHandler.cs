@@ -9,8 +9,7 @@ public class UIHandler : MonoBehaviour
     public Canvas canvas;
     private Stack<GameObject> HeartsOfHP = new Stack<GameObject>();
     private const float SpaceBetweenHeartImages = 0.5f;
-    [SerializeField]
-    private Game Game;
+    
     void Start()
     {
         LocateHPHearts();
@@ -18,7 +17,7 @@ public class UIHandler : MonoBehaviour
 
     private void LocateHPHearts()
     {
-        for (int i = 0; i < Game.Wall.HealthPoint; i++)
+        for (int i = 0; i < DataHolder.Game.Wall.HealthPoint; i++)
         {
             GameObject HeartImage = Instantiate(HeartOfHpPrefab,GetHeartsLocation(i), Quaternion.identity);
             HeartImage.transform.SetParent(canvas.transform);

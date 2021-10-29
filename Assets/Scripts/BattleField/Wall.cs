@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wall : MonoBehaviour , IDamageable
 {
     [SerializeField]
-    public int HealthPoint = 2;
+    public float HealthPoint = 2;
     [SerializeField]
     private Game Game;//must be set in Unity
     void Start()
@@ -30,7 +30,7 @@ public class Wall : MonoBehaviour , IDamageable
         }
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(float Damage)
     {
         if (HealthPoint > 0)
         {
