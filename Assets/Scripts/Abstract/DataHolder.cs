@@ -30,4 +30,11 @@ public static class DataHolder
     {
         Factory = factory; 
     }
+
+    public static EffectsHandler EffectsHandler { get; private set; }
+
+    public static void SetEffectsHandler(EffectsHandler effectsHandler)
+    {
+        EffectsHandler = effectsHandler;
+    }
 }

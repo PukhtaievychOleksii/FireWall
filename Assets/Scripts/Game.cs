@@ -13,6 +13,8 @@ public class Game : MonoBehaviour
     public UIHandler UIHandler;//must be set in Unity
     [HideInInspector]
     public Match Match;
+    [HideInInspector]
+    public InventorySystem InventorySystem;
 
 
     void Awake()
@@ -21,7 +23,15 @@ public class Game : MonoBehaviour
        
         Wizzard = Spawner.SpawnWizzard(this);
         Match = new Match();
-      //  Viruses.Add(Spawner.SpawnVirus(this));
+        InventorySystem = new InventorySystem();
+    }
+
+    private void Start()
+    {
+        InventorySystem.PutItemInto<Wall>(Wall);
+        Wall wall;
+        InventorySystem.GetItemFromInventory<Wall>(out wall);
+        GameObject gm = wall.gameObject;
     }
 
     // Update is called once per frame
