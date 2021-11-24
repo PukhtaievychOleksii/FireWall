@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class DataHolder 
+public static class DataHolder
 {
     public static Game Game { get; private set; }
-    public static void SetGame(Game game) 
+    public static void SetGame(Game game)
     {
         Game = game;
     }
 
     public static Cannon Cannon { get; private set; }
 
-    public static void  SetCannon(Cannon cannon)
+    public static void SetCannon(Cannon cannon)
     {
         Cannon = cannon;
     }
@@ -28,7 +28,7 @@ public static class DataHolder
 
     public static void SetFactory(Factory factory)
     {
-        Factory = factory; 
+        Factory = factory;
     }
 
     public static EffectsHandler EffectsHandler { get; private set; }
@@ -36,5 +36,17 @@ public static class DataHolder
     public static void SetEffectsHandler(EffectsHandler effectsHandler)
     {
         EffectsHandler = effectsHandler;
+    }
+
+    public static Wizzard Wizzard { get; private set; }
+    
+    public static void  SetWizzard(Wizzard wizzard)
+    {
+        Wizzard = wizzard;
+    }
+    public static UIHandler UIHandler;
+    public static void SetUIHandler(UIHandler uiHandler)
+    {
+       UIHandler = uiHandler;
     }
 }

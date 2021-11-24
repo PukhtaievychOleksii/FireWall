@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
     public Camera MainCamera;
+    public Potion Projectile;
     void Start()
     {
         DataHolder.SetCannon(this);  
@@ -27,8 +28,25 @@ public class Cannon : MonoBehaviour
 
     public void FireOnTarget(Vector3 target)
     {
-        Projectile projectile = DataHolder.Factory.AddBullet(transform.position);
-        projectile.SpeedUp(target);
+        string potionName = DataHolder.Wizzard.CurrentShootingPotionType.ToString();
+        int potionsLeft = DataHolder.Wizzard.InventorySystem.GetNumberOfItemsInInventoryLeft(potionName);
+        if (potionsLeft > 0) {
+            GameObject potionObject = DataHolder.Wizzard.InventorySystem.GetItemFromInventory(potionName);
+            PutPotionInCannon(ref potionObject);
+            Projectile projectile = potionObject.GetComponent<Potion>();
+            projectile.SpeedUp(target);
+            DataHolder.UIHandler.UpdateStorageUI();
+        }
+    }
+
+    private void PutPotionInCannon(ref GameObject potionObject)
+    {
+        if(potionObject.GetComponent<Potion>() != null)
+        {
+            potionObject.transform.position = gameObject.transform.position;
+            potionObject.SetActive(true);
+            potionObject.transform.SetParent(potionObject.transform);
+        }
     }
 
     public void FireOnMousePosition()

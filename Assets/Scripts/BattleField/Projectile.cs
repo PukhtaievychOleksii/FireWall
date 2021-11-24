@@ -14,14 +14,14 @@ public class Projectile : MonoBehaviour,ICanAttack
     }
 
     // Update is called once per frame
-    void Update()
+    protected void UpdatePosition()
     {
         if (transform.position == destination) ShouldGoToDestination = false;
         if (ShouldGoToDestination)
         {
             transform.position = Vector3.MoveTowards(transform.position, destination,HitTime);
         }
-        
+    
     }
 
     public void SpeedUp(Vector3 destination)

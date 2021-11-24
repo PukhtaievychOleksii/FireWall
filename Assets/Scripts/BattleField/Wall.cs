@@ -38,7 +38,7 @@ public class Wall : MonoBehaviour , IDamageable
         if (HealthPoint > 0)
         {
             HealthPoint -= Damage;
-            Game.UIHandler.RemoveHeart();
+            DataHolder.UIHandler.RemoveHeart();
         }
         else Game.Match.OnDefeated?.Invoke();
         

@@ -10,10 +10,15 @@ public enum Location {
 public class Wizzard : Character
 {
     Controller Controller;
-    public Location CurrentLocation = Location.BattleField; 
-    void Start()
+    public Location CurrentLocation = Location.BattleField;
+    public PotionsType CurrentShootingPotionType = PotionsType.Potion1;
+    [HideInInspector]
+    public InventorySystem InventorySystem;
+    void Awake()
     {
         Controller = GetComponent<Controller>();
+        DataHolder.SetWizzard(this);
+        InventorySystem = new InventorySystem();
     }
 
     // Update is called once per frame
@@ -34,5 +39,10 @@ public class Wizzard : Character
             MoveTo(Game.WatchPoint.transform.position);
             CurrentLocation = Location.BattleField;
         }
-    }   
+    }
+    
+    public void ChangePotionShootingType(PotionsType potionType)
+    {
+        CurrentShootingPotionType = potionType;
+    }
 }
