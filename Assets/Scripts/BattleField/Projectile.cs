@@ -20,8 +20,15 @@ public class Projectile : MonoBehaviour,ICanAttack
         if (ShouldGoToDestination)
         {
             transform.position = Vector3.MoveTowards(transform.position, destination,HitTime);
+        }else
+        {
+            Destroy(gameObject);
         }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 188cbbf4f71f236195a7069b5a048ec0192459a7
     }
 
     public void SpeedUp(Vector3 destination)
