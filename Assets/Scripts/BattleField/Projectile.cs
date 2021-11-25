@@ -22,6 +22,10 @@ public class Projectile : MonoBehaviour,ICanAttack
             transform.position = Vector3.MoveTowards(transform.position, destination,HitTime);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    
+>>>>>>> parent of a0774da (Inventory)
 =======
     
 >>>>>>> parent of a0774da (Inventory)
