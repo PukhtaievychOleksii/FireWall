@@ -6,7 +6,7 @@ public class VirusGenerator : MonoBehaviour
 {
     public Spawner Spawner;
     public Game Game;
-    float TimeBettwenVirusesSpawn = 10f;
+    float TimeBettwenVirusesSpawn = 5f;
     float TimeToNextVirusSpawn = 0f;
     
     void Start()
@@ -22,8 +22,6 @@ public class VirusGenerator : MonoBehaviour
         {
             TimeToNextVirusSpawn = TimeBettwenVirusesSpawn;
             Spawner.SpawnVirus(Game);
-
-            TimeBettwenVirusesSpawn -= 0.05f; // progresive add more monsters
         }
     }
 }

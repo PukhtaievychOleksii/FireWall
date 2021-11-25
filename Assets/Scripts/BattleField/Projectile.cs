@@ -20,10 +20,11 @@ public class Projectile : MonoBehaviour,ICanAttack
         if (ShouldGoToDestination)
         {
             transform.position = Vector3.MoveTowards(transform.position, destination,HitTime);
-        }else
-        {
-            Destroy(gameObject);
         }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> parent of a0774da (Inventory)
     }
 
     public void SpeedUp(Vector3 destination)
