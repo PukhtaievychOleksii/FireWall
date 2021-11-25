@@ -33,8 +33,12 @@ public class Cannon : MonoBehaviour
 
     public void FireOnMousePosition()
     {
-        Vector3 target = DataHolder.MainCamera.ScreenToWorldPoint(Input.mousePosition);
-        FireOnTarget(target);
+        if (MainCamera.transform.position.x >= 0) // oprava bugu s strelanim ak sme neni v hernom poly .
+        {
+            Vector3 target = DataHolder.MainCamera.ScreenToWorldPoint(Input.mousePosition);
+            FireOnTarget(target);
+        }
+
     }
 
 
