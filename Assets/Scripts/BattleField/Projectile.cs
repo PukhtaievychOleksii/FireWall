@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour,ICanAttack
     }
 
     // Update is called once per frame
-    void Update()
+    protected void UpdatePosition()
     {
         if (transform.position == destination) ShouldGoToDestination = false;
         if (ShouldGoToDestination)
@@ -24,7 +24,11 @@ public class Projectile : MonoBehaviour,ICanAttack
         {
             Destroy(gameObject);
         }
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 188cbbf4f71f236195a7069b5a048ec0192459a7
     }
 
     public void SpeedUp(Vector3 destination)

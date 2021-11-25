@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9207933312579930568}
   - component: {fileID: 7647258637519770489}
-  - component: {fileID: 8407350739454734816}
   - component: {fileID: 3035783234364535580}
+  - component: {fileID: -252991059316788967}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Potion1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD:Assets/Prefabs/Potion1.prefab
+=======
 --- !u!114 &8407350739454734816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitTime: 0.05
   Damage: 1
+>>>>>>> 188cbbf4f71f236195a7069b5a048ec0192459a7:Assets/Prefabs/Bullet.prefab
 --- !u!70 &3035783234364535580
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,12 +118,31 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+<<<<<<< HEAD:Assets/Prefabs/Potion1.prefab
+--- !u!114 &-252991059316788967
+MonoBehaviour:
+=======
 --- !u!1 &2431498081139731258
 GameObject:
+>>>>>>> 188cbbf4f71f236195a7069b5a048ec0192459a7:Assets/Prefabs/Bullet.prefab
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/Potion1.prefab
+  m_GameObject: {fileID: 2121900683791322303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50dd7e6f184ee0459588db8dc073f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitTime: 0.1
+  Damage: 1
+  IngridientsToCreate: 
+  TimeToCreate: 1
+  Name: Potion1
+  PotionImage: {fileID: 21300000, guid: b07e32205badfba44ae5f06c36c6b975, type: 3}
+=======
   serializedVersion: 6
   m_Component:
   - component: {fileID: 510696069196823893}
@@ -217,3 +239,4 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+>>>>>>> 188cbbf4f71f236195a7069b5a048ec0192459a7:Assets/Prefabs/Bullet.prefab
