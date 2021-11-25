@@ -23,6 +23,10 @@ public class Projectile : MonoBehaviour,ICanAttack
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    
+>>>>>>> parent of a0774da (Inventory)
 =======
     
 >>>>>>> parent of a0774da (Inventory)
