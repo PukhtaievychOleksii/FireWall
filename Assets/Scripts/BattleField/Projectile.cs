@@ -21,18 +21,7 @@ public class Projectile : MonoBehaviour,ICanAttack
         {
             transform.position = Vector3.MoveTowards(transform.position, destination,HitTime);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    
->>>>>>> parent of a0774da (Inventory)
-=======
-    
->>>>>>> parent of a0774da (Inventory)
-=======
-    
->>>>>>> parent of a0774da (Inventory)
+
     }
 
     public void SpeedUp(Vector3 destination)

@@ -100,8 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Game: {fileID: 0}
   CharacterGameObject: {fileID: 0}
-  MovementComponent: {fileID: 0}
+  MovementComponent: {fileID: 1113753553703978351}
   CurrentLocation: 0
+  CurrentShootingPotionType: 1
 --- !u!136 &6878106939807734299
 CapsuleCollider:
   m_ObjectHideFlags: 0
