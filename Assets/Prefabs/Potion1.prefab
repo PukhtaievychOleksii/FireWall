@@ -116,5 +116,6 @@ MonoBehaviour:
   Damage: 1
   IngridientsToCreate: 
   TimeToCreate: 1
-  Name: Potion1
+  PotionType: 1
   PotionImage: {fileID: 21300000, guid: b07e32205badfba44ae5f06c36c6b975, type: 3}
+  Name: Potion1

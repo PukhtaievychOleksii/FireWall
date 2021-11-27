@@ -19,7 +19,10 @@ public class Projectile : MonoBehaviour,ICanAttack
         if (transform.position == destination) ShouldGoToDestination = false;
         if (ShouldGoToDestination)
         {
-            transform.position = Vector3.MoveTowards(transform.position, destination,HitTime);
+            transform.position = Vector3.MoveTowards(transform.position, destination, HitTime);
+        }
+        else { // destroy object also if there was no monster
+            Destroy(gameObject);
         }
 
     }

@@ -48,7 +48,7 @@ public class Factory : MonoBehaviour
     public List<Sprite> GetPotionSprites()
     {
         List<Sprite> potionImages = new List<Sprite>();
-        for(int i = 0;i < PotionPrefabs.Count;i++)
+        for(int i = 0;i <= PotionPrefabs.Count;i++)
         {
             Potion potion = PotionPrefabs[i].GetComponent<Potion>();
             if(potion != null)

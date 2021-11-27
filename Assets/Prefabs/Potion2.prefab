@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -252991059316788967, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
       propertyPath: PotionType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -252991059316788967, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
       propertyPath: PotionImage

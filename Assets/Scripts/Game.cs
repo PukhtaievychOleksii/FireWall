@@ -26,12 +26,12 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-        DataHolder.Factory.AddPotion(PotionsType.Potion1);
-        DataHolder.Factory.AddPotion(PotionsType.Potion1);
-        DataHolder.Factory.AddPotion(PotionsType.Potion2);
-        DataHolder.Factory.AddPotion(PotionsType.Potion2);
-        DataHolder.Factory.AddPotion(PotionsType.Potion3);
-        DataHolder.Factory.AddPotion(PotionsType.Potion3);
+        for (int i = 0; i < 10; i++)
+        {
+            DataHolder.Factory.AddPotion(PotionsType.Potion1);
+            DataHolder.Factory.AddPotion(PotionsType.Potion2);
+            DataHolder.Factory.AddPotion(PotionsType.Potion3);
+        }
         DataHolder.UIHandler.UpdateStorageUI();
     }
 
