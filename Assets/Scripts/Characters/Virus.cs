@@ -4,6 +4,7 @@ public class Virus : Character, ICanAttack, IDamageable
 {
     public int Damage = 1;
     public float Health = 1;
+    public bool IsOnBattleField = false;
     void Start()
     {
         GoToWall();
@@ -63,6 +64,12 @@ public class Virus : Character, ICanAttack, IDamageable
             TakeDamage(projectile.GiveDamage());
             Destroy(projectile.gameObject);
         }
+        if (collision.gameObject.name == "BattleField") IsOnBattleField = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "BattleField") IsOnBattleField = false;
     }
 
     public bool isCorrectType(Projectile projectile)
@@ -74,6 +81,16 @@ public class Virus : Character, ICanAttack, IDamageable
             return true;
         }
         return false;
+    }
+
+    private void OnMouseEnter()
+    {
+        if(IsOnBattleField) DataHolder.Cannon.CanShoot = true;
+    }
+
+    private void OnMouseExit()
+    {
+        if(IsOnBattleField) DataHolder.Cannon.CanShoot = false;
     }
 
 }

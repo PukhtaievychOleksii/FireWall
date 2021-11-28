@@ -40,6 +40,7 @@ public class Cannon : MonoBehaviour
         }
     }
 
+
     private void PutPotionInCannon(ref GameObject potionObject)
     {
         if(potionObject.GetComponent<Potion>() != null)
