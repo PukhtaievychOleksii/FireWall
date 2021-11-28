@@ -6,6 +6,7 @@ public class Alarm : MonoBehaviour
 {
     public delegate void AlarmAction();
     public AlarmAction OnAlarm;
+    public GameObject AlarmObject; // must be set in Unity
     void Start()
     {
         
@@ -13,15 +14,18 @@ public class Alarm : MonoBehaviour
 
     void Update()
     {
-        
+     
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Virus virus = collision.gameObject.GetComponent<Virus>();
-        if(virus != null)
+        Debug.Log("VIRUS ALEARM : ",virus);
+        if (virus != null)
         {
+            var AlarmRenderer = AlarmObject.GetComponent<Renderer>();
+            AlarmRenderer.material.SetColor("_Color", Color.red);
             OnAlarm();
         }
     }

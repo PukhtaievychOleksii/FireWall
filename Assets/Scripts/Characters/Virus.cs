@@ -1,22 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Virus : Character , ICanAttack,IDamageable
+public class Virus : Character, ICanAttack, IDamageable
 {
     public int Damage = 1;
     public float Health = 1;
     void Start()
     {
-        GoToWall(); 
-        
+        GoToWall();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void GoToWall()
@@ -61,11 +58,22 @@ public class Virus : Character , ICanAttack,IDamageable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
-        if(projectile != null)
+        if (projectile != null && isCorrectType(projectile))
         {
             TakeDamage(projectile.GiveDamage());
             Destroy(projectile.gameObject);
         }
+    }
+
+    public bool isCorrectType(Projectile projectile)
+    {
+        // this const is becouse of lenght of name VirusX(Clone) (Clone) == 7 + 1 becose index from 0
+        const int compareForType = 8;
+        if (this.CharacterGameObject.name.Contains(projectile.name[projectile.name.Length - compareForType] +""))
+        {
+            return true;
+        }
+        return false;
     }
 
 }
