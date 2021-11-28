@@ -1204,7 +1204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Game: {fileID: 1473224779}
   WizzardPrefab: {fileID: 8534620837538423941, guid: e84958b1205781b4b8eb7c7332ebd646, type: 3}
-  VirusPrefab: {fileID: 2124022580017469182, guid: c40744b43feb644419846f59396dc96c, type: 3}
+  VirusPrefab1: {fileID: 2124022580017469182, guid: c40744b43feb644419846f59396dc96c, type: 3}
+  VirusPrefab2: {fileID: 2124022580017469182, guid: 8892dc1c18abcdf4e83aa6549a5a05c6, type: 3}
+  VirusPrefab3: {fileID: 2124022580017469182, guid: e6ca9547811e77b4daf6b9dca6e569a1, type: 3}
   WizzardSpawnPoint: {fileID: 1249451827}
   VirusSpawnPoint: {fileID: 138418371}
 --- !u!4 &1250188552
@@ -1977,6 +1979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 519420031}
   Projectile: {fileID: 0}
+  CanShoot: 0
 --- !u!1 &1983348913
 GameObject:
   m_ObjectHideFlags: 0

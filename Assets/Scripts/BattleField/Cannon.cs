@@ -6,6 +6,7 @@ public class Cannon : MonoBehaviour
 {
     public Camera MainCamera;
     public Potion Projectile;
+    public bool CanShoot = false;
     void Start()
     {
         DataHolder.SetCannon(this);  
@@ -30,7 +31,7 @@ public class Cannon : MonoBehaviour
     {
         string potionName = DataHolder.Wizzard.CurrentShootingPotionType.ToString();
         int potionsLeft = DataHolder.Wizzard.InventorySystem.GetNumberOfItemsInInventoryLeft(potionName);
-        if (potionsLeft > 0) {
+        if (potionsLeft > 0 && CanShoot) {
             GameObject potionObject = DataHolder.Wizzard.InventorySystem.GetItemFromInventory(potionName);
             PutPotionInCannon(ref potionObject);
             Projectile projectile = potionObject.GetComponent<Potion>();

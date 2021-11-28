@@ -18,4 +18,12 @@ public class BattleField : MonoBehaviour
     {
         DataHolder.Cannon.FollowMouse();
     }
+    private void OnMouseEnter()
+    {
+        DataHolder.Cannon.CanShoot = true;
+    }
+    private void OnMouseExit()
+    {
+        DataHolder.Cannon.CanShoot = false;
+    }
 }
