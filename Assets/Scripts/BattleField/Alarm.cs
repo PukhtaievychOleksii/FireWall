@@ -6,7 +6,7 @@ public class Alarm : MonoBehaviour
 {
     public delegate void AlarmAction();
     public AlarmAction OnAlarm;
-    //public GameObject AlarmObject; // must be set in Unity
+    public GameObject AlarmObject; // must be set in Unity
     void Start()
     {
         
