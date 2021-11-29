@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Controller
 {
@@ -22,6 +23,9 @@ public class PlayerController : Controller
         if (Input.GetKeyDown(KeyCode.Alpha2)) DataHolder.Wizzard.ChangePotionShootingType((PotionsType)2);
 
         if (Input.GetKeyDown(KeyCode.Alpha3)) DataHolder.Wizzard.ChangePotionShootingType((PotionsType)3);
+
+
+        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(1);
 
 
     }
