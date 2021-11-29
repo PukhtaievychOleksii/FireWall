@@ -12,13 +12,18 @@ public class EffectsHandler : MonoBehaviour
         AudioSource = GetComponent<AudioSource>();    
     }
 
-    public void PlayAlarmEffects()
+    public void StartAlarmEffects()
     {
         if(AlarmSound != null)
         {
             AudioSource.clip = AlarmSound;
             AudioSource.Play();
         }
+    }
+
+    public void StopAlarmEffeects()
+    {
+        AudioSource.Stop();
     }
 
 }

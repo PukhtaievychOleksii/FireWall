@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Alarm : MonoBehaviour
 {
-    public delegate void AlarmAction();
-    public AlarmAction OnAlarm;
-    public GameObject AlarmObject; // must be set in Unity
+    private SpriteRenderer renderer;
     void Start()
     {
-        
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -17,22 +15,20 @@ public class Alarm : MonoBehaviour
      
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnAlarm()
     {
-        Virus virus = collision.gameObject.GetComponent<Virus>();
-        //AlarmObject.GetComponent<Renderer>().material.color = Color.green;
-        Debug.Log("VIRUS ALEARM : "+virus.CharacterGameObject.name+"    "+AlarmObject.name);
-        var cubeRenderer = AlarmObject.GetComponent<Renderer>();
-
-        cubeRenderer.material.color = Color.green;
-        //var AlarmRenderer = AlarmObject.GetComponent<Renderer>();
-        //AlarmRenderer.material.SetColor("_Color", Color.red);
-        if (virus != null)
-        {
-            OnAlarm();
-        }
+        gameObject.SetActive(true);
+        renderer.enabled = true;
+        DataHolder.EffectsHandler.StartAlarmEffects();
     }
+
+    public void StopAlarm()
+    {
+        gameObject.SetActive(false);
+        renderer.enabled = false;
+        DataHolder.EffectsHandler.StopAlarmEffeects();
+    }
+   
 
 
 }

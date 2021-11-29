@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AlarmZone : MonoBehaviour
+{
+    public Alarm Alarm;
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+     
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Virus virus = collision.gameObject.GetComponent<Virus>();
+        Debug.Log("VIRUS ALEARM : "+virus.CharacterGameObject.name);
+        if (virus != null)
+        {
+            Alarm.OnAlarm();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Virus virus = collision.gameObject.GetComponent<Virus>();
+        if (virus != null)
+        {
+            Alarm.StopAlarm();
+        }
+    }
+
+
+}

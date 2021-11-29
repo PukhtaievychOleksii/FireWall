@@ -5,14 +5,14 @@ using UnityEngine;
 public class Wall : MonoBehaviour , IDamageable
 {
     public float HealthPoint = 2;
-    private Alarm alarm;
+    private AlarmZone alarm;
     [SerializeField]
     private Game Game;//must be set in Unity
 
     void Start()
     {
-        alarm = GetComponentInChildren<Alarm>();
-        alarm.OnAlarm += DataHolder.EffectsHandler.PlayAlarmEffects;
+       /* alarm = GetComponentInChildren<Alarm>();
+        alarm.OnAlarm += DataHolder.EffectsHandler.PlayAlarmEffects;*/
     }
 
     // Update is called once per frame
