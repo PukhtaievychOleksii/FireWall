@@ -22,19 +22,31 @@ public class Potion : Projectile
     public float TimeToCreate = 1f;
     public PotionsType PotionType;
     public Sprite PotionImage;
+    public float DamageRadius;
     [HideInInspector]
     public string Name;
+    private Transform ScalingSpace;
 
 
     void Start()
     {
         Name = Enum.GetName(typeof(PotionsType), PotionType);
+        ScalingSpace = gameObject.GetComponentInChildren<Transform>();
+        SetAppropriateScaling();
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdatePosition();  
+    }
+
+    private void SetAppropriateScaling()
+    {
+        if (ScalingSpace != null)
+        {
+            ScalingSpace.transform.localScale = new Vector3(DamageRadius, DamageRadius, ScalingSpace.transform.localScale.z);
+        }
     }
 
 
