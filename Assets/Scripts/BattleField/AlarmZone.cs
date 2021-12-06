@@ -19,7 +19,6 @@ public class AlarmZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Virus virus = collision.gameObject.GetComponent<Virus>();
-        Debug.Log("VIRUS ALEARM : "+virus.CharacterGameObject.name);
         if (virus != null)
         {
             Alarm.OnAlarm();
