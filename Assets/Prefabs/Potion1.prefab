@@ -120,6 +120,8 @@ MonoBehaviour:
   PotionType: 1
   PotionImage: {fileID: 21300000, guid: b07e32205badfba44ae5f06c36c6b975, type: 3}
   DamageRadius: 10
+  ActiveDamageTime: 0.5
+  FadingTime: 3
   Name: Potion1
   ScalingSpace: {fileID: 2772694968342070245}
 --- !u!1 &3557228183523605266
@@ -132,6 +134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6620112789149183458}
   - component: {fileID: 2108389610124386236}
+  - component: {fileID: 6322061017384694355}
+  - component: {fileID: 2253228431757100008}
   m_Layer: 0
   m_Name: ExplosionSurrounding
   m_TagString: Untagged
@@ -190,8 +194,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1853004373
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -204,6 +208,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6322061017384694355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557228183523605266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618e67c5f07d4da45a80deb776e374d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Potion: {fileID: 0}
+--- !u!58 &2253228431757100008
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557228183523605266}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8765949150461452609
 GameObject:
   m_ObjectHideFlags: 0

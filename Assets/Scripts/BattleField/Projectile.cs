@@ -22,7 +22,13 @@ public class Projectile : MonoBehaviour,ICanAttack
             transform.position = Vector3.MoveTowards(transform.position, destination, HitTime);
         }
         else { // destroy object also if there was no monster
-            Destroy(gameObject);
+            if (this is Potion)
+            {
+                (this as Potion).Explode();
+                StartCoroutine((this as Potion).DestroyPotion());
+
+            }
+            //Destroy(gameObject);
         }
 
     }

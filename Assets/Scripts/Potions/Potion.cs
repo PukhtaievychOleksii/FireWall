@@ -23,22 +23,38 @@ public class Potion : Projectile
     public PotionsType PotionType;
     public Sprite PotionImage;
     public float DamageRadius;
+    public float ActiveDamageTime;
+    public float FadingTime;
     [HideInInspector]
     public string Name;
-    private Transform ScalingSpace;
+    public Transform ScalingSpace;//must be set in Unity
+    private ExplosionZone ExplosionZone;
+    private SpriteRenderer Renderer;
+    private bool IShouldFade = false;
 
 
     void Start()
     {
         Name = Enum.GetName(typeof(PotionsType), PotionType);
-        ScalingSpace = gameObject.GetComponentInChildren<Transform>();
+        ExplosionZone = GetComponentInChildren<ExplosionZone>();
+        Renderer = GetComponent<SpriteRenderer>();
         SetAppropriateScaling();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdatePosition();  
+        UpdatePosition();
+        if (IShouldFade)
+        {
+            Color color = Renderer.color;
+            color.a -= 0.01f;
+            if (color.a > 0)
+            {
+                Renderer.color = color;
+                ExplosionZone.Renderer.color = color;
+            }
+        }
     }
 
     private void SetAppropriateScaling()
@@ -47,6 +63,36 @@ public class Potion : Projectile
         {
             ScalingSpace.transform.localScale = new Vector3(DamageRadius, DamageRadius, ScalingSpace.transform.localScale.z);
         }
+    }
+
+    public void Explode()
+    {
+        Renderer.enabled = false;
+        ExplosionZone.SetOn();
+        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+    }
+
+    private void DisablePotioning()
+    {
+        gameObject.SetActive(false);
+        ExplosionZone.gameObject.SetActive(false);
+
+    }
+
+    private void StartFading()
+    {
+        IShouldFade = true;
+    }
+
+    public IEnumerator DestroyPotion()
+    {
+        StartFading();
+        yield return new WaitForSeconds(ActiveDamageTime);
+        DisablePotioning();
+        yield return new WaitForSeconds(FadingTime - ActiveDamageTime);
+        Destroy(gameObject);
+        
+
     }
 
 

@@ -58,11 +58,15 @@ public class Virus : Character, ICanAttack, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Projectile projectile = collision.gameObject.GetComponent<Projectile>();
-        if (projectile != null && isCorrectType(projectile))
+        Potion potion = collision.gameObject.GetComponent<Potion>();
+        if (potion != null && isCorrectType(potion))
         {
-            TakeDamage(projectile.GiveDamage());
-            Destroy(projectile.gameObject);
+            TakeDamage(potion.GiveDamage());
+        }
+        ExplosionZone explosionZone = collision.gameObject.GetComponent<ExplosionZone>();
+        if(explosionZone != null && isCorrectType(explosionZone.Potion))
+        {
+            TakeDamage(explosionZone.Potion.GiveDamage());
         }
         if (collision.gameObject.name == "BattleField") IsOnBattleField = true;
     }

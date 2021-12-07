@@ -47,7 +47,7 @@ public class Cannon : MonoBehaviour
         {
             potionObject.transform.position = gameObject.transform.position;
             potionObject.SetActive(true);
-            potionObject.transform.SetParent(potionObject.transform);
+            potionObject.transform.SetParent(null);
         }
     }
 
