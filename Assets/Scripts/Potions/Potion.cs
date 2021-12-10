@@ -48,7 +48,7 @@ public class Potion : Projectile
         if (IShouldFade)
         {
             Color color = Renderer.color;
-            color.a -= 0.01f;
+            color.a -= 1 / (FadingTime * 30);
             if (color.a > 0)
             {
                 Renderer.color = color;
