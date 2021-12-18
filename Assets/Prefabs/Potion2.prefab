@@ -19,21 +19,37 @@ PrefabInstance:
       propertyPath: PotionImage
       value: 
       objectReference: {fileID: 21300000, guid: e0022826d9b53f24cbd270274a7dc527, type: 3}
+    - target: {fileID: 2108389610124386236, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
+      propertyPath: m_Color.b
+      value: 0.640955
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108389610124386236, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108389610124386236, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
+      propertyPath: m_Color.r
+      value: 0.08421142
+      objectReference: {fileID: 0}
     - target: {fileID: 2121900683791322303, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
       propertyPath: m_Name
       value: Potion2
       objectReference: {fileID: 0}
     - target: {fileID: 7647258637519770489, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6285645462315052536, guid: c3d081f9aab761b44a05682db15d1480, type: 3}
+    - target: {fileID: 7647258637519770489, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
       propertyPath: m_Color.b
-      value: 0.14255905
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7647258637519770489, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
       propertyPath: m_Color.g
-      value: 0.83137256
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7647258637519770489, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
       propertyPath: m_Color.r
-      value: 0.06666668
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9207933312579930568, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
       propertyPath: m_RootOrder

@@ -6,7 +6,7 @@ public class VirusGenerator : MonoBehaviour
 {
     public Spawner Spawner;
     public Game Game;
-    float TimeBettwenVirusesSpawn = 10f;
+    public float TimeBettwenVirusesSpawn = 10f;
     float TimeToNextVirusSpawn = 0f;
 
 
