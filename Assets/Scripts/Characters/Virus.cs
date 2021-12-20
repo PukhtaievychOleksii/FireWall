@@ -58,11 +58,11 @@ public class Virus : Character, ICanAttack, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Potion potion = collision.gameObject.GetComponent<Potion>();
+        /*Potion potion = collision.gameObject.GetComponent<Potion>();
         if (potion != null && isCorrectType(potion))
         {
             TakeDamage(potion.GiveDamage());
-        }
+        }*/
         ExplosionZone explosionZone = collision.gameObject.GetComponent<ExplosionZone>();
         if(explosionZone != null && isCorrectType(explosionZone.Potion))
         {
@@ -80,11 +80,22 @@ public class Virus : Character, ICanAttack, IDamageable
     {
         // this const is becouse of lenght of name VirusX(Clone) (Clone) == 7 + 1 becose index from 0
         const int compareForType = 8;
-        if (this.CharacterGameObject.name.Contains(projectile.name[projectile.name.Length - compareForType] +""))
+        char potionNumber = GetNumberFromName(projectile.name);
+        if (this.CharacterGameObject.name.Contains(potionNumber/*projectile.name[projectile.name.Length - compareForType]*/+ ""))
         {
             return true;
         }
         return false;
+    }
+
+    private char GetNumberFromName(string name)
+    {
+        foreach(char c in name)
+        {
+            if (c >= 48 && c <= 57) return c;
+        }
+        return '0';
+
     }
 
     private void OnMouseEnter()
