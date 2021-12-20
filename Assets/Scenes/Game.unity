@@ -5482,6 +5482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeartOfHpPrefab: {fileID: 1706161707037988047, guid: 417a2cf400f008841bd8524a18c1f848, type: 3}
+  IngridientImagePrefab: {fileID: 0}
   canvas: {fileID: 411744488}
   PotionImagesObjects:
   - {fileID: 1626570213}
@@ -6158,6 +6159,10 @@ MonoBehaviour:
   - {fileID: 2121900683791322303, guid: d314b40af5f66ff4ea2f309f49689238, type: 3}
   - {fileID: 5384377118323034740, guid: 279e6cef36749874d801625e33564098, type: 3}
   - {fileID: 7948828074149150944, guid: 99d4edb11aad8c34ea07af277d6160c3, type: 3}
+  IngridientsPrefabs:
+  - {fileID: 1418401600583598102, guid: 086f0400edeb2c5429446c216f413b79, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &519420034
 AudioSource:
   m_ObjectHideFlags: 0

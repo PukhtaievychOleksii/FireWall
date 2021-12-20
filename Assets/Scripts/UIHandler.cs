@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,12 @@ using UnityEngine.UI;
 public class UIHandler : MonoBehaviour
 {
     public GameObject HeartOfHpPrefab;
+    public GameObject IngridientImagePrefab;
     public Canvas canvas;
     public List<GameObject> PotionImagesObjects;
     private Stack<GameObject> HeartsOfHP = new Stack<GameObject>();
-    private const float SpaceBetweenHeartImages = 0.5f;
+    private List<GameObject> IngridientImages = new List<GameObject>();
+    private const float SpaceBetweenImages = 0.5f;
 
     private void Awake()
     {
@@ -32,12 +35,29 @@ public class UIHandler : MonoBehaviour
 
     }
 
+    //TODO: Locate ingridients images
+    private void LocateIngridientsImages()
+    {
+    
+    }
+
+   /* private Vector2 GetIngridientImageLocation(int i)
+    {
+        Camera WorldCamera = canvas.worldCamera;
+        Vector3 Location = WorldCamera.ScreenToWorldPoint(new Vector3(0, WorldCamera.pixelHeight, 0));
+        Image HeartPrefabImage = HeartOfHpPrefab.GetComponent<Image>();
+        Image IngridientPrefabImage = IngridientImagePrefab.GetComponent<Image>();
+        Location.x += HeartPrefabImage.rectTransform.sizeDelta.x / 2;
+        Location.y -= HeartPrefabImage.rectTransform.sizeDelta.y / 2 + i * IngridientPrefabImage.rectTransform.sizeDelta.y + i * SpaceBetweenImages;
+        return Location;
+
+    }*/
     private Vector2 GetHeartsLocation(int i)
     {
         Camera WorldCamera = canvas.worldCamera;
         Vector3 HeartsLocation = WorldCamera.ScreenToWorldPoint(new Vector3(0, WorldCamera.pixelHeight, 0));
         Image Image = HeartOfHpPrefab.GetComponent<Image>();
-        HeartsLocation.x += Image.rectTransform.sizeDelta.x / 2 + i * Image.rectTransform.sizeDelta.x + i * SpaceBetweenHeartImages;
+        HeartsLocation.x += Image.rectTransform.sizeDelta.x / 2 + i * Image.rectTransform.sizeDelta.x + i * SpaceBetweenImages;
         HeartsLocation.y -= Image.rectTransform.sizeDelta.y / 2;
         return HeartsLocation;
     }

@@ -32,6 +32,12 @@ public class Game : MonoBehaviour
             DataHolder.Factory.AddPotion(PotionsType.Potion2);
             DataHolder.Factory.AddPotion(PotionsType.Potion3);
         }
+        for(int  i = 0;i < 100; i++)
+        {
+            DataHolder.Factory.AddIngridient(IngridientsType.Ingridient1);
+            DataHolder.Factory.AddIngridient(IngridientsType.Ingridient2);
+            DataHolder.Factory.AddIngridient(IngridientsType.Ingridient3);
+        }
         DataHolder.UIHandler.UpdateStorageUI();
     }
 

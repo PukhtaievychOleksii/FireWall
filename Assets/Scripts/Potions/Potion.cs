@@ -4,11 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Ingridients{
-    Ingridient1,
-    Ingridient2,
-    Ingridient3
-}
 
 public enum PotionsType
 {
@@ -18,7 +13,7 @@ public enum PotionsType
 }
 public class Potion : Projectile
 {
-    public List<Ingridients> IngridientsToCreate;
+    public List<Ingridient> IngridientsToCreate;
     public float TimeToCreate = 1f;
     public PotionsType PotionType;
     public Sprite PotionImage;

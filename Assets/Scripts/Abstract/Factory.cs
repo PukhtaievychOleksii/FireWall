@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class Factory : MonoBehaviour
 {
-    public Dictionary<string,GameObject> PotionObjectsForCreation = new Dictionary<string, GameObject>();
+    private Dictionary<string,GameObject> PotionObjectsForCreation = new Dictionary<string, GameObject>();
     public List<GameObject> PotionPrefabs = new List<GameObject>();
+    public List<GameObject> IngridientsPrefabs = new List<GameObject>();
     void Awake()
     {
         DataHolder.SetFactory(this);
@@ -44,7 +45,28 @@ public class Factory : MonoBehaviour
         }
     }
 
+    public void AddIngridient(IngridientsType ingridientType)
+    {
+        string ingridientName = Enum.GetName(typeof(IngridientsType), ingridientType);
+        GameObject ingridientPrefab = GetIngridientsPrefabByName(ingridientName);
+        if(ingridientPrefab != null)
+        {
+            GameObject ingridientObject = Instantiate(ingridientPrefab, DataHolder.Wizzard.gameObject.transform.position, Quaternion.identity);
+            ingridientObject.SetActive(false);
+            ingridientObject.transform.SetParent(DataHolder.Wizzard.gameObject.transform);
+            DataHolder.Wizzard.InventorySystem.PutItemInto(ingridientName, ingridientObject);
+        }
 
+    }
+
+    public GameObject GetIngridientsPrefabByName(string name)
+    {
+        for(int i = 0;i < IngridientsPrefabs.Count; i++)
+        {
+            if (IngridientsPrefabs[i].name == name) return IngridientsPrefabs[i];
+        }
+        return null;
+    }
     public List<Sprite> GetPotionSprites()
     {
         List<Sprite> potionImages = new List<Sprite>();
