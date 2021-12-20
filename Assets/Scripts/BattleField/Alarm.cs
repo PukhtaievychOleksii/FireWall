@@ -18,14 +18,14 @@ public class Alarm : MonoBehaviour
     public void OnAlarm()
     {
         gameObject.SetActive(true);
-        renderer.enabled = true;
+        //renderer.enabled = true;
         DataHolder.EffectsHandler.StartAlarmEffects();
     }
 
     public void StopAlarm()
     {
         gameObject.SetActive(false);
-        renderer.enabled = false;
+        //renderer.enabled = false;
         DataHolder.EffectsHandler.StopAlarmEffeects();
     }
    
