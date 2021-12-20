@@ -71,7 +71,7 @@ public class UIHandler : MonoBehaviour
 
     public void UpdateStorageUI()
     {
-        UpdateStorageImages();
+        //UpdateStorageImages();
         UpdateStorageAmountText();
     }
 
