@@ -45,17 +45,19 @@ public class Factory : MonoBehaviour
         }
     }
 
-    public void AddIngridient(IngridientsType ingridientType)
+    public Ingridient AddIngridient(IngridientsType ingridientType, Vector3 position)
     {
         string ingridientName = Enum.GetName(typeof(IngridientsType), ingridientType);
         GameObject ingridientPrefab = GetIngridientsPrefabByName(ingridientName);
         if(ingridientPrefab != null)
         {
-            GameObject ingridientObject = Instantiate(ingridientPrefab, DataHolder.Wizzard.gameObject.transform.position, Quaternion.identity);
-            ingridientObject.SetActive(false);
+            GameObject ingridientObject = Instantiate(ingridientPrefab, position, Quaternion.identity);
+            return ingridientObject.GetComponent<Ingridient>();
+            /*ingridientObject.SetActive(false);
             ingridientObject.transform.SetParent(DataHolder.Wizzard.gameObject.transform);
-            DataHolder.Wizzard.InventorySystem.PutItemInto(ingridientName, ingridientObject);
+            DataHolder.Wizzard.InventorySystem.PutItemInto(ingridientName, ingridientObject);*/
         }
+        return null;
 
     }
 

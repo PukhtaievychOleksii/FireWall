@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum IngridientsType{
-    Ingridient1,
-    Ingridient2,
+    Cookie,
+    Mushroom,
     Ingridient3
 }
 public class Ingridient : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Sprite image;
+    public bool StickToMouse = false;
     void Start()
     {
         
@@ -19,6 +19,8 @@ public class Ingridient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (StickToMouse) transform.position = DataHolder.MainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
+
+    
 }
