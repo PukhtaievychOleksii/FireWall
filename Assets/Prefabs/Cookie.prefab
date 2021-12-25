@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3807395985130493698}
   - component: {fileID: 7517252619983309566}
   - component: {fileID: -1603723812902929}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cookie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,4 +95,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9798544d2a8de448444563aa04f768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  StickToMouse: 0
