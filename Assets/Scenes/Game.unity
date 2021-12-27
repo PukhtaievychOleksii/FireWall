@@ -414,6 +414,8 @@ GameObject:
   m_Component:
   - component: {fileID: 102405499}
   - component: {fileID: 102405498}
+  - component: {fileID: 102405501}
+  - component: {fileID: 102405500}
   m_Layer: 0
   m_Name: Shroom
   m_TagString: Untagged
@@ -487,6 +489,46 @@ Transform:
   m_Father: {fileID: 299725808}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &102405500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102405497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ad783d761e41f45ac48d59fff5538e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IngridientType: 1
+  IsMouseOver: 0
+--- !u!61 &102405501
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102405497}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.73, y: 2.19}
+    newSize: {x: 2.73, y: 2.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.73, y: 2.19}
+  m_EdgeRadius: 0
 --- !u!1 &103900915
 GameObject:
   m_ObjectHideFlags: 0
@@ -6561,6 +6603,9 @@ MonoBehaviour:
   - {fileID: 7948828074149150944, guid: 99d4edb11aad8c34ea07af277d6160c3, type: 3}
   IngridientsPrefabs:
   - {fileID: 790324896733419180, guid: bafa85330e8ec9e48935a21558a20c12, type: 3}
+  - {fileID: 9020282600897703274, guid: 3019573200989f248866f665080eb608, type: 3}
+  - {fileID: 7053370036130263911, guid: eae2dd9ad12256d4bafac971e5c18ae8, type: 3}
+  - {fileID: 58645075822603838, guid: 5819a2455d7660d4f82c04ac407fef53, type: 3}
 --- !u!82 &519420034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6849,6 +6894,7 @@ GameObject:
   - component: {fileID: 549702408}
   - component: {fileID: 549702407}
   - component: {fileID: 549702409}
+  - component: {fileID: 549702410}
   m_Layer: 0
   m_Name: Cookies
   m_TagString: Untagged
@@ -6935,6 +6981,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IngridientType: 0
+  IsMouseOver: 0
+--- !u!61 &549702410
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549702406}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.76, y: 2.26}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.76, y: 2.26}
+  m_EdgeRadius: 0
 --- !u!1 &602356609
 GameObject:
   m_ObjectHideFlags: 0
@@ -7719,6 +7792,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 744613104}
+  - component: {fileID: 744613106}
+  - component: {fileID: 744613105}
   m_Layer: 0
   m_Name: Starfruit
   m_TagString: Untagged
@@ -7734,7 +7809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744613103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.94259, y: 3.2833166, z: -124.35562}
+  m_LocalPosition: {x: -16.94259, y: 3.2833166, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 329127363}
@@ -7748,6 +7823,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744613105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744613103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ad783d761e41f45ac48d59fff5538e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IngridientType: 2
+  IsMouseOver: 0
+--- !u!61 &744613106
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744613103}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.47950697, y: 0.899076}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.55, y: 3.75}
+    newSize: {x: 3.55, y: 3.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.6852407, y: 3.373561}
+  m_EdgeRadius: 0
 --- !u!1 &778000989
 GameObject:
   m_ObjectHideFlags: 0
@@ -9352,6 +9467,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1132594391}
+  - component: {fileID: 1132594393}
+  - component: {fileID: 1132594392}
   m_Layer: 0
   m_Name: Barell
   m_TagString: Untagged
@@ -9376,6 +9493,46 @@ Transform:
   m_Father: {fileID: 299725808}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1132594392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132594390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ad783d761e41f45ac48d59fff5538e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IngridientType: 3
+  IsMouseOver: 0
+--- !u!61 &1132594393
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132594390}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.38908386, y: 0.27235937}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.6341553, y: 3.023241}
+  m_EdgeRadius: 0
 --- !u!1 &1161951090
 GameObject:
   m_ObjectHideFlags: 0
@@ -16766,6 +16923,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1715592305}
+  - component: {fileID: 1715592306}
   m_Layer: 0
   m_Name: Cauldron
   m_TagString: Untagged
@@ -16791,6 +16949,22 @@ Transform:
   m_Father: {fileID: 2113998567}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1715592306
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715592304}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.10388553}
+  serializedVersion: 2
+  m_Radius: 1.781258
 --- !u!1 &1736676339
 GameObject:
   m_ObjectHideFlags: 0
@@ -18434,6 +18608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2058959586}
   - component: {fileID: 2058959585}
+  - component: {fileID: 2058959587}
   m_Layer: 0
   m_Name: Labaratory
   m_TagString: Untagged
@@ -18506,6 +18681,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.482}
+--- !u!114 &2058959587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058959584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0dd280adc35fab4388cf61c0f24514f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sources:
+  - {fileID: 549702409}
+  - {fileID: 744613105}
+  - {fileID: 1132594392}
+  - {fileID: 102405500}
 --- !u!1 &2067917111
 GameObject:
   m_ObjectHideFlags: 0

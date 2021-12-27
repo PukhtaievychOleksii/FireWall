@@ -6,9 +6,11 @@ public class IngridientSource : MonoBehaviour
 {
     // Start is called before the first frame update
     public IngridientsType IngridientType;
+    [HideInInspector]
+    public bool IsMouseOver = false;
     void Start()
     {
-        StartCoroutine(test());
+       // StartCoroutine(test());
     }
 
     // Update is called once per frame
@@ -19,14 +21,28 @@ public class IngridientSource : MonoBehaviour
 
     public void GiveIngridient()
     {
+        if (DataHolder.Wizzard.CurrentLocation == Location.BattleField) return;
+        if (DataHolder.Wizzard.CurrentIngridient != null) DataHolder.Labaratory.RemoveIngridient();
         Vector3 pos = DataHolder.MainCamera.ScreenToWorldPoint(Input.mousePosition);
         Ingridient ingridient = DataHolder.Factory.AddIngridient(IngridientType, pos);
         ingridient.StickToMouse = true;
+        DataHolder.Wizzard.CurrentIngridient = ingridient;
     }
 
     IEnumerator test()
     {
         yield return new WaitForSeconds(5);
         GiveIngridient();
+    }
+
+   
+    public void OnMouseEnter()
+    {
+        IsMouseOver = true;
+    }
+
+    public void OnMouseExit()
+    {
+        IsMouseOver = false;
     }
 }

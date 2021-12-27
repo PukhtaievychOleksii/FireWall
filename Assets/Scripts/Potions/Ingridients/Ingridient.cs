@@ -5,11 +5,13 @@ using UnityEngine;
 public enum IngridientsType{
     Cookie,
     Mushroom,
-    Ingridient3
+    Fruit,
+    Infusion
 }
 public class Ingridient : MonoBehaviour
 {
     // Start is called before the first frame update
+    [HideInInspector]
     public bool StickToMouse = false;
     void Start()
     {

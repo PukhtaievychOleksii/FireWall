@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Locations{
-    Labaratory,
-    BattleField 
-}
+
 public class Game : MonoBehaviour
 {
     public Wizzard Wizzard;
@@ -17,7 +14,6 @@ public class Game : MonoBehaviour
     public UIHandler UIHandler;//must be set in Unity
     [HideInInspector]
     public Match Match;
-    public Locations CurrentLocation = Locations.BattleField;
    
 
 
@@ -47,11 +43,7 @@ public class Game : MonoBehaviour
         
     }
 
-    public void ChangeLocation()
-    {
-        if (CurrentLocation == Locations.BattleField) CurrentLocation = Locations.Labaratory;
-        else CurrentLocation = Locations.BattleField;
-    }
+    
 
    
 }

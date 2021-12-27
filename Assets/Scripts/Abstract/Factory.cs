@@ -53,9 +53,7 @@ public class Factory : MonoBehaviour
         {
             GameObject ingridientObject = Instantiate(ingridientPrefab, position, Quaternion.identity);
             return ingridientObject.GetComponent<Ingridient>();
-            /*ingridientObject.SetActive(false);
-            ingridientObject.transform.SetParent(DataHolder.Wizzard.gameObject.transform);
-            DataHolder.Wizzard.InventorySystem.PutItemInto(ingridientName, ingridientObject);*/
+          
         }
         return null;
 

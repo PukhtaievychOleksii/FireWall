@@ -16,7 +16,17 @@ public class PlayerController : Controller
     {
         if (Input.GetKeyDown(KeyCode.Tab) && ControlledCharacter is Wizzard) (ControlledCharacter as Wizzard).ChangeLocation();
 
-        if (Input.GetMouseButtonDown(0)) DataHolder.Cannon.FireOnMousePosition();
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (DataHolder.Wizzard.CurrentLocation == Location.BattleField)
+            {
+                DataHolder.Cannon.FireOnMousePosition();
+            } else
+            {
+               IngridientSource ingridientSource =  DataHolder.Labaratory.TryGetIngridientSource();
+               ingridientSource?.GiveIngridient();
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {

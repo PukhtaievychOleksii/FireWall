@@ -39,14 +39,21 @@ public static class DataHolder
     }
 
     public static Wizzard Wizzard { get; private set; }
-    
-    public static void  SetWizzard(Wizzard wizzard)
+
+    public static void SetWizzard(Wizzard wizzard)
     {
         Wizzard = wizzard;
     }
     public static UIHandler UIHandler;
     public static void SetUIHandler(UIHandler uiHandler)
     {
-       UIHandler = uiHandler;
+        UIHandler = uiHandler;
+    }
+
+    public static Labaratory Labaratory { get; private set; }
+    
+    public static void SetLabaratory(Labaratory labaratory)
+    {
+        Labaratory = labaratory;
     }
 }
