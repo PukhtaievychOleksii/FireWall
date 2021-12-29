@@ -8,6 +8,7 @@ public class Alarm : MonoBehaviour
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
+        gameObject.SetActive(false);
     }
 
     void Update()

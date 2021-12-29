@@ -8,9 +8,10 @@ public class Projectile : MonoBehaviour,ICanAttack
     private Vector3 destination;
     public float HitTime;
     public float Damage;
+   
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class Projectile : MonoBehaviour,ICanAttack
             transform.position = Vector3.MoveTowards(transform.position, destination, HitTime);
         }
         else { // destroy object also if there was no monster
+           
             if (this is Potion)
             {
                 (this as Potion).Explode();
@@ -48,6 +50,7 @@ public class Projectile : MonoBehaviour,ICanAttack
     public void OnDestinationAchived()
     {
         Blow();
+        
         Destroy(gameObject);
     }
 

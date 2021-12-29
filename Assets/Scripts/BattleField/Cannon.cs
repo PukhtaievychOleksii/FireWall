@@ -6,10 +6,16 @@ public class Cannon : MonoBehaviour
 {
     public Camera MainCamera;
     public Potion Projectile;
+    public AudioClip CanonCanShoot;
+    public AudioClip CanonCanNOTShoot;
+    public AudioSource AudioSource;
     public bool CanShoot = false;
     void Start()
     {
-        DataHolder.SetCannon(this);  
+        DataHolder.SetCannon(this);
+        CanonCanShoot = Resources.Load<AudioClip>("CAN");
+        CanonCanNOTShoot = Resources.Load<AudioClip>("CANNOT");
+        AudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,12 +37,18 @@ public class Cannon : MonoBehaviour
     {
         string potionName = DataHolder.Wizzard.CurrentShootingPotionType.ToString();
         int potionsLeft = DataHolder.Wizzard.InventorySystem.GetNumberOfItemsInInventoryLeft(potionName);
-        if (potionsLeft > 0 && CanShoot) {
+        if (potionsLeft > 0 && CanShoot)
+        {
             GameObject potionObject = DataHolder.Wizzard.InventorySystem.GetItemFromInventory(potionName);
             PutPotionInCannon(ref potionObject);
             Projectile projectile = potionObject.GetComponent<Potion>();
             projectile.SpeedUp(target);
             DataHolder.UIHandler.UpdateStorageUI();
+            AudioSource.PlayOneShot(CanonCanShoot);
+        }
+        else
+        {
+            AudioSource.PlayOneShot(CanonCanNOTShoot);
         }
     }
 

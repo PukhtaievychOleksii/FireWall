@@ -26,6 +26,8 @@ public class Potion : Projectile
     private ExplosionZone ExplosionZone;
     private SpriteRenderer Renderer;
     private bool IShouldFade = false;
+    public AudioSource AudioSource;
+    public AudioClip GlassBreak;
 
 
     void Start()
@@ -33,6 +35,8 @@ public class Potion : Projectile
         Name = Enum.GetName(typeof(PotionsType), PotionType);
         ExplosionZone = GetComponentInChildren<ExplosionZone>();
         Renderer = GetComponent<SpriteRenderer>();
+        AudioSource = gameObject.AddComponent<AudioSource>();
+        GlassBreak = Resources.Load<AudioClip>("GlassBreak");
         SetAppropriateScaling();
     }
 
@@ -62,6 +66,7 @@ public class Potion : Projectile
 
     public void Explode()
     {
+        
         Renderer.enabled = false;
         ExplosionZone.SetOn();
         gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
@@ -76,11 +81,18 @@ public class Potion : Projectile
 
     private void StartFading()
     {
+        if (!IShouldFade)
+        {
+            AudioSource.PlayOneShot(GlassBreak);
+            Debug.Log("som tuna ");
+        }
         IShouldFade = true;
+        
     }
 
     public IEnumerator DestroyPotion()
     {
+       
         StartFading();
         yield return new WaitForSeconds(ActiveDamageTime);
         DisablePotioning();
