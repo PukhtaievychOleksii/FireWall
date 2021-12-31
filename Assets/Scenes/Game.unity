@@ -6606,6 +6606,9 @@ MonoBehaviour:
   - {fileID: 9020282600897703274, guid: 3019573200989f248866f665080eb608, type: 3}
   - {fileID: 7053370036130263911, guid: eae2dd9ad12256d4bafac971e5c18ae8, type: 3}
   - {fileID: 58645075822603838, guid: 5819a2455d7660d4f82c04ac407fef53, type: 3}
+  - {fileID: 78661904129850929, guid: 312fc1b1c44bba3448e1c3cf5cae6603, type: 3}
+  - {fileID: 6728085643031612840, guid: 16b5386b1b86c5d45aa9ea5401533a64, type: 3}
+  - {fileID: 5727225714821800488, guid: 63f716c3ae6789d47874994f8c1cc97c, type: 3}
 --- !u!82 &519420034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7287,6 +7290,7 @@ GameObject:
   - component: {fileID: 673248929}
   - component: {fileID: 673248928}
   - component: {fileID: 673248927}
+  - component: {fileID: 673248931}
   - component: {fileID: 673248930}
   m_Layer: 0
   m_Name: CuttingBoard
@@ -7374,8 +7378,24 @@ Transform:
   m_Father: {fileID: 2113998567}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &673248930
-CircleCollider2D:
+--- !u!114 &673248930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673248926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bab0f5ae24458d4d9bf05f872ed3f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IngridientsToConsume: 02000000
+  ReadyIngridient: 5
+  CookingTime: 3
+  IsMouseOver: 0
+--- !u!61 &673248931
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7384,12 +7404,22 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13527715, y: -0.08093786}
+  m_Offset: {x: 0.23345065, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.47, y: 2.4}
+    newSize: {x: 2.47, y: 2.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.857713
+  m_Size: {x: 2.003099, y: 2.4}
+  m_EdgeRadius: 0
 --- !u!1 &695228603
 GameObject:
   m_ObjectHideFlags: 0
@@ -8322,6 +8352,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 862416506}
+  - component: {fileID: 862416508}
+  - component: {fileID: 862416507}
   m_Layer: 0
   m_Name: Steamer
   m_TagString: Untagged
@@ -8346,6 +8378,48 @@ Transform:
   m_Father: {fileID: 2113998567}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &862416507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862416505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bab0f5ae24458d4d9bf05f872ed3f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IngridientsToConsume: 01000000
+  ReadyIngridient: 6
+  CookingTime: 3
+  IsMouseOver: 0
+--- !u!61 &862416508
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862416505}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.058362007, y: 0.00000023841858}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7392597, y: 1.7003522}
+  m_EdgeRadius: 0
 --- !u!1 &865060376
 GameObject:
   m_ObjectHideFlags: 0
@@ -16341,6 +16415,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1582916626}
+  - component: {fileID: 1582916628}
+  - component: {fileID: 1582916627}
   m_Layer: 0
   m_Name: Mortar
   m_TagString: Untagged
@@ -16365,6 +16441,48 @@ Transform:
   m_Father: {fileID: 2113998567}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1582916627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582916625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bab0f5ae24458d4d9bf05f872ed3f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IngridientsToConsume: 00000000
+  ReadyIngridient: 4
+  CookingTime: 3
+  IsMouseOver: 0
+--- !u!61 &1582916628
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582916625}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.038908005, y: 0.07781708}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9338036, y: 1.4669011}
+  m_EdgeRadius: 0
 --- !u!1 &1597370022
 GameObject:
   m_ObjectHideFlags: 0
@@ -18273,6 +18391,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 519420031}
   Projectile: {fileID: 0}
+  CanonCanShoot: {fileID: 0}
+  CanonCanNOTShoot: {fileID: 0}
+  AudioSource: {fileID: 0}
   CanShoot: 0
 --- !u!1 &1958069849
 GameObject:
@@ -18698,6 +18819,10 @@ MonoBehaviour:
   - {fileID: 744613105}
   - {fileID: 1132594392}
   - {fileID: 102405500}
+  Cooks:
+  - {fileID: 673248930}
+  - {fileID: 1582916627}
+  - {fileID: 862416507}
 --- !u!1 &2067917111
 GameObject:
   m_ObjectHideFlags: 0

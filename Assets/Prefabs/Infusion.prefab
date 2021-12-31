@@ -95,4 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9798544d2a8de448444563aa04f768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IngridientType: 3
   StickToMouse: 0

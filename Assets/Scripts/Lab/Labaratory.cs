@@ -5,6 +5,7 @@ using UnityEngine;
 public class Labaratory : MonoBehaviour
 {
     public List<IngridientSource> Sources = new List<IngridientSource>();
+    public List<IngridientsCook> Cooks = new List<IngridientsCook>();
     void Awake()
     {
         DataHolder.SetLabaratory(this);   
@@ -22,6 +23,18 @@ public class Labaratory : MonoBehaviour
        {
             if (source.IsMouseOver == true) return source;
        }
+        return null;
+    }
+
+    public IngridientsCook TryGetIngridientCook()
+    {
+        foreach(IngridientsCook cook in Cooks)
+        {
+            if (cook.IsMouseOver == true)
+            {
+                return cook;
+            }
+        }
         return null;
     }
 

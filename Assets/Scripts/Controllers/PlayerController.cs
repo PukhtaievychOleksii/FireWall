@@ -23,8 +23,10 @@ public class PlayerController : Controller
                 DataHolder.Cannon.FireOnMousePosition();
             } else
             {
-               IngridientSource ingridientSource =  DataHolder.Labaratory.TryGetIngridientSource();
-               ingridientSource?.GiveIngridient();
+                IngridientSource ingridientSource =  DataHolder.Labaratory.TryGetIngridientSource();
+                ingridientSource?.GiveIngridient();
+                IngridientsCook ingridientCook = DataHolder.Labaratory.TryGetIngridientCook();
+                ingridientCook?.TryGetIngridient();
             }
         }
 

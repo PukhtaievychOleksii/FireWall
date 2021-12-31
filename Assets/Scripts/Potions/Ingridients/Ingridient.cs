@@ -6,11 +6,15 @@ public enum IngridientsType{
     Cookie,
     Mushroom,
     Fruit,
-    Infusion
+    Infusion,
+    Bowl_Cookies,
+    Bowl_Fruits,
+    Bowl_Mushrooms
 }
 public class Ingridient : MonoBehaviour
 {
     // Start is called before the first frame update
+    public IngridientsType IngridientType;
     [HideInInspector]
     public bool StickToMouse = false;
     void Start()
