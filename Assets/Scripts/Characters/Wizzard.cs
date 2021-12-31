@@ -16,17 +16,28 @@ public class Wizzard : Character
     public Ingridient CurrentIngridient = null;
     [HideInInspector]
     public InventorySystem InventorySystem;
+    private AudioSource AudioSource;
+
+
+  
+
     void Awake()
     {
         Controller = GetComponent<Controller>();
+        AudioSource = GetComponent<AudioSource>();
         DataHolder.SetWizzard(this);
         InventorySystem = new InventorySystem();
+        //DataHolder.SoundManager.addAudioSorceMaster(AudioSource);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void UpdateMasterVolume(float volume)
+    {
+        AudioSource.volume = volume;
     }
 
     public void ChangeLocation()

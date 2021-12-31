@@ -334,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 186378269}
   - component: {fileID: 186378270}
+  - component: {fileID: 186378271}
   m_Layer: 5
   m_Name: SliderMasterSound
   m_TagString: Untagged
@@ -410,10 +411,36 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8375214119274232648, guid: 08f630e44c2dd8446b90ac690374250c, type: 3}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: OnVolumeChangeMaster
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &186378271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186378268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af8140342b387149961b89dd0899154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VolumeMasterSlider: {fileID: 186378270}
+  VolumeEffectSlider: {fileID: 1182572233}
 --- !u!1 &198089093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1182572232}
   - component: {fileID: 1182572233}
+  - component: {fileID: 1182572234}
   m_Layer: 5
   m_Name: SliderMasterSound (1)
   m_TagString: Untagged
@@ -1555,7 +1583,33 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8375214119274232648, guid: 08f630e44c2dd8446b90ac690374250c, type: 3}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: OnVolumeChangeEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1182572234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182572231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af8140342b387149961b89dd0899154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VolumeMasterSlider: {fileID: 186378270}
+  VolumeEffectSlider: {fileID: 1182572233}
 --- !u!1 &1226753771
 GameObject:
   m_ObjectHideFlags: 0
