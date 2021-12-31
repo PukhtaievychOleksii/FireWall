@@ -14,15 +14,21 @@ public class UIHandler : MonoBehaviour
     private List<GameObject> IngridientImages = new List<GameObject>();
     private const float SpaceBetweenImages = 0.5f;
 
+    
+
+
     private void Awake()
     {
         DataHolder.SetUIHandler(this);
+        
     }
     void Start()
     {
         LocateHPHearts();
         UpdateStorageUI();
     }
+
+   
 
     private void LocateHPHearts()
     {

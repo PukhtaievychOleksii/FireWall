@@ -27,7 +27,6 @@ public class Potion : Projectile
     private SpriteRenderer Renderer;
     private bool IShouldFade = false;
     public AudioSource AudioSource;
-    public AudioClip GlassBreak;
 
 
     void Start()
@@ -35,8 +34,7 @@ public class Potion : Projectile
         Name = Enum.GetName(typeof(PotionsType), PotionType);
         ExplosionZone = GetComponentInChildren<ExplosionZone>();
         Renderer = GetComponent<SpriteRenderer>();
-        AudioSource = gameObject.AddComponent<AudioSource>();
-        GlassBreak = Resources.Load<AudioClip>("GlassBreak");
+        AudioSource = GetComponent<AudioSource>();
         SetAppropriateScaling();
     }
 
@@ -83,7 +81,7 @@ public class Potion : Projectile
     {
         if (!IShouldFade)
         {
-            AudioSource.PlayOneShot(GlassBreak);
+            AudioSource.Play();
             Debug.Log("som tuna ");
         }
         IShouldFade = true;
