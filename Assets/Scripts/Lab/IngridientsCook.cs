@@ -6,8 +6,9 @@ using UnityEngine;
 public class IngridientsCook : MonoBehaviour
 {
     public List<IngridientsType> IngridientsToConsume;
-    public IngridientsType ReadyIngridient;
+    public List<IngridientsType> ReadyIngridient;
     public float CookingTime = 0f;
+    private int Is_Occupide = -1; // if < 0 then the object is free to use 
     [HideInInspector]
     public bool IsMouseOver = false;
 
@@ -24,22 +25,37 @@ public class IngridientsCook : MonoBehaviour
 
     private bool CanBeConsumed(IngridientsType ingridientType)
     {
-        foreach(IngridientsType type in IngridientsToConsume)
+        int counter = -1;
+        foreach(IngridientsType type in IngridientsToConsume )
         {
-            if (ingridientType == type) return true;
+            counter++;
+            if (ingridientType == type && Is_Occupide < 0)
+            {
+                Is_Occupide = counter;
+                return true;
+            }
+                
         }
         return false;
     }
     public void TryGetIngridient()
     {
-        if (DataHolder.Wizzard.CurrentIngridient == null) return;
+        
+        if (DataHolder.Wizzard.CurrentIngridient == null) return; 
         if (!CanBeConsumed(DataHolder.Wizzard.CurrentIngridient.IngridientType)) return;
+        Debug.Log("TryGetIngridient" + DataHolder.Wizzard.CurrentIngridient.IngridientType);
         Consume();
     }
     public void GiveReadyIngridient()
     {
-        Ingridient ingridient = DataHolder.Factory.AddIngridient(ReadyIngridient, transform.position);
+        if (ReadyIngridient.ToArray().Length == 0) 
+        {
+            Is_Occupide = -1;
+            return;
+        }
+        Ingridient ingridient = DataHolder.Factory.AddIngridient(ReadyIngridient[Is_Occupide], transform.position);
         ingridient.gameObject.layer = LayerMask.NameToLayer("Default");
+        
     }
     private void Consume()
     {
@@ -51,6 +67,7 @@ public class IngridientsCook : MonoBehaviour
     {
         yield return new WaitForSeconds(CookingTime);
         GiveReadyIngridient();
+        Is_Occupide = -1;
     }
 
     private void OnMouseEnter()
