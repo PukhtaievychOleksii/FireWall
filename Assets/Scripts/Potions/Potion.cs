@@ -44,7 +44,7 @@ public class Potion : Projectile
         UpdatePosition();
         if (IShouldFade)
         {
-            Color color = Renderer.color;
+            Color color = ExplosionZone.Renderer.color;
             color.a -= 1 / (FadingTime * 30);
             if (color.a > 0)
             {
