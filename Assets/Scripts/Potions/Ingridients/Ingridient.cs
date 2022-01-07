@@ -7,14 +7,19 @@ public enum IngridientsType{
     Mushroom,
     Fruit,
     Infusion,
-    Bowl_Cookies,
-    Bowl_Fruits,
-    Bowl_Mushrooms
+    Bowl_of_Crushed_Cookies,
+    Bowl_of_Cuted_Mushrums,
+    Bowl_of_Cuted_Star_Fruit,
+    Bowl_of_Steamed_Mushrums,
+    Bowl_of_Steamed_Star_Fruit,
+    Poop
 }
 public class Ingridient : MonoBehaviour
 {
     // Start is called before the first frame update
     public IngridientsType IngridientType;
+
+    public Collider2D Colider;
     [HideInInspector]
     public bool StickToMouse = false;
     void Start()
@@ -28,6 +33,28 @@ public class Ingridient : MonoBehaviour
         if (StickToMouse) transform.position = DataHolder.MainCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    
+    private void OnMouseDown()
+    {
+        if (DataHolder.Wizzard.CurrentIngridient != null)
+        {
+            return;
+        }
+        /*
+         * if i add corectli the wey of clicking this could be deleted
+         if (DataHolder.Wizzard.CurrentIngridient != null)
+        {
+            DataHolder.Labaratory.RemoveIngridient();
+        }
+        */
+        DataHolder.Wizzard.CurrentIngridient = this;
+        if (Colider != null)
+        {
+            //Debug.Log(IngridientType);
+            Colider.enabled = false;
+        }
+       
+
+        StickToMouse = true;
+    }
 
 }

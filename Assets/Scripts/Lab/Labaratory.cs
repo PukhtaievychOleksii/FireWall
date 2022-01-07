@@ -6,6 +6,7 @@ public class Labaratory : MonoBehaviour
 {
     public List<IngridientSource> Sources = new List<IngridientSource>();
     public List<IngridientsCook> Cooks = new List<IngridientsCook>();
+    public Cauldron Culdorn;
     void Awake()
     {
         DataHolder.SetLabaratory(this);   
@@ -37,6 +38,9 @@ public class Labaratory : MonoBehaviour
         }
         return null;
     }
+
+
+   
 
     public void RemoveIngridient()
     {

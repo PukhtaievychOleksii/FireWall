@@ -22,7 +22,7 @@ public class IngridientSource : MonoBehaviour
     public void GiveIngridient()
     {
         if (DataHolder.Wizzard.CurrentLocation == Location.BattleField) return;
-        if (DataHolder.Wizzard.CurrentIngridient != null) DataHolder.Labaratory.RemoveIngridient();
+        if (DataHolder.Wizzard.CurrentIngridient != null) return;
         Vector3 pos = DataHolder.MainCamera.ScreenToWorldPoint(Input.mousePosition);
         Ingridient ingridient = DataHolder.Factory.AddIngridient(IngridientType, pos);
         ingridient.StickToMouse = true;

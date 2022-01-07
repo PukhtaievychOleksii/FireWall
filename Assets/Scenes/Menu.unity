@@ -232,10 +232,10 @@ RectTransform:
   m_Father: {fileID: 1852592215}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -4}
-  m_SizeDelta: {x: 236, y: 205}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.00024414062}
+  m_SizeDelta: {x: 0, y: -0.00047302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &27803831
 MonoBehaviour:
@@ -441,6 +441,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VolumeMasterSlider: {fileID: 186378270}
   VolumeEffectSlider: {fileID: 1182572233}
+  type: 
+  AudioSource: {fileID: 0}
 --- !u!1 &198089093
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,10 +631,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 31.3
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -847,10 +849,10 @@ RectTransform:
   m_Father: {fileID: 27803830}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.2, y: 0.38062862}
+  m_AnchorMax: {x: 0.8, y: 0.57481426}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -144}
+  m_SizeDelta: {x: 28, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &600635432
 MonoBehaviour:
@@ -992,11 +994,11 @@ RectTransform:
   m_Father: {fileID: 27803830}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -72}
-  m_SizeDelta: {x: -40, y: -144}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.2, y: 0.1511857}
+  m_AnchorMax: {x: 0.8, y: 0.347}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 28, y: 0}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &720041152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,10 +1226,10 @@ RectTransform:
   m_Father: {fileID: 27803830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 72}
-  m_SizeDelta: {x: 0, y: -144}
+  m_AnchorMin: {x: 0.2, y: 0.59159285}
+  m_AnchorMax: {x: 0.8, y: 0.7871858}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 28, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &855443323
 MonoBehaviour:
@@ -1610,6 +1612,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VolumeMasterSlider: {fileID: 186378270}
   VolumeEffectSlider: {fileID: 1182572233}
+  type: 
+  AudioSource: {fileID: 0}
 --- !u!1 &1226753771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,10 +1736,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 31.05
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2551,7 +2555,7 @@ Canvas:
   m_GameObject: {fileID: 1852592214}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2763,10 +2767,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 31.3
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

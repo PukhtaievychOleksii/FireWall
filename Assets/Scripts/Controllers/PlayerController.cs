@@ -27,6 +27,20 @@ public class PlayerController : Controller
                 ingridientSource?.GiveIngridient();
                 IngridientsCook ingridientCook = DataHolder.Labaratory.TryGetIngridientCook();
                 ingridientCook?.TryGetIngridient();
+                if (DataHolder.Labaratory.Culdorn.IsMouseOver)
+                {
+                    DataHolder.Labaratory.Culdorn.TryGetIngridient();
+                }
+                
+                //Thrash Thrash = DataHolder.Labaratory.TryGetIngridientCook();
+                //Thrash?.TryGetIngridient();
+            }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (DataHolder.Labaratory.Culdorn.IsMouseOver)
+            {
+                DataHolder.Labaratory.Culdorn.RemoveRecepy();
             }
         }
 

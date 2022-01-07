@@ -3,15 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class IngridientsCook : MonoBehaviour
 {
     public List<IngridientsType> IngridientsToConsume;
-    public List<IngridientsType> ReadyIngridients;// !!!Order is important. It will give readyIngr according to the order of IngrToConsume
+    public List<IngridientsType> ReadyIngridient;
     public float CookingTime = 0f;
+    private int Is_Occupide = -1; // if < 0 then the object is free to use 
     [HideInInspector]
     public bool IsMouseOver = false;
-    private int ReadyIngridientIndex = -1;
 
     void Start()
     {
@@ -26,36 +25,41 @@ public class IngridientsCook : MonoBehaviour
 
     private bool CanBeConsumed(IngridientsType ingridientType)
     {
-        for (int i = 0; i < IngridientsToConsume.Count; i++)
+        int counter = -1;
+        foreach(IngridientsType type in IngridientsToConsume )
         {
-            IngridientsType type = IngridientsToConsume[i];
-            if (ingridientType == type)
+            counter++;
+            if (ingridientType == type && Is_Occupide < 0)
             {
-                ReadyIngridientIndex = i;
+                Is_Occupide = counter;
                 return true;
             }
+                
         }
-        
         return false;
     }
     public void TryGetIngridient()
     {
-        if (DataHolder.Wizzard.CurrentIngridient == null) return;
+        
+        if (DataHolder.Wizzard.CurrentIngridient == null) return; 
         if (!CanBeConsumed(DataHolder.Wizzard.CurrentIngridient.IngridientType)) return;
+        Debug.Log("TryGetIngridient" + DataHolder.Wizzard.CurrentIngridient.IngridientType);
         Consume();
     }
     public void GiveReadyIngridient()
     {
-        if (ReadyIngridientIndex < 0 || ReadyIngridientIndex > ReadyIngridients.Count) return;
-        IngridientsType ReadyIngridient = ReadyIngridients[ReadyIngridientIndex];
-        Ingridient ingridient = DataHolder.Factory.AddIngridient(ReadyIngridient, transform.position);
+        if (ReadyIngridient.ToArray().Length == 0) 
+        {
+            Is_Occupide = -1;
+            return;
+        }
+        Ingridient ingridient = DataHolder.Factory.AddIngridient(ReadyIngridient[Is_Occupide], transform.position);
         ingridient.gameObject.layer = LayerMask.NameToLayer("Default");
-        ReadyIngridientIndex = -1;
+        
     }
     private void Consume()
     {
         Destroy(DataHolder.Wizzard.CurrentIngridient.gameObject);
-        DataHolder.Wizzard.CurrentIngridient = null;
         StartCoroutine(Cook());
     }
 
@@ -63,6 +67,7 @@ public class IngridientsCook : MonoBehaviour
     {
         yield return new WaitForSeconds(CookingTime);
         GiveReadyIngridient();
+        Is_Occupide = -1;
     }
 
     private void OnMouseEnter()
