@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
+   
     public void ResumeGame() {
         // i dont know how to load seen back if next seen was attachted 
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        Debug.Log("Game is resumed");
+        PouseGame.SetCanvasActive();
     }
     public void GoToOptions()
     {

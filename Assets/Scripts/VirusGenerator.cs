@@ -19,6 +19,7 @@ public class VirusGenerator : MonoBehaviour
 // Update is called once per frame
 void Update()
     {
+        if (PouseGame.MenuIsActive) return;
         TimeToNextVirusSpawn -= Time.deltaTime;
         if(TimeToNextVirusSpawn < 0)
         {

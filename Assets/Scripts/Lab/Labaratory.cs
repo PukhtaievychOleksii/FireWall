@@ -7,6 +7,7 @@ public class Labaratory : MonoBehaviour
     public List<IngridientSource> Sources = new List<IngridientSource>();
     public List<IngridientsCook> Cooks = new List<IngridientsCook>();
     public Cauldron Culdorn;
+    public Thresh Thresh;
     void Awake()
     {
         DataHolder.SetLabaratory(this);   

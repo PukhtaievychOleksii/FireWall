@@ -6,14 +6,25 @@ using UnityEngine.SceneManagement;
 public class PlayerController : Controller
 {
     public GameObject activeEffect;
-   
+
     void Start()
     {
         activeEffect = GameObject.Find("ActivePotionEffect");
+
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            PouseGame.SetCanvasActive();
+            //Debug.Log("Som tuna"+Time.timeScale);
+            //Time.timeScale -= 0.1f;
+        }
+        if (PouseGame.MenuIsActive) return;
+        
+
         if (Input.GetKeyDown(KeyCode.Tab) && ControlledCharacter is Wizzard) (ControlledCharacter as Wizzard).ChangeLocation();
 
         if (Input.GetMouseButtonDown(0))
@@ -31,9 +42,12 @@ public class PlayerController : Controller
                 {
                     DataHolder.Labaratory.Culdorn.TryGetIngridient();
                 }
-                
-                //Thrash Thrash = DataHolder.Labaratory.TryGetIngridientCook();
-                //Thrash?.TryGetIngridient();
+
+                if (DataHolder.Labaratory.Thresh.IsMouseOver)
+                {
+                    DataHolder.Labaratory.Thresh.TryDeleteIngridient();
+                }
+
             }
         }
         if (Input.GetMouseButtonDown(1))
@@ -63,7 +77,8 @@ public class PlayerController : Controller
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(1);
+        
+        
 
 
     }

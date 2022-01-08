@@ -11,10 +11,12 @@ public class Cauldron : MonoBehaviour
     public List<IngridientsType> recep3;
     public List<IngridientsType> recep4;
     public List<IngridientsType> ActiveRecepy;
-    public float CookingTime = 3f;
+    public float CookingTime = 5f;
+    public float TimeToNextCookingTime = 5f;
     [HideInInspector]
     public bool IsMouseOver = false;
     public bool IsOccupide = false;
+    public int ActiveRecepyCooking = 0; // if  <= 0 then its not cooking anything
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +26,19 @@ public class Cauldron : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsOccupide)
+        if (PouseGame.MenuIsActive) return;
+        if (IsOccupide && ActiveRecepyCooking > 0)
         {
             // run animation 
+            CookingTime -= Time.deltaTime;
+            if (CookingTime < 0)
+            {
+                CookingTime = TimeToNextCookingTime;
+                GiveReadyIngridient(ActiveRecepyCooking);
+                RemoveRecepy();
+                IsOccupide = false;
+                ActiveRecepyCooking = 0;
+            }
         }
         
     }
@@ -111,8 +123,9 @@ public class Cauldron : MonoBehaviour
                 if (CheckCorrectRecepysCount(IsCorectRecepy))
                 {
                     // start cooking
+                    IsOccupide = true;
+                    ActiveRecepyCooking = IsCorectRecepy;
                     Debug.Log("COOOKIIING");
-                    StartCoroutine(Cook(IsCorectRecepy));
                     
                     
                 }
@@ -126,29 +139,15 @@ public class Cauldron : MonoBehaviour
             {
                 // make poop
                 Debug.Log("Wrong recepy");
-                StartCoroutine(CookPoop());
-                
+                GiveReadyIngridientPoop();
+                RemoveRecepy();
+
             }
             DataHolder.Labaratory.RemoveIngridient();
         }
        
     }
-
-    IEnumerator Cook(int RecepyNumber)
-    {
-        IsOccupide = true;
-        yield return new WaitForSeconds(CookingTime);
-        GiveReadyIngridient(RecepyNumber);
-        RemoveRecepy();
-        IsOccupide = false;
-    }
-    IEnumerator CookPoop()
-    {
-        yield return new WaitForSeconds(CookingTime);
-        GiveReadyIngridientPoop();
-        RemoveRecepy();
-        //IsOccupide = false;
-    }
+   
     public bool CheckCorrectRecepysCount(int RecepyNumber) {
         switch (RecepyNumber)
         {

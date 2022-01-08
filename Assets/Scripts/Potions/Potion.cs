@@ -41,6 +41,7 @@ public class Potion : Projectile
     // Update is called once per frame
     void Update()
     {
+        if (PouseGame.MenuIsActive) return;
         UpdatePosition();
         if (IShouldFade)
         {

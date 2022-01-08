@@ -7,7 +7,8 @@ public class IngridientsCook : MonoBehaviour
 {
     public List<IngridientsType> IngridientsToConsume;
     public List<IngridientsType> ReadyIngridient;
-    public float CookingTime = 0f;
+    public float CookingTime = 5f;
+    public float TimeToNextCookingTime = 5f;
     private int Is_Occupide = -1; // if < 0 then the object is free to use 
     [HideInInspector]
     public bool IsMouseOver = false;
@@ -20,6 +21,17 @@ public class IngridientsCook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Is_Occupide >= 0)
+        {
+            if (PouseGame.MenuIsActive) return;
+            CookingTime -= Time.deltaTime;
+            if (CookingTime < 0)
+            {
+                CookingTime = TimeToNextCookingTime;
+                GiveReadyIngridient();
+                Is_Occupide = -1;
+            }
+        }
         
     }
 
@@ -48,11 +60,6 @@ public class IngridientsCook : MonoBehaviour
     }
     public void GiveReadyIngridient()
     {
-        if (ReadyIngridient.ToArray().Length == 0) 
-        {
-            Is_Occupide = -1;
-            return;
-        }
         Ingridient ingridient = DataHolder.Factory.AddIngridient(ReadyIngridient[Is_Occupide], transform.position);
         ingridient.gameObject.layer = LayerMask.NameToLayer("Default");
         
@@ -60,14 +67,6 @@ public class IngridientsCook : MonoBehaviour
     private void Consume()
     {
         Destroy(DataHolder.Wizzard.CurrentIngridient.gameObject);
-        StartCoroutine(Cook());
-    }
-
-    IEnumerator Cook()
-    {
-        yield return new WaitForSeconds(CookingTime);
-        GiveReadyIngridient();
-        Is_Occupide = -1;
     }
 
     private void OnMouseEnter()
