@@ -5,7 +5,6 @@ using UnityEngine;
 public class Wall : MonoBehaviour , IDamageable
 {
     public float HealthPoint = 2;
-    public AlarmZone alarm;
     [SerializeField]
     private Game Game;//must be set in Unity
 

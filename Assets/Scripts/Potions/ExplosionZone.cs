@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ExplosionZone : MonoBehaviour
 {
+    [HideInInspector]
     public SpriteRenderer Renderer;
+    [HideInInspector]
     public Potion Potion;
     void Start()
     {
