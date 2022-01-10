@@ -17,7 +17,7 @@ public class Alarm : MonoBehaviour
     {
      
     }
-    public void SetAlarmVolume(float volume)
+    public void UpdateSound(float volume)
     {
         AudioSource.volume = volume;
     }

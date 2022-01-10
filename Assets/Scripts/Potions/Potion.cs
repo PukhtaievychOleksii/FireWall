@@ -41,7 +41,7 @@ public class Potion : Projectile
     // Update is called once per frame
     void Update()
     {
-        if (PouseGame.MenuIsActive) return;
+        if (PouseGame.GameIsPoused) return;
         UpdatePosition();
         if (IShouldFade)
         {
@@ -62,7 +62,7 @@ public class Potion : Projectile
             ScalingSpace.transform.localScale = new Vector3(DamageRadius, DamageRadius, ScalingSpace.transform.localScale.z);
         }
     }
-
+   
     public void Explode()
     {
         
@@ -82,8 +82,9 @@ public class Potion : Projectile
     {
         if (!IShouldFade)
         {
+            DataHolder.SoundManager.UpdateSoundEffect(AudioSource);
             AudioSource.Play();
-            Debug.Log("som tuna ");
+            Debug.Log("som tuna PLAY SOUND GLASS BREAK");
         }
         IShouldFade = true;
         

@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1113753553703978351}
   - component: {fileID: 3619648749655071797}
   - component: {fileID: 4915842019920776016}
-  - component: {fileID: -4570185087355020572}
   m_Layer: 0
   m_Name: Wizzard
   m_TagString: Untagged
@@ -162,7 +161,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1efd41b660e8be543b54ee00474958b9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5556205
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -246,19 +245,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-4570185087355020572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8534620837538423941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af8140342b387149961b89dd0899154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VolumeMasterSlider: {fileID: 0}
-  VolumeEffectSlider: {fileID: 0}
-  type: Master
-  AudioSource: {fileID: 4915842019920776016}

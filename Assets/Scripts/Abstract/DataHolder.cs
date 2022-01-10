@@ -57,9 +57,9 @@ public static class DataHolder
         Labaratory = labaratory;
     }
 
-    public static SoundManager SoundManager { get; private set; }
+    public static SoundManagerMainControler SoundManager { get; private set; }
 
-    public static void SetSoundManager(SoundManager manager)
+    public static void SetSoundManager(SoundManagerMainControler manager)
     {
         SoundManager = manager;
     }

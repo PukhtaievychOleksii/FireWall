@@ -17,12 +17,16 @@ public class PlayerController : Controller
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
+            if (PouseGame.GameIsPoused && PouseGame.MenuIsActiveOptions)
+            {
+                PouseGame.SetCanvasActiveOptions();
+                return;
+            }
+            
             PouseGame.SetCanvasActive();
-            //Debug.Log("Som tuna"+Time.timeScale);
-            //Time.timeScale -= 0.1f;
+            
         }
-        if (PouseGame.MenuIsActive) return;
+        if (PouseGame.GameIsPoused) return;
         
 
         if (Input.GetKeyDown(KeyCode.Tab) && ControlledCharacter is Wizzard) (ControlledCharacter as Wizzard).ChangeLocation();

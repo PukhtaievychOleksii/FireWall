@@ -25,6 +25,7 @@ public class Wizzard : Character
     {
         Controller = GetComponent<Controller>();
         AudioSource = GetComponent<AudioSource>();
+       
         DataHolder.SetWizzard(this);
         InventorySystem = new InventorySystem();
         //DataHolder.SoundManager.addAudioSorceMaster(AudioSource);
@@ -35,7 +36,7 @@ public class Wizzard : Character
     {
         
     }
-    public void UpdateMasterVolume(float volume)
+    public void UpdateSound(float volume)
     {
         AudioSource.volume = volume;
     }

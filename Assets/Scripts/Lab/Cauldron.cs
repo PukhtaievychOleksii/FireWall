@@ -26,7 +26,7 @@ public class Cauldron : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PouseGame.MenuIsActive) return;
+        if (PouseGame.GameIsPoused) return;
         if (IsOccupide && ActiveRecepyCooking > 0)
         {
             // run animation 

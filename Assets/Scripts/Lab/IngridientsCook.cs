@@ -10,26 +10,44 @@ public class IngridientsCook : MonoBehaviour
     public float CookingTime = 5f;
     public float TimeToNextCookingTime = 5f;
     private int Is_Occupide = -1; // if < 0 then the object is free to use 
+    private AudioSource AudioSource;
+    public List<AudioClip> audioClips;
     [HideInInspector]
     public bool IsMouseOver = false;
 
     void Start()
     {
-        
+        AudioSource = GetComponent<AudioSource>();
     }
 
+    public void UpdateSound(float volume)
+    {
+        AudioSource.volume = volume;
+    }
+
+    private AudioClip RandomAudioClip() 
+    {
+        return audioClips[UnityEngine.Random.Range(0, audioClips.ToArray().Length)];
+    }
     // Update is called once per frame
     void Update()
     {
         if (Is_Occupide >= 0)
         {
-            if (PouseGame.MenuIsActive) return;
+            if (PouseGame.GameIsPoused) return;
             CookingTime -= Time.deltaTime;
+            if (audioClips.ToArray().Length > 0 && !AudioSource.isPlaying) // cuting bord sounds
+            {
+                Debug.Log("som tuna");
+                AudioClip audioClip = RandomAudioClip();
+                AudioSource.PlayOneShot(audioClip);
+            }
             if (CookingTime < 0)
             {
                 CookingTime = TimeToNextCookingTime;
                 GiveReadyIngridient();
                 Is_Occupide = -1;
+                AudioSource.Stop();
             }
         }
         
@@ -67,6 +85,7 @@ public class IngridientsCook : MonoBehaviour
     private void Consume()
     {
         Destroy(DataHolder.Wizzard.CurrentIngridient.gameObject);
+        AudioSource.Play();
     }
 
     private void OnMouseEnter()

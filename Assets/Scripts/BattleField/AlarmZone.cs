@@ -14,9 +14,9 @@ public class AlarmZone : MonoBehaviour
     {
      
     }
-    public void SetAlarmVolume(float volume) 
+    public void UpdateSound(float volume) 
     {
-        Alarm.SetAlarmVolume(volume);
+        Alarm.UpdateSound(volume);
     }
 
 

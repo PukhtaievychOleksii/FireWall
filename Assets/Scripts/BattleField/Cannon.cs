@@ -51,7 +51,10 @@ public class Cannon : MonoBehaviour
             AudioSource.PlayOneShot(CanonCanNOTShoot);
         }
     }
-
+    public void UpdateSound(float volume)
+    {
+        AudioSource.volume = volume;
+    }
 
     private void PutPotionInCannon(ref GameObject potionObject)
     {
