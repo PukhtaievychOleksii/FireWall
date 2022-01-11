@@ -29,6 +29,10 @@ public class Wall : MonoBehaviour , IDamageable
         {
             virus.Destroy();
             TakeDamage(virus.GiveDamage());
+            if (HealthPoint<=0)
+            {
+                PouseGame.SetCanvasActiveEndOfGame();
+            }
         }
     }
 

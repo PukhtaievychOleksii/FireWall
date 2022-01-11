@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Location {
     BattleField,
@@ -17,6 +18,8 @@ public class Wizzard : Character
     [HideInInspector]
     public InventorySystem InventorySystem;
     private AudioSource AudioSource;
+    private int ScoreKilledMonsters = 0;
+    
 
 
   
@@ -25,7 +28,10 @@ public class Wizzard : Character
     {
         Controller = GetComponent<Controller>();
         AudioSource = GetComponent<AudioSource>();
-       
+        
+
+
+
         DataHolder.SetWizzard(this);
         InventorySystem = new InventorySystem();
         //DataHolder.SoundManager.addAudioSorceMaster(AudioSource);
@@ -39,6 +45,12 @@ public class Wizzard : Character
     public void UpdateSound(float volume)
     {
         AudioSource.volume = volume;
+    }
+    public void UpdateScoreKilledMonsters() 
+    {
+        
+        ScoreKilledMonsters++;
+        DataHolder.UIHandler.UpadteFinalTextKilledMonsters(ScoreKilledMonsters);
     }
 
     public void ChangeLocation()

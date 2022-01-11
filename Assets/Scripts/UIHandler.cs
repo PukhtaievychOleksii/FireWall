@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +14,7 @@ public class UIHandler : MonoBehaviour
     private Stack<GameObject> HeartsOfHP = new Stack<GameObject>();
     private List<GameObject> IngridientImages = new List<GameObject>();
     private const float SpaceBetweenImages = 0.5f;
-
-    
-
+    public TextMeshProUGUI FinalTextKilledMonstersText;
 
     private void Awake()
     {
@@ -24,11 +23,18 @@ public class UIHandler : MonoBehaviour
     }
     void Start()
     {
+        
         LocateHPHearts();
         UpdateStorageUI();
     }
 
-   
+    public void UpadteFinalTextKilledMonsters(int ScoreKilledMonsters) 
+    {
+
+        FinalTextKilledMonstersText.text = "You have killed \n " + ScoreKilledMonsters + " Monsters";
+    }
+
+
 
     private void LocateHPHearts()
     {

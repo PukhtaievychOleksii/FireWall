@@ -8,11 +8,15 @@ public class PouseGame : MonoBehaviour
     public static bool MenuIsActive = false;
     public static bool MenuIsActiveOptions = false;
     private static bool LoadedSettings = false;
+    private static bool EndOfGame = false;
+
+
     public SoundManagerMain SM;
     public SoundManagerEfect SE;
     public GameObject CanvasMainBaground;
     public GameObject CanvasMainManu;
     public GameObject CanvasMainManuOptions;
+    public GameObject CanvasEndOfGame;
 
     private void Start()
     {
@@ -20,6 +24,7 @@ public class PouseGame : MonoBehaviour
         Debug.Log("TUNA 1");
         
     }
+
     private IEnumerator WaitForLoadAllObjects(int time)
     {
         
@@ -29,6 +34,13 @@ public class PouseGame : MonoBehaviour
         SM.LoadVolume();
         DataHolder.SoundManager.UpdateSound();
     }
+    public static void SetCanvasActiveEndOfGame()
+    {
+        GameIsPoused = !GameIsPoused;
+        EndOfGame = !EndOfGame;
+    }
+
+
     public static void SetCanvasActiveOptions() 
     {
         MenuIsActiveOptions = !MenuIsActiveOptions;
@@ -58,7 +70,9 @@ public class PouseGame : MonoBehaviour
         CanvasMainBaground.SetActive(GameIsPoused);
         CanvasMainManu.SetActive(MenuIsActive);
         CanvasMainManuOptions.SetActive(MenuIsActiveOptions);
-        
+        CanvasEndOfGame.SetActive(EndOfGame);
+
+
 
         /*if (MenuIsActive)
         {
