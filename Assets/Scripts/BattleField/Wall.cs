@@ -31,7 +31,7 @@ public class Wall : MonoBehaviour , IDamageable
             TakeDamage(virus.GiveDamage());
             if (HealthPoint<=0)
             {
-                PouseGame.SetCanvasActiveEndOfGame();
+                PouseGame.SetCanvasActiveEndOfGame(false);
             }
         }
     }

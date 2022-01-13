@@ -14,15 +14,20 @@ public class GameMenu : MonoBehaviour
         PouseGame.SetCanvasActiveOptions();
         
     }
-    public void RetryGame()
+    public void RetryGame(bool WitchMenu)
     {
-        SceneManager.LoadScene(0); // theis needs to be chaneged later if we will make new sceens
+        SceneManager.LoadScene(1); // theis needs to be chaneged later if we will make new sceens
         // meaby here shoud be some aditional destructions of IngredientType prefabs like bowls etc..
-        PouseGame.SetCanvasActiveEndOfGame();
+        PouseGame.SetCanvasActiveEndOfGame(WitchMenu);
     }
     public void BackToMainMenu()
     {
-        Debug.Log("Game is Quit");
+        SceneManager.LoadScene(0);
+        PouseGame.SetCanvasActiveEndOfGame(false);
+    }
+    public void ApplicationQuitGame() 
+    {
+        Application.Quit(); // we have to test it i dont know if it will work in production version
     }
 
 }

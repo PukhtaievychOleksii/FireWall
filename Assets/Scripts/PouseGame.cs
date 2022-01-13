@@ -34,8 +34,9 @@ public class PouseGame : MonoBehaviour
         SM.LoadVolume();
         DataHolder.SoundManager.UpdateSound();
     }
-    public static void SetCanvasActiveEndOfGame()
+    public static void SetCanvasActiveEndOfGame(bool IsFromMenu)
     {
+        if (IsFromMenu) return; // becouse script is used in MainMenu Scene
         GameIsPoused = !GameIsPoused;
         EndOfGame = !EndOfGame;
     }
