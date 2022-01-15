@@ -23,7 +23,7 @@ public class Cannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PouseGame.GameIsPoused)
+        if (PauseGame.GameIsPoused)
         {
             soundeffectUpdater.UpdateEffect(audioSource);
             return;
