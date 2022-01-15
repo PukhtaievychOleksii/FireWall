@@ -306,7 +306,7 @@ Transform:
   - {fileID: 1475074463}
   - {fileID: 1272959557}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &69221368
 GameObject:
@@ -6310,7 +6310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawner: {fileID: 1250188551}
   Game: {fileID: 1473224779}
-  TimeBettwenVirusesSpawn: 2.57
 --- !u!4 &397580271
 Transform:
   m_ObjectHideFlags: 0
@@ -16963,7 +16962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8946078788252862843, guid: 56a88a18042856548a4b6b334125fa7d, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8946078788252862843, guid: 56a88a18042856548a4b6b334125fa7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18325,8 +18324,8 @@ MonoBehaviour:
   recep3: 030000000500000005000000040000000400000008000000
   recep4: 0000000000000000010000000100000002000000020000000300000003000000030000000300000003000000030000000300000008000000080000000600000006000000
   ActiveRecepy: 
-  CookingTime: 5
-  TimeToNextCookingTime: 5
+  CookingTime: 10
+  TimeToNextCookingTime: 10
   IsMouseOver: 0
   IsOccupide: 0
   ActiveRecepyCooking: 0

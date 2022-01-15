@@ -10,6 +10,7 @@ public class IngridientsCook : MonoBehaviour
     public float CookingTime = 5f;
     public float TimeToNextCookingTime = 5f;
     private int Is_Occupide = -1; // if < 0 then the object is free to use 
+    private const float SpeedUpProcess = 0.25f;
     private AudioSource audioSource;
     public SoundEffectUpdater soundeffectUpdater;
     public List<AudioClip> audioClips;
@@ -74,7 +75,12 @@ public class IngridientsCook : MonoBehaviour
     }
     public void TryGetIngridient()
     {
-        
+        Debug.Log("som tuna click");
+        if (Is_Occupide >= 0 && CookingTime > 0)
+        {
+            CookingTime -= SpeedUpProcess;
+        }
+
         if (DataHolder.Wizzard.CurrentIngridient == null) return; 
         if (!CanBeConsumed(DataHolder.Wizzard.CurrentIngridient.IngridientType)) return;
         Debug.Log("TryGetIngridient" + DataHolder.Wizzard.CurrentIngridient.IngridientType);

@@ -32,13 +32,24 @@ public class Spawner : MonoBehaviour
         return wizzard;
     }
 
-    public GameObject GetGameObjectVirus() {
+    public GameObject GetGameObjectVirus( int PurpleMonsterChance, int GreenMonsterChance, int BlueMonsterChance) {
         {
-            var random_virus = Random.Range(1, 4);
+            int random_virus = Random.Range(1, 100);
             GameObject prefab = null;
-            switch (random_virus)
+            if (random_virus <= PurpleMonsterChance)
             {
-                case 1:
+                prefab = VirusPrefab1;
+            }
+            else if ((random_virus > PurpleMonsterChance) && (random_virus <= (PurpleMonsterChance + GreenMonsterChance)))
+            {
+                prefab = VirusPrefab2;
+            }
+            else {
+                prefab = VirusPrefab3;
+            }
+            /*switch (random_virus)
+            {
+                case (random_virus <= PurpleMonsterChance):
                     prefab = VirusPrefab1;
                     break;
 
@@ -53,14 +64,14 @@ public class Spawner : MonoBehaviour
                 default:
                     prefab = VirusPrefab1;
                     break;
-            }
+            }*/
             return prefab;
         }
     }
-    public Virus SpawnVirus(Game game)
+    public Virus SpawnVirus(Game game, int PurpleMonsterChance, int GreenMonsterChance, int BlueMonsterChance)
     {
         var random_position = new Vector3(VirusSpawnPoint.transform.position.x, Random.Range(-4.5f, 4f), VirusSpawnPoint.transform.position.z);
-        GameObject gameObject = Instantiate(GetGameObjectVirus(), random_position, Quaternion.identity);
+        GameObject gameObject = Instantiate(GetGameObjectVirus(PurpleMonsterChance, GreenMonsterChance, BlueMonsterChance), random_position, Quaternion.identity);
         Virus virus = gameObject.GetComponent<Virus>();
         virus.CharacterGameObject = gameObject;
         virus.Game = game;
