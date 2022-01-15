@@ -24,6 +24,7 @@ public class GameMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         PouseGame.SetCanvasActiveEndOfGame(false);
+        PouseGame.SetCanvasDeffoult();
     }
     public void ApplicationQuitGame() 
     {

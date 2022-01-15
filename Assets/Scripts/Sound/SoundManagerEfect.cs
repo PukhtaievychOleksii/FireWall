@@ -40,6 +40,20 @@ public class SoundManagerEfect : MonoBehaviour
         EffectVolume = PlayerPrefs.GetFloat("EffectVolume");
         VolumeEfectSlider.value = EffectVolume;
     }
+    public static void SetSound()
+    {
+        
+        if (!PlayerPrefs.HasKey("EffectVolume"))
+        {
+            Debug.Log("SOUND SET EFFECT 1");
+            EffectVolume = 1f;
+        }
+        else
+        {
+            Debug.Log("SOUND SET EFFECT 2");
+            EffectVolume = PlayerPrefs.GetFloat("EffectVolume");
+        }
+    }
 
 
 

@@ -58,6 +58,7 @@ public class PlayerController : Controller
         {
             if (DataHolder.Labaratory.Culdorn.IsMouseOver)
             {
+                if (Cauldron.IsPoopOccupide) return;
                 DataHolder.Labaratory.Culdorn.RemoveRecepy();
                 DataHolder.Labaratory.Culdorn.GiveReadyIngridientPoop();
             }

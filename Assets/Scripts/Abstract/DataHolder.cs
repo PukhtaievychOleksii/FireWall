@@ -57,11 +57,11 @@ public static class DataHolder
         Labaratory = labaratory;
     }
 
-    public static SoundManagerMainControler SoundManager { get; private set; }
+    /*public static SoundManagerMainControler SoundManager { get; private set; }
 
     public static void SetSoundManager(SoundManagerMainControler manager)
     {
         SoundManager = manager;
-    }
+    }*/
 
 }

@@ -11,8 +11,8 @@ public class PouseGame : MonoBehaviour
     private static bool EndOfGame = false;
 
 
-    public SoundManagerMain SM;
-    public SoundManagerEfect SE;
+    //public SoundManagerMain SM;
+    //public SoundManagerEfect SE;
     public GameObject CanvasMainBaground;
     public GameObject CanvasMainManu;
     public GameObject CanvasMainManuOptions;
@@ -20,23 +20,24 @@ public class PouseGame : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(WaitForLoadAllObjects(1)); // Potencional mistake with loading sound efects
-        Debug.Log("TUNA 1");
+       
         
     }
-
-    private IEnumerator WaitForLoadAllObjects(int time)
+    public static void SetCanvasDeffoult() 
     {
-        
-        yield return new WaitForSeconds(time);
-        Debug.Log("TUNA 2");
-        SE.LoadVolume();
-        SM.LoadVolume();
-        DataHolder.SoundManager.UpdateSound();
-    }
+        GameIsPoused = false;
+        MenuIsActive = false;
+        MenuIsActiveOptions = false;
+        LoadedSettings = false;
+        EndOfGame = false;
+}
     public static void SetCanvasActiveEndOfGame(bool IsFromMenu)
     {
-        if (IsFromMenu) return; // becouse script is used in MainMenu Scene
+        Debug.Log("SetCanvasActiveEndOfGame   BEFORE");
+        if (IsFromMenu) { return; 
+        MenuIsActiveOptions = true;
+        } // becouse script is used in MainMenu Scene
+        Debug.Log("SetCanvasActiveEndOfGame   AFTER");
         GameIsPoused = !GameIsPoused;
         EndOfGame = !EndOfGame;
     }
@@ -65,7 +66,7 @@ public class PouseGame : MonoBehaviour
     {
         if (GameIsPoused)
         {
-            DataHolder.SoundManager.UpdateSound();
+            //DataHolder.SoundManager.UpdateSound();
 
         }
         CanvasMainBaground.SetActive(GameIsPoused);

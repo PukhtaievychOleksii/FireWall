@@ -105,6 +105,8 @@ MonoBehaviour:
   CurrentLocation: 0
   CurrentShootingPotionType: 1
   CurrentIngridient: {fileID: 0}
+  audioSource: {fileID: 4915842019920776016}
+  soundeffectUpdater: {fileID: 8229117845101652258, guid: 38e7e3b857dda0849b8d616649649bd4, type: 3}
 --- !u!136 &6878106939807734299
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -148,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ControlledCharacter: {fileID: 5027665894585337646}
-  activeEffect: {fileID: 8946078788252862843, guid: 56a88a18042856548a4b6b334125fa7d, type: 3}
+  activeEffect: {fileID: 8229117845101652259, guid: 38e7e3b857dda0849b8d616649649bd4, type: 3}
 --- !u!82 &4915842019920776016
 AudioSource:
   m_ObjectHideFlags: 0
