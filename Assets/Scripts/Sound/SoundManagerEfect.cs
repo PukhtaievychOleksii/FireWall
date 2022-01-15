@@ -45,12 +45,10 @@ public class SoundManagerEfect : MonoBehaviour
         
         if (!PlayerPrefs.HasKey("EffectVolume"))
         {
-            Debug.Log("SOUND SET EFFECT 1");
             EffectVolume = 1f;
         }
         else
         {
-            Debug.Log("SOUND SET EFFECT 2");
             EffectVolume = PlayerPrefs.GetFloat("EffectVolume");
         }
     }

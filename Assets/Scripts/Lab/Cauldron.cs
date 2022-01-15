@@ -13,6 +13,7 @@ public class Cauldron : MonoBehaviour
     public List<IngridientsType> ActiveRecepy;
     public float CookingTime = 5f;
     public float TimeToNextCookingTime = 5f;
+    private const float SpeedUpProcess = 0.25f;
     [HideInInspector]
     public bool IsMouseOver = false;
     public bool IsOccupide = false;
@@ -20,6 +21,7 @@ public class Cauldron : MonoBehaviour
     public int ActiveRecepyCooking = 0; // if  <= 0 then its not cooking anything
     public SoundEffectUpdater soundeffectUpdater;
     private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +70,11 @@ public class Cauldron : MonoBehaviour
     public void TryGetIngridient()
     {
         if (IsPoopOccupide) return;
+        Debug.Log("som tuna click");
+        if (IsOccupide && CookingTime > 0)
+        {
+            CookingTime -= SpeedUpProcess;
+        }
         //Debug.Log("CULDRON SOM TUNA");
         if (DataHolder.Wizzard.CurrentIngridient == null) return;
         if (!CanBeConsumed(DataHolder.Wizzard.CurrentIngridient.IngridientType)) return;
