@@ -49,4 +49,18 @@ public class SoundManagerMain : MonoBehaviour
         }
     }
 
+    public static void SetSound()
+    {
+
+        if (!PlayerPrefs.HasKey("MasterVolume"))
+        {
+            MasterVolume = 1f;
+        }
+        else
+        {
+            MasterVolume = PlayerPrefs.GetFloat("MasterVolume");
+        }
+    }
+
+
 }
