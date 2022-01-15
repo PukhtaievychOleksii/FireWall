@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class Alarm : MonoBehaviour
 {
-    private AudioSource AudioSource;
+    private AudioSource audioSource;
     private SpriteRenderer renderer;
+    public SoundEffectUpdater soundeffectUpdater;
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
-        AudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        soundeffectUpdater.UpdateEffect(audioSource);
         gameObject.SetActive(false);
     }
 
     void Update()
     {
-     
+        if (PouseGame.GameIsPoused)
+        {
+            soundeffectUpdater.UpdateEffect(audioSource);
+            return;
+        }
     }
-    public void UpdateSound(float volume)
-    {
-        AudioSource.volume = volume;
-    }
+    
 
     public void OnAlarm()
     {

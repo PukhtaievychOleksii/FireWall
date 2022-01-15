@@ -16,18 +16,27 @@ public class Cauldron : MonoBehaviour
     [HideInInspector]
     public bool IsMouseOver = false;
     public bool IsOccupide = false;
+    public static bool IsPoopOccupide = false;
     public int ActiveRecepyCooking = 0; // if  <= 0 then its not cooking anything
+    public SoundEffectUpdater soundeffectUpdater;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
 
+        audioSource = GetComponent<AudioSource>();
+        soundeffectUpdater.UpdateEffect(audioSource);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PouseGame.GameIsPoused) return;
-        if (IsOccupide && ActiveRecepyCooking > 0)
+        if (PouseGame.GameIsPoused)
+        {
+            soundeffectUpdater.UpdateEffect(audioSource);
+            return;
+        }
+        if (IsOccupide && ActiveRecepyCooking > 0 && !IsPoopOccupide)
         {
             // run animation 
             CookingTime -= Time.deltaTime;
@@ -36,6 +45,7 @@ public class Cauldron : MonoBehaviour
                 CookingTime = TimeToNextCookingTime;
                 GiveReadyIngridient(ActiveRecepyCooking);
                 RemoveRecepy();
+                audioSource.Stop();
                 IsOccupide = false;
                 ActiveRecepyCooking = 0;
             }
@@ -57,6 +67,7 @@ public class Cauldron : MonoBehaviour
     }
     public void TryGetIngridient()
     {
+        if (IsPoopOccupide) return;
         //Debug.Log("CULDRON SOM TUNA");
         if (DataHolder.Wizzard.CurrentIngridient == null) return;
         if (!CanBeConsumed(DataHolder.Wizzard.CurrentIngridient.IngridientType)) return;
@@ -106,7 +117,8 @@ public class Cauldron : MonoBehaviour
         DataHolder.UIHandler.UpdateStorageUI();
     }
     public void GiveReadyIngridientPoop()
-    {       
+    {
+        IsPoopOccupide = true;
         Ingridient ingridient = DataHolder.Factory.AddIngridient(ReadyIngridient, transform.position);
         ingridient.gameObject.layer = LayerMask.NameToLayer("Default");
 
@@ -125,6 +137,7 @@ public class Cauldron : MonoBehaviour
                     // start cooking
                     IsOccupide = true;
                     ActiveRecepyCooking = IsCorectRecepy;
+                    audioSource.Play();
                     Debug.Log("COOOKIIING");
                     
                     
@@ -140,6 +153,7 @@ public class Cauldron : MonoBehaviour
                 // make poop
                 Debug.Log("Wrong recepy");
                 GiveReadyIngridientPoop();
+                
                 RemoveRecepy();
 
             }

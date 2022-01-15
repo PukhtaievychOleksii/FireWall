@@ -10,20 +10,20 @@ public class IngridientsCook : MonoBehaviour
     public float CookingTime = 5f;
     public float TimeToNextCookingTime = 5f;
     private int Is_Occupide = -1; // if < 0 then the object is free to use 
-    private AudioSource AudioSource;
+    private AudioSource audioSource;
+    public SoundEffectUpdater soundeffectUpdater;
     public List<AudioClip> audioClips;
+
     [HideInInspector]
     public bool IsMouseOver = false;
 
     void Start()
     {
-        AudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        soundeffectUpdater.UpdateEffect(audioSource);
     }
 
-    public void UpdateSound(float volume)
-    {
-        AudioSource.volume = volume;
-    }
+    
 
     private AudioClip RandomAudioClip() 
     {
@@ -34,20 +34,24 @@ public class IngridientsCook : MonoBehaviour
     {
         if (Is_Occupide >= 0)
         {
-            if (PouseGame.GameIsPoused) return;
+            if (PouseGame.GameIsPoused)
+            {
+                soundeffectUpdater.UpdateEffect(audioSource);
+                return;
+            }
             CookingTime -= Time.deltaTime;
-            if (audioClips.ToArray().Length > 0 && !AudioSource.isPlaying) // cuting bord sounds
+            if (audioClips.ToArray().Length > 0 && !audioSource.isPlaying) // cuting bord sounds
             {
                 Debug.Log("som tuna");
                 AudioClip audioClip = RandomAudioClip();
-                AudioSource.PlayOneShot(audioClip);
+                audioSource.PlayOneShot(audioClip);
             }
             if (CookingTime < 0)
             {
                 CookingTime = TimeToNextCookingTime;
                 GiveReadyIngridient();
                 Is_Occupide = -1;
-                AudioSource.Stop();
+                audioSource.Stop();
             }
         }
         
@@ -85,7 +89,7 @@ public class IngridientsCook : MonoBehaviour
     private void Consume()
     {
         Destroy(DataHolder.Wizzard.CurrentIngridient.gameObject);
-        AudioSource.Play();
+        audioSource.Play();
     }
 
     private void OnMouseEnter()

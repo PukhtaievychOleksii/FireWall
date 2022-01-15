@@ -125,7 +125,8 @@ MonoBehaviour:
   FadingTime: 3
   Name: Potion1
   ScalingSpace: {fileID: 2772694968342070245}
-  AudioSource: {fileID: 0}
+  audioSource: {fileID: 0}
+  soundeffectUpdater: {fileID: 8229117845101652258, guid: 38e7e3b857dda0849b8d616649649bd4, type: 3}
 --- !u!82 &-3569899099373306728
 AudioSource:
   m_ObjectHideFlags: 0

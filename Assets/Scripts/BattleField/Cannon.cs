@@ -8,19 +8,26 @@ public class Cannon : MonoBehaviour
     public Potion Projectile;
     public AudioClip CanonCanShoot;
     public AudioClip CanonCanNOTShoot;
-    public AudioSource AudioSource;
+    public AudioSource audioSource;
+    public SoundEffectUpdater soundeffectUpdater;
     public bool CanShoot = false;
     void Start()
     {
         DataHolder.SetCannon(this);
         CanonCanShoot = Resources.Load<AudioClip>("CAN");
         CanonCanNOTShoot = Resources.Load<AudioClip>("CANNOT");
-        AudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        soundeffectUpdater.UpdateEffect(audioSource);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (PouseGame.GameIsPoused)
+        {
+            soundeffectUpdater.UpdateEffect(audioSource);
+            return;
+        }
     }
 
     public void FollowMouse()
@@ -44,17 +51,14 @@ public class Cannon : MonoBehaviour
             Projectile projectile = potionObject.GetComponent<Potion>();
             projectile.SpeedUp(target);
             DataHolder.UIHandler.UpdateStorageUI();
-            AudioSource.PlayOneShot(CanonCanShoot);
+            audioSource.PlayOneShot(CanonCanShoot);
         }
         else
         {
-            AudioSource.PlayOneShot(CanonCanNOTShoot);
+            audioSource.PlayOneShot(CanonCanNOTShoot);
         }
     }
-    public void UpdateSound(float volume)
-    {
-        AudioSource.volume = volume;
-    }
+    
 
     private void PutPotionInCannon(ref GameObject potionObject)
     {

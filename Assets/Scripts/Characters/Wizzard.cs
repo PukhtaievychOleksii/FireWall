@@ -17,7 +17,8 @@ public class Wizzard : Character
     public Ingridient CurrentIngridient = null;
     [HideInInspector]
     public InventorySystem InventorySystem;
-    private AudioSource AudioSource;
+    public AudioSource audioSource;
+    public SoundEffectUpdater soundeffectUpdater;
     private int ScoreKilledMonsters = 0;
     
 
@@ -27,25 +28,27 @@ public class Wizzard : Character
     void Awake()
     {
         Controller = GetComponent<Controller>();
-        AudioSource = GetComponent<AudioSource>();
         
 
 
 
         DataHolder.SetWizzard(this);
         InventorySystem = new InventorySystem();
+        audioSource = GetComponent<AudioSource>();
+        soundeffectUpdater.UpdateMain(audioSource);
         //DataHolder.SoundManager.addAudioSorceMaster(AudioSource);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (PouseGame.GameIsPoused)
+        {
+            soundeffectUpdater.UpdateMain(audioSource);
+            return;
+        }
     }
-    public void UpdateSound(float volume)
-    {
-        AudioSource.volume = volume;
-    }
+    
     public void UpdateScoreKilledMonsters() 
     {
         

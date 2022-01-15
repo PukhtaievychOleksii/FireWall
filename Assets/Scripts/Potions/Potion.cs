@@ -26,7 +26,8 @@ public class Potion : Projectile
     private ExplosionZone ExplosionZone;
     private SpriteRenderer Renderer;
     private bool IShouldFade = false;
-    public AudioSource AudioSource;
+    public AudioSource audioSource;
+    public SoundEffectUpdater soundeffectUpdater;
 
 
     void Start()
@@ -34,14 +35,19 @@ public class Potion : Projectile
         Name = Enum.GetName(typeof(PotionsType), PotionType);
         ExplosionZone = GetComponentInChildren<ExplosionZone>();
         Renderer = GetComponent<SpriteRenderer>();
-        AudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        soundeffectUpdater.UpdateEffect(audioSource);
         SetAppropriateScaling();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PouseGame.GameIsPoused) return;
+        if (PouseGame.GameIsPoused) {
+            soundeffectUpdater.UpdateEffect(audioSource);
+            return;
+        }
+        
         UpdatePosition();
         if (IShouldFade)
         {
@@ -82,8 +88,9 @@ public class Potion : Projectile
     {
         if (!IShouldFade)
         {
-            DataHolder.SoundManager.UpdateSoundEffect(AudioSource);
-            AudioSource.Play();
+            soundeffectUpdater.UpdateEffect(audioSource);
+            //DataHolder.SoundManager.UpdateSoundEffect(AudioSource);
+            audioSource.Play();
             Debug.Log("som tuna PLAY SOUND GLASS BREAK");
         }
         IShouldFade = true;

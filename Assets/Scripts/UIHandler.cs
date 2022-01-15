@@ -15,6 +15,7 @@ public class UIHandler : MonoBehaviour
     private List<GameObject> IngridientImages = new List<GameObject>();
     private const float SpaceBetweenImages = 0.5f;
     public TextMeshProUGUI FinalTextKilledMonstersText;
+    private int BestScore = 0;
 
     private void Awake()
     {
@@ -23,15 +24,37 @@ public class UIHandler : MonoBehaviour
     }
     void Start()
     {
-        
+        if (!PlayerPrefs.HasKey("BestScore"))
+        {
+            SaveBestScore(0);
+        }
+        else
+        {
+            LoadBestScore();
+        }
         LocateHPHearts();
         UpdateStorageUI();
+    }
+    private void SaveBestScore(int ScoreKilledMonsters)
+    {
+        PlayerPrefs.SetInt("BestScore", ScoreKilledMonsters);
+    }
+    private void LoadBestScore()
+    {
+        BestScore = PlayerPrefs.GetInt("BestScore", BestScore);
     }
 
     public void UpadteFinalTextKilledMonsters(int ScoreKilledMonsters) 
     {
-
-        FinalTextKilledMonstersText.text = "You have killed \n " + ScoreKilledMonsters + " Monsters";
+        if (BestScore >= ScoreKilledMonsters)
+        {
+            FinalTextKilledMonstersText.text = "You have killed \n " + ScoreKilledMonsters + " Monsters \n Previous best Score: "+ BestScore +"";
+        }
+        else {
+            FinalTextKilledMonstersText.text = "You have killed \n " + ScoreKilledMonsters + " Monsters New Best Score";
+            SaveBestScore(ScoreKilledMonsters);
+        }
+        
     }
 
 

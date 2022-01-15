@@ -14,11 +14,7 @@ public class AlarmZone : MonoBehaviour
     {
      
     }
-    public void UpdateSound(float volume) 
-    {
-        Alarm.UpdateSound(volume);
-    }
-
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

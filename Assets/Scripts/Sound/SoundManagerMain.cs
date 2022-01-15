@@ -9,6 +9,7 @@ public class SoundManagerMain : MonoBehaviour
     public static float MasterVolume = 1f;
     
     [SerializeField] Slider VolumeMainSlider;
+    public AudioSource MainMenu;
 
 
 
@@ -33,11 +34,19 @@ public class SoundManagerMain : MonoBehaviour
     public void SaveVolume()
     {
         PlayerPrefs.SetFloat("MasterVolume", MasterVolume);
+        if (MainMenu)
+        {
+            MainMenu.volume = MasterVolume;
+        }
     }
     public void LoadVolume()
     {
         MasterVolume = PlayerPrefs.GetFloat("MasterVolume");
         VolumeMainSlider.value = MasterVolume;
+        if (MainMenu)
+        {
+            MainMenu.volume = MasterVolume;
+        }
     }
 
 }

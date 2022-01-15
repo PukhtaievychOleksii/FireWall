@@ -49,7 +49,10 @@ public class Ingridient : MonoBehaviour
         DataHolder.Wizzard.CurrentIngridient = this;
         if (Colider != null)
         {
-            //Debug.Log(IngridientType);
+            if (IngridientType.ToString() == "Poop")
+            {
+                Cauldron.IsPoopOccupide = false;
+            }
             Colider.enabled = false;
         }
        
