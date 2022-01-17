@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Cauldron : MonoBehaviour
 {
@@ -21,13 +23,34 @@ public class Cauldron : MonoBehaviour
     public int ActiveRecepyCooking = 0; // if  <= 0 then its not cooking anything
     public SoundEffectUpdater soundeffectUpdater;
     private AudioSource audioSource;
+    public GameObject CurenRecepyMissingIngredient;
 
+
+    // this is for Actvie recepy items in culdron
+    public GameObject SomthingInCuldron;
+    public Dictionary<IngridientsType, Sprite> pairsOfIngredientTypeSpriteName = new Dictionary<IngridientsType, Sprite>();
+    public List<Sprite> spritesForDict;
+    public List<GameObject> ActiveRecepyCanvasHolderForItems;
+    public List<GameObject> ActiveRecepyShowItems;
+    public List<TextMeshProUGUI> ActiveRecepyCanvasHolderForItemsTexts;
     // Start is called before the first frame update
     void Start()
     {
 
         audioSource = GetComponent<AudioSource>();
         soundeffectUpdater.UpdateEffect(audioSource);
+        pairsOfIngredientTypeSpriteName.Add(IngridientsType.Infusion, spritesForDict[3]);
+        pairsOfIngredientTypeSpriteName.Add(IngridientsType.Cookie, spritesForDict[0]);
+        pairsOfIngredientTypeSpriteName.Add(IngridientsType.Mushroom, spritesForDict[1]);
+        pairsOfIngredientTypeSpriteName.Add(IngridientsType.Fruit, spritesForDict[2]);
+        
+        pairsOfIngredientTypeSpriteName.Add(IngridientsType.Bowl_of_Crushed_Cookies, spritesForDict[4]);
+        pairsOfIngredientTypeSpriteName.Add(IngridientsType.Bowl_of_Cuted_Mushrums, spritesForDict[5]);
+        pairsOfIngredientTypeSpriteName.Add(IngridientsType.Bowl_of_Cuted_Star_Fruit, spritesForDict[6]);
+        pairsOfIngredientTypeSpriteName.Add(IngridientsType.Bowl_of_Steamed_Mushrums, spritesForDict[7]);
+        pairsOfIngredientTypeSpriteName.Add(IngridientsType.Bowl_of_Steamed_Star_Fruit, spritesForDict[8]);
+
+
     }
 
     // Update is called once per frame
@@ -78,6 +101,7 @@ public class Cauldron : MonoBehaviour
         //Debug.Log("CULDRON SOM TUNA");
         if (DataHolder.Wizzard.CurrentIngridient == null) return;
         if (!CanBeConsumed(DataHolder.Wizzard.CurrentIngridient.IngridientType)) return;
+        //Debug.Log("SPRITE of INGREDIENT " + DataHolder.Wizzard.CurrentIngridient.GetComponent<SpriteRenderer>().sprite.name); // TOTO!!!
         //Debug.Log("CULDRON " + DataHolder.Wizzard.CurrentIngridient.IngridientType);
         Consume();
     }
@@ -146,13 +170,18 @@ public class Cauldron : MonoBehaviour
                     ActiveRecepyCooking = IsCorectRecepy;
                     audioSource.Play();
                     Debug.Log("COOOKIIING");
-                    
-                    
+                    RemoveCanvasRecepy();
+
+
+
                 }
                 else
                 {
                     // missing ingrediets
                     Debug.Log("Missing ingredient");
+                    SomthingInCuldron.SetActive(true);
+                    CertainRecepyFounded();
+                    
                 }
             }
             else
@@ -168,7 +197,132 @@ public class Cauldron : MonoBehaviour
         }
        
     }
-   
+    private void CertainRecepyFounded()
+    {
+        int index = 0;
+        foreach (KeyValuePair<IngridientsType, Sprite> kvp in pairsOfIngredientTypeSpriteName)
+        {
+            Debug.Log("Key = "+ kvp.Key + " Value = "+ kvp.Value +" " );
+            int count_of_Ingredient = GetCountOfIngredientsInActiveRecepy(kvp.Key);
+            if (count_of_Ingredient > 0)
+            {
+                Image item = ActiveRecepyCanvasHolderForItems[index].GetComponent<Image>();
+                item.sprite = kvp.Value;
+                ActiveRecepyCanvasHolderForItemsTexts[index].text = ""+count_of_Ingredient;
+                ActiveRecepyShowItems[index].SetActive(true);
+                index++;
+            }
+
+        }
+        /*if (IsCorrectRecepy1() > 0 && IsCorrectRecepy2() < 0 && IsCorrectRecepy3() < 0 && IsCorrectRecepy4() < 0)
+        {
+            Debug.Log("IsCorrectRecepy1");
+        }
+        else if (IsCorrectRecepy2() > 0 && IsCorrectRecepy1() < 0 && IsCorrectRecepy3() < 0 && IsCorrectRecepy4() < 0)
+        {
+            Debug.Log("IsCorrectRecepy2");
+        }
+        else if (IsCorrectRecepy3() > 0 && IsCorrectRecepy1() < 0 && IsCorrectRecepy2() < 0 && IsCorrectRecepy4() < 0)
+        {
+            Debug.Log("IsCorrectRecepy3");
+        }
+        else if (IsCorrectRecepy4() > 0 && IsCorrectRecepy1() < 0 && IsCorrectRecepy2() < 0 && IsCorrectRecepy3() < 0)
+        {
+            Debug.Log("IsCorrectRecepy4");
+        }*/
+    }
+    private int GetCountOfIngredientsInActiveRecepy(IngridientsType ingridient) 
+    {
+
+        int count = 0;
+        foreach (IngridientsType item in ActiveRecepy)
+        {
+
+            if (item == ingridient)
+            {
+                count++;
+            }
+           
+        }
+        return count;
+    
+    }
+
+    /*private int IsCorrectRecepy1()
+    {
+        int foundedrecepy = -1;
+        foreach (IngridientsType item in ActiveRecepy)
+        {
+            if (CountIngredientsInRecepyIsOK(item, recep1, ActiveRecepy) >= 0)
+            {
+                foundedrecepy = 1;
+                continue;
+            }
+            else
+            {
+                foundedrecepy = -1;
+                break;
+            }
+        }
+        return foundedrecepy;
+    }
+    private int IsCorrectRecepy2()
+    {
+        int foundedrecepy = -1;
+        foreach (IngridientsType item in ActiveRecepy)
+        {
+            if (CountIngredientsInRecepyIsOK(item, recep2, ActiveRecepy) >= 0)
+            {
+                foundedrecepy = 2;
+                continue;
+            }
+            else
+            {
+                foundedrecepy = -1;
+                break;
+            }
+        }
+        return foundedrecepy;
+    }
+    private int IsCorrectRecepy3()
+    {
+        int foundedrecepy = -1;
+        foreach (IngridientsType item in ActiveRecepy)
+        {
+            if (CountIngredientsInRecepyIsOK(item, recep3, ActiveRecepy) >= 0)
+            {
+                foundedrecepy = 3;
+                continue;
+            }
+            else
+            {
+                foundedrecepy = -1;
+                break;
+            }
+        }
+        return foundedrecepy;
+    }
+    private int IsCorrectRecepy4()
+    {
+        int foundedrecepy = -1;
+        foreach (IngridientsType item in ActiveRecepy)
+        {
+            if (CountIngredientsInRecepyIsOK(item, recep4, ActiveRecepy) >= 0)
+            {
+                foundedrecepy = 4;
+                continue;
+            }
+            else
+            {
+                foundedrecepy = -1;
+                break;
+            }
+        }
+
+        return foundedrecepy;
+    }*/
+
+
     public bool CheckCorrectRecepysCount(int RecepyNumber) {
         switch (RecepyNumber)
         {
@@ -336,9 +490,20 @@ public class Cauldron : MonoBehaviour
     }
     public void RemoveRecepy() {
         ActiveRecepy.Clear();
+        RemoveCanvasRecepy();
     }
 
-
+    public void RemoveCanvasRecepy()
+    {
+        SomthingInCuldron.SetActive(false);
+        for (int index = 0; index < ActiveRecepyCanvasHolderForItems.Count; index++)
+        {
+            Image item = ActiveRecepyCanvasHolderForItems[index].GetComponent<Image>();
+            item.sprite = null;
+            ActiveRecepyCanvasHolderForItemsTexts[index].text = "" ;
+            ActiveRecepyShowItems[index].SetActive(false);
+        }
+    }
     private void OnMouseEnter()
     {
         IsMouseOver = true;

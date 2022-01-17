@@ -62,11 +62,17 @@ public class Wizzard : Character
         {
             MoveTo(Game.LabPoint.transform.position);
             CurrentLocation = Location.Labaratory;
+            // meaby add some w8 time
+            if (DataHolder.Labaratory.Culdorn.ActiveRecepy.Count > 0)
+            {
+                DataHolder.Labaratory.Culdorn.SomthingInCuldron.SetActive(true);
+            }
         }
         else
         {
             MoveTo(Game.WatchPoint.transform.position);
             CurrentLocation = Location.BattleField;
+            DataHolder.Labaratory.Culdorn.SomthingInCuldron.SetActive(false);
         }
         DataHolder.Labaratory.RemoveIngridient();
     }
