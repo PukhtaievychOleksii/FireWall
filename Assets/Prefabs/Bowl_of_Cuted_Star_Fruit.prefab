@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4038858007089304511}
   - component: {fileID: -3146886474790165286}
   - component: {fileID: 2494889034026470953}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bowl_of_Cuted_Star_Fruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   IngridientType: 6
   Colider: {fileID: -3146886474790165286}
   StickToMouse: 0
+  Renderer: {fileID: 505699494775234469}
 --- !u!58 &-3146886474790165286
 CircleCollider2D:
   m_ObjectHideFlags: 0
