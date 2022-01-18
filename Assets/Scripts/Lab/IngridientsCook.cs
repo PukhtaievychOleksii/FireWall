@@ -18,10 +18,15 @@ public class IngridientsCook : MonoBehaviour
     [HideInInspector]
     public bool IsMouseOver = false;
 
+    public ParticleSystem effectsSteam;
+    public Animator mortarAnim;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         soundeffectUpdater.UpdateEffect(audioSource);
+
+        effectsSteam.Stop();
     }
 
     
@@ -53,6 +58,7 @@ public class IngridientsCook : MonoBehaviour
                 GiveReadyIngridient();
                 Is_Occupide = -1;
                 audioSource.Stop();
+                mortarAnim.SetTrigger("off");
             }
         }
         
@@ -96,6 +102,14 @@ public class IngridientsCook : MonoBehaviour
     {
         Destroy(DataHolder.Wizzard.CurrentIngridient.gameObject);
         audioSource.Play();
+        if (this.gameObject.name == "Steamer")
+        {
+            effectsSteam.Play();
+        }
+        if (this.gameObject.name == "Mortar")
+        {
+            mortarAnim.SetTrigger("on");
+        }
     }
 
     private void OnMouseEnter()
