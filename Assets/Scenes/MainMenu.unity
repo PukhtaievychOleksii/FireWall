@@ -3613,11 +3613,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'health:1
+  m_text: 'Health:1
 
     Speed:1
 
-    Suseptebil to'
+    Susceptibel to'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3854,7 +3854,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.45
+  m_fontSize: 71.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4111,8 +4111,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Its nesesry to kill enemys with corecect potions to eliminate them. Wizzard
-    Cannon can shoot by right cicking in antack filed. Swithcing between the selected
+  m_text: It's necessary to hit enemies with correct potions to eliminate them. Wizzard
+    Cannon can shoot by aim clicked on antack filed. Switching between the selected
     potions type can be done by num+1/2/3 or by clicking on them.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4693,7 +4693,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.25
+  m_fontSize: 30.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5218,27 +5218,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'For the start its nessery to know how to get into Laboratoy. Press Tab
-    for move between Lab and Battlefiled. In Lab you can find multiple Items:\n
+  m_text: 'For the start it''s necessary to know how to get into Laboratory. Press
+    ''Tab'' to move between Lab and Battlefiled. In Lab you can find multiple Items:\n
 
     1.
-    Basic Ingredies these you can get by clicking on it.
+    Basic Ingredients you can get by clicking on them.
 
-    2. Processed Ingredients
-    you must cilk on mashins while holding an Static Ingredient.
+    2. To start an  Ingredients
+    Processing you must click on appropriate station while holding a Static Ingredient.
 
-    3. Book by
-    howering with mouse above it you can see recepies witch you can craft.
+    3.
+    You can see recipies witch you can craft by placing mouse above a Book in Lab.
 
     4.
-    Bin each item(ingredient - Static or Dinamic) witch is sticked to muse must by
-    dropped somwhere before you pick other ingrediet. For this purpise is here a
-    bin where you can throw away ingredients wich you didnt wont to to anithing.
+    In case you don''t need some item(ingredient - Static or Dynamic) you can use
+    a Bin located in the Lab by clicking on it.  Your item will be removed and recycled
+    without pollutions)
 
-    5.Culdron
-    is place where you need click with sertain type and  ammount of ingredients to
-    craft potions if you put wrong combinations of ingredients you will get only
-    Poop as resoult.'
+    5.The final step is Cauldron. You can throw in ingridients
+    by clicking on it, but be carefull, if you put wrong combination only Poop wil
+    be prepared. You can restart the Cauldron with LMB.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9140,7 +9139,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.1
+  m_fontSize: 53.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10016,11 +10015,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'health:2
+  m_text: 'Health:2
 
     Speed:1
 
-    Suseptebil to'
+    Susceptibel to'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10230,11 +10229,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'health:1
+  m_text: 'Health:1
 
     Speed:2
 
-    Suseptebil to'
+    Susceptibel to'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11202,12 +11201,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In this section we will locked at the cooking machanics and recepies. From
-    folowin recepies you need to try memorize wich recepi you wont to craft before
-    you start throwing ingredients into culdron. If you did not mach any of recepis
-    you the culdron will automaticli emmit poop. in the case you alredy know that
-    you dont want to craft somthing or you wont to start with somthing else just
-    left click on culdrun this will cancle curent recepy and culdron will emit poop.
+  m_text: 'In this part we will look at cooking stations and recipies.  Before you
+    start throwing ingredients into culdron, you should memorize right combination
+    of ingridients from Recipe Book. If your combination  is not similar to any of
+    recipes  the cauldron will automaticlly emmit Poop. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12233,11 +12230,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: For this purpis you need to know onli few things . First of all the crufting
-    of processed ingredients takes time.  And the sescond thing is while the basic
-    ingredient is being crafted you canot put more item into masin. After masine
-    finishis work you can click on processed ingredients the ingredient will stick
-    to mouse you need to with it somthing before doing somthing else.
+  m_text: For this skill you need to know only few things . First of all  crafting
+    of processed ingredients takes time. Secondly, while  ingredient is being processed
+    you can't put more items into that station. After station finished   you can
+    click on processed ingredient. It will stick to mouse.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12521,7 +12517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enemy & Weeknes
+  m_text: Enemy & Weaknes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14228,7 +14224,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.55
+  m_fontSize: 44.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -35,7 +35,7 @@ public class IngridientsCook : MonoBehaviour
     {
         if (Is_Occupide >= 0)
         {
-            if (PouseGame.GameIsPoused)
+            if (PauseGame.GameIsPoused)
             {
                 soundeffectUpdater.UpdateEffect(audioSource);
                 return;

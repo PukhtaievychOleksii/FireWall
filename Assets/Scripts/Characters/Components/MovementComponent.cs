@@ -16,7 +16,7 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IShouldMove && VariablesFilled() && !PouseGame.GameIsPoused)
+        if(IShouldMove && VariablesFilled() && !PauseGame.GameIsPoused)
         {
             Owner.transform.position = Vector3.MoveTowards(Owner.transform.position, Destination,MovingSpeed);
             if (Owner.transform.position == Destination) IShouldMove = false;

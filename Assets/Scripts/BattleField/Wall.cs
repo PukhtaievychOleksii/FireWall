@@ -28,10 +28,11 @@ public class Wall : MonoBehaviour , IDamageable
         if (virus != null)
         {
             virus.Destroy();
+            StartCoroutine(DataHolder.EffectsHandler.ShakeCamera(0.5f, 0.3f));
             TakeDamage(virus.GiveDamage());
             if (HealthPoint<=0)
             {
-                PouseGame.SetCanvasActiveEndOfGame(false);
+                PauseGame.SetCanvasActiveEndOfGame(false);
             }
         }
     }

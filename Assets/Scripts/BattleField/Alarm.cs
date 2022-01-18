@@ -17,7 +17,7 @@ public class Alarm : MonoBehaviour
 
     void Update()
     {
-        if (PouseGame.GameIsPoused)
+        if (PauseGame.GameIsPoused)
         {
             soundeffectUpdater.UpdateEffect(audioSource);
             return;
