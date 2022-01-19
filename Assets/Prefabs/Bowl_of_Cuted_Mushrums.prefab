@@ -8,38 +8,32 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1276615903885392633}
+  - component: {fileID: 8661476324983828970}
   - component: {fileID: 505699494775234469}
   - component: {fileID: 4038858007089304511}
   - component: {fileID: 1747068654705061009}
   - component: {fileID: -2052003552355150982}
-  - component: {fileID: 8437477310916231125}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Bowl_of_Cuted_Mushrums
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1276615903885392633
-RectTransform:
+--- !u!4 &8661476324983828970
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78661904129850929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -17.796333, y: -8.403034, z: 0}
   m_LocalScale: {x: 0.4, y: 0.41, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.796333, y: -8.403034}
-  m_SizeDelta: {x: 3.89, y: 4.14}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &505699494775234469
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106,7 +100,6 @@ MonoBehaviour:
   IngridientType: 5
   Colider: {fileID: 1747068654705061009}
   StickToMouse: 0
-  Renderer: {fileID: 505699494775234469}
 --- !u!58 &1747068654705061009
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -144,11 +137,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!222 &8437477310916231125
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78661904129850929}
-  m_CullTransparentMesh: 1

@@ -9,6 +9,8 @@ public class Wall : MonoBehaviour , IDamageable
     public SoundEffectUpdater soundeffectUpdater;
     [SerializeField]
     private Game Game;//must be set in Unity
+    private AudioSource audioSource;
+    public SoundEffectUpdater soundeffectUpdater;
 
     void Start()
     {
@@ -21,7 +23,11 @@ public class Wall : MonoBehaviour , IDamageable
     // Update is called once per frame
     void Update()
     {
-        
+        if (PauseGame.GameIsPoused)
+        {
+            soundeffectUpdater.UpdateEffect(audioSource);
+            return;
+        }
     }
 
   
@@ -35,6 +41,7 @@ public class Wall : MonoBehaviour , IDamageable
             audioSource.Play();
             StartCoroutine(DataHolder.EffectsHandler.ShakeCamera(0.5f, 0.3f));
             TakeDamage(virus.GiveDamage());
+            
             if (HealthPoint<=0)
             {
                 DataHolder.Labaratory.Culdorn.RemoveRecepy();
