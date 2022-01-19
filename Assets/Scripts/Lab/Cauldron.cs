@@ -202,7 +202,6 @@ public class Cauldron : MonoBehaviour
         int index = 0;
         foreach (KeyValuePair<IngridientsType, Sprite> kvp in pairsOfIngredientTypeSpriteName)
         {
-            Debug.Log("Key = "+ kvp.Key + " Value = "+ kvp.Value +" " );
             int count_of_Ingredient = GetCountOfIngredientsInActiveRecepy(kvp.Key);
             if (count_of_Ingredient > 0)
             {
@@ -489,6 +488,7 @@ public class Cauldron : MonoBehaviour
         return count ;
     }
     public void RemoveRecepy() {
+        Debug.Log("remove recepiii");
         ActiveRecepy.Clear();
         RemoveCanvasRecepy();
     }
