@@ -495,11 +495,8 @@ public class Cauldron : MonoBehaviour
         return count ;
     }
     public void RemoveRecepy() {
-<<<<<<< HEAD
-        Debug.Log("REMOVING RECEPY ???");
-=======
+
         Debug.Log("remove recepiii");
->>>>>>> f03da8e704f5332b0e3ecbbbf315428ce7b15de3
         ActiveRecepy.Clear();
         RemoveCanvasRecepy();
     }

@@ -9,8 +9,6 @@ public class Wall : MonoBehaviour , IDamageable
     public SoundEffectUpdater soundeffectUpdater;
     [SerializeField]
     private Game Game;//must be set in Unity
-    private AudioSource audioSource;
-    public SoundEffectUpdater soundeffectUpdater;
 
     void Start()
     {
