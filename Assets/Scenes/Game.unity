@@ -14564,7 +14564,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!224 &1498391383
 RectTransform:
@@ -16768,6 +16768,8 @@ MonoBehaviour:
   - {fileID: 1582856478}
   - {fileID: 514780598}
   IngrediedtPripering: {fileID: 84324783}
+  effectsSteamCoocking: {fileID: 1194998747}
+  spoonAnimation: {fileID: 1541222386}
 --- !u!82 &1715592308
 AudioSource:
   m_ObjectHideFlags: 0

@@ -49,6 +49,15 @@ public class IngridientsCook : MonoBehaviour
                 soundeffectUpdater.UpdateEffect(audioSource);
                 return;
             }
+            if (DataHolder.Wizzard.CurrentLocation == Location.BattleField)
+            {
+                IngrediedtPripering.gameObject.SetActive(false);
+            }
+            else if (DataHolder.Game.Wizzard.gameObject.transform.position.x <= -20f)
+            {
+                IngrediedtPripering.gameObject.SetActive(true);
+            }
+            
             CookingTime -= Time.deltaTime;
             if (audioClips.ToArray().Length > 0 && !audioSource.isPlaying) // cuting bord sounds
             {

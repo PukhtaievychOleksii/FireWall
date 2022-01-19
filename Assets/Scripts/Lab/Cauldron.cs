@@ -34,6 +34,11 @@ public class Cauldron : MonoBehaviour
     public List<GameObject> ActiveRecepyShowItems;
     public List<TextMeshProUGUI> ActiveRecepyCanvasHolderForItemsTexts;
     [SerializeField] Slider IngrediedtPripering;
+
+    public ParticleSystem effectsSteamCoocking;
+    public Animator spoonAnimation;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +46,9 @@ public class Cauldron : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         IngrediedtPripering.value = 0f;
         IngrediedtPripering.gameObject.SetActive(false);
+
+        effectsSteamCoocking.Stop();
+        spoonAnimation.SetTrigger("off");
 
         soundeffectUpdater.UpdateEffect(audioSource);
         pairsOfIngredientTypeSpriteName.Add(IngridientsType.Infusion, spritesForDict[3]);
@@ -70,6 +78,14 @@ public class Cauldron : MonoBehaviour
             // run animation 
             CookingTime -= Time.deltaTime;
             IngrediedtPripering.value = 1 - (CookingTime / TimeToNextCookingTime);
+            if (DataHolder.Wizzard.CurrentLocation == Location.BattleField)
+            {
+                IngrediedtPripering.gameObject.SetActive(false);
+            }
+            else if (DataHolder.Game.Wizzard.gameObject.transform.position.x <= -20f)
+            {
+                IngrediedtPripering.gameObject.SetActive(true);
+            }
             if (CookingTime < 0)
             {
                 CookingTime = TimeToNextCookingTime;
@@ -78,6 +94,8 @@ public class Cauldron : MonoBehaviour
                 audioSource.Stop();
                 IsOccupide = false;
                 ActiveRecepyCooking = 0;
+                spoonAnimation.SetTrigger("off");
+                
                 IngrediedtPripering.gameObject.SetActive(false);
             }
         }
@@ -104,11 +122,8 @@ public class Cauldron : MonoBehaviour
         {
             CookingTime -= SpeedUpProcess;
         }
-        //Debug.Log("CULDRON SOM TUNA");
         if (DataHolder.Wizzard.CurrentIngridient == null) return;
         if (!CanBeConsumed(DataHolder.Wizzard.CurrentIngridient.IngridientType)) return;
-        //Debug.Log("SPRITE of INGREDIENT " + DataHolder.Wizzard.CurrentIngridient.GetComponent<SpriteRenderer>().sprite.name); // TOTO!!!
-        //Debug.Log("CULDRON " + DataHolder.Wizzard.CurrentIngridient.IngridientType);
         Consume();
     }
 
@@ -176,7 +191,8 @@ public class Cauldron : MonoBehaviour
                     ActiveRecepyCooking = IsCorectRecepy;
                     IngrediedtPripering.gameObject.SetActive(true);
                     audioSource.Play();
-                    Debug.Log("COOOKIIING");
+                    effectsSteamCoocking.Play();
+                    spoonAnimation.SetTrigger("on");
                     RemoveCanvasRecepy();
 
 
@@ -220,22 +236,6 @@ public class Cauldron : MonoBehaviour
             }
 
         }
-        /*if (IsCorrectRecepy1() > 0 && IsCorrectRecepy2() < 0 && IsCorrectRecepy3() < 0 && IsCorrectRecepy4() < 0)
-        {
-            Debug.Log("IsCorrectRecepy1");
-        }
-        else if (IsCorrectRecepy2() > 0 && IsCorrectRecepy1() < 0 && IsCorrectRecepy3() < 0 && IsCorrectRecepy4() < 0)
-        {
-            Debug.Log("IsCorrectRecepy2");
-        }
-        else if (IsCorrectRecepy3() > 0 && IsCorrectRecepy1() < 0 && IsCorrectRecepy2() < 0 && IsCorrectRecepy4() < 0)
-        {
-            Debug.Log("IsCorrectRecepy3");
-        }
-        else if (IsCorrectRecepy4() > 0 && IsCorrectRecepy1() < 0 && IsCorrectRecepy2() < 0 && IsCorrectRecepy3() < 0)
-        {
-            Debug.Log("IsCorrectRecepy4");
-        }*/
     }
     private int GetCountOfIngredientsInActiveRecepy(IngridientsType ingridient) 
     {
@@ -254,79 +254,6 @@ public class Cauldron : MonoBehaviour
     
     }
 
-    /*private int IsCorrectRecepy1()
-    {
-        int foundedrecepy = -1;
-        foreach (IngridientsType item in ActiveRecepy)
-        {
-            if (CountIngredientsInRecepyIsOK(item, recep1, ActiveRecepy) >= 0)
-            {
-                foundedrecepy = 1;
-                continue;
-            }
-            else
-            {
-                foundedrecepy = -1;
-                break;
-            }
-        }
-        return foundedrecepy;
-    }
-    private int IsCorrectRecepy2()
-    {
-        int foundedrecepy = -1;
-        foreach (IngridientsType item in ActiveRecepy)
-        {
-            if (CountIngredientsInRecepyIsOK(item, recep2, ActiveRecepy) >= 0)
-            {
-                foundedrecepy = 2;
-                continue;
-            }
-            else
-            {
-                foundedrecepy = -1;
-                break;
-            }
-        }
-        return foundedrecepy;
-    }
-    private int IsCorrectRecepy3()
-    {
-        int foundedrecepy = -1;
-        foreach (IngridientsType item in ActiveRecepy)
-        {
-            if (CountIngredientsInRecepyIsOK(item, recep3, ActiveRecepy) >= 0)
-            {
-                foundedrecepy = 3;
-                continue;
-            }
-            else
-            {
-                foundedrecepy = -1;
-                break;
-            }
-        }
-        return foundedrecepy;
-    }
-    private int IsCorrectRecepy4()
-    {
-        int foundedrecepy = -1;
-        foreach (IngridientsType item in ActiveRecepy)
-        {
-            if (CountIngredientsInRecepyIsOK(item, recep4, ActiveRecepy) >= 0)
-            {
-                foundedrecepy = 4;
-                continue;
-            }
-            else
-            {
-                foundedrecepy = -1;
-                break;
-            }
-        }
-
-        return foundedrecepy;
-    }*/
 
 
     public bool CheckCorrectRecepysCount(int RecepyNumber) {
@@ -477,7 +404,6 @@ public class Cauldron : MonoBehaviour
     }
     public int CountIngredientsInRecepyIsOK(IngridientsType Ingredient, List<IngridientsType> Recep, List<IngridientsType> ActiveRecep) {
         int count = 0;
-        bool IsOkCount = false;
         foreach (IngridientsType item in Recep)
         {
             if (item == Ingredient)
