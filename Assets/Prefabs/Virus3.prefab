@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovingSpeed: 0.002
+  MovingTime: 0.1
   Destination: {x: 0, y: 0, z: 0}
   IShouldMove: 0
   Owner: {fileID: 0}
