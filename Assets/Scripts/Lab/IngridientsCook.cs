@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IngridientsCook : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class IngridientsCook : MonoBehaviour
     private AudioSource audioSource;
     public SoundEffectUpdater soundeffectUpdater;
     public List<AudioClip> audioClips;
+    [SerializeField] Slider IngrediedtPripering;
 
     [HideInInspector]
     public bool IsMouseOver = false;
@@ -25,6 +27,8 @@ public class IngridientsCook : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         soundeffectUpdater.UpdateEffect(audioSource);
+        IngrediedtPripering.value = 0f;
+        IngrediedtPripering.gameObject.SetActive(false);
 
         effectsSteam.Stop();
     }
@@ -57,6 +61,8 @@ public class IngridientsCook : MonoBehaviour
                 AudioClip audioClip = RandomAudioClip();
                 audioSource.PlayOneShot(audioClip);
             }
+
+            IngrediedtPripering.value = 1 - (CookingTime / TimeToNextCookingTime);
             if (CookingTime < 0)
             {
                 CookingTime = TimeToNextCookingTime;
@@ -64,6 +70,7 @@ public class IngridientsCook : MonoBehaviour
                 Is_Occupide = -1;
                 audioSource.Stop();
                 mortarAnim.SetTrigger("off");
+                IngrediedtPripering.gameObject.SetActive(false);
             }
         }
         
@@ -104,6 +111,7 @@ public class IngridientsCook : MonoBehaviour
     }
     private void Consume()
     {
+        IngrediedtPripering.gameObject.SetActive(true);
         Destroy(DataHolder.Wizzard.CurrentIngridient.gameObject);
         audioSource.Play();
         if (this.gameObject.name == "Steamer")

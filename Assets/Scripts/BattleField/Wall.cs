@@ -5,13 +5,17 @@ using UnityEngine;
 public class Wall : MonoBehaviour , IDamageable
 {
     public float HealthPoint = 2;
+    private AudioSource audioSource;
+    public SoundEffectUpdater soundeffectUpdater;
     [SerializeField]
     private Game Game;//must be set in Unity
 
     void Start()
     {
-       /* alarm = GetComponentInChildren<Alarm>();
-        alarm.OnAlarm += DataHolder.EffectsHandler.PlayAlarmEffects;*/
+        /* alarm = GetComponentInChildren<Alarm>();
+         alarm.OnAlarm += DataHolder.EffectsHandler.PlayAlarmEffects;*/
+        audioSource = GetComponent<AudioSource>();
+        soundeffectUpdater.UpdateEffect(audioSource);
     }
 
     // Update is called once per frame
@@ -28,10 +32,12 @@ public class Wall : MonoBehaviour , IDamageable
         if (virus != null)
         {
             virus.Destroy();
+            audioSource.Play();
             StartCoroutine(DataHolder.EffectsHandler.ShakeCamera(0.5f, 0.3f));
             TakeDamage(virus.GiveDamage());
             if (HealthPoint<=0)
             {
+                DataHolder.Labaratory.Culdorn.RemoveRecepy();
                 PauseGame.SetCanvasActiveEndOfGame(false);
             }
         }
@@ -44,7 +50,10 @@ public class Wall : MonoBehaviour , IDamageable
             HealthPoint -= Damage;
             DataHolder.UIHandler.RemoveHeart();
         }
-        else Game.Match.OnDefeated?.Invoke();
+        else {
+            
+            Game.Match.OnDefeated?.Invoke(); 
+        }
         
     }
 }

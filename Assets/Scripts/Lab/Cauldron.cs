@@ -33,11 +33,15 @@ public class Cauldron : MonoBehaviour
     public List<GameObject> ActiveRecepyCanvasHolderForItems;
     public List<GameObject> ActiveRecepyShowItems;
     public List<TextMeshProUGUI> ActiveRecepyCanvasHolderForItemsTexts;
+    [SerializeField] Slider IngrediedtPripering;
     // Start is called before the first frame update
     void Start()
     {
 
         audioSource = GetComponent<AudioSource>();
+        IngrediedtPripering.value = 0f;
+        IngrediedtPripering.gameObject.SetActive(false);
+
         soundeffectUpdater.UpdateEffect(audioSource);
         pairsOfIngredientTypeSpriteName.Add(IngridientsType.Infusion, spritesForDict[3]);
         pairsOfIngredientTypeSpriteName.Add(IngridientsType.Cookie, spritesForDict[0]);
@@ -65,6 +69,7 @@ public class Cauldron : MonoBehaviour
         {
             // run animation 
             CookingTime -= Time.deltaTime;
+            IngrediedtPripering.value = 1 - (CookingTime / TimeToNextCookingTime);
             if (CookingTime < 0)
             {
                 CookingTime = TimeToNextCookingTime;
@@ -73,6 +78,7 @@ public class Cauldron : MonoBehaviour
                 audioSource.Stop();
                 IsOccupide = false;
                 ActiveRecepyCooking = 0;
+                IngrediedtPripering.gameObject.SetActive(false);
             }
         }
         
@@ -168,6 +174,7 @@ public class Cauldron : MonoBehaviour
                     // start cooking
                     IsOccupide = true;
                     ActiveRecepyCooking = IsCorectRecepy;
+                    IngrediedtPripering.gameObject.SetActive(true);
                     audioSource.Play();
                     Debug.Log("COOOKIIING");
                     RemoveCanvasRecepy();
@@ -202,7 +209,6 @@ public class Cauldron : MonoBehaviour
         int index = 0;
         foreach (KeyValuePair<IngridientsType, Sprite> kvp in pairsOfIngredientTypeSpriteName)
         {
-            Debug.Log("Key = "+ kvp.Key + " Value = "+ kvp.Value +" " );
             int count_of_Ingredient = GetCountOfIngredientsInActiveRecepy(kvp.Key);
             if (count_of_Ingredient > 0)
             {
@@ -489,6 +495,7 @@ public class Cauldron : MonoBehaviour
         return count ;
     }
     public void RemoveRecepy() {
+        Debug.Log("REMOVING RECEPY ???");
         ActiveRecepy.Clear();
         RemoveCanvasRecepy();
     }
