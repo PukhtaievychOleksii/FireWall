@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovingSpeed: 0.005
-  MovingTime: 0.5
   Destination: {x: 0, y: 0, z: 0}
   IShouldMove: 0
   Owner: {fileID: 0}

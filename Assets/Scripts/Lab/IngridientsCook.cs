@@ -45,11 +45,6 @@ public class IngridientsCook : MonoBehaviour
                 soundeffectUpdater.UpdateEffect(audioSource);
                 return;
             }
-            if(CookingTime == TimeToNextCookingTime)
-            {
-                Ingridient ingridient = GiveReadyIngridient();
-                ingridient.StartPreparingShow(TimeToNextCookingTime);
-            }
             CookingTime -= Time.deltaTime;
             if (audioClips.ToArray().Length > 0 && !audioSource.isPlaying) // cuting bord sounds
             {
@@ -60,7 +55,7 @@ public class IngridientsCook : MonoBehaviour
             if (CookingTime < 0)
             {
                 CookingTime = TimeToNextCookingTime;
-                //GiveReadyIngridient();
+                GiveReadyIngridient();
                 Is_Occupide = -1;
                 audioSource.Stop();
                 mortarAnim.SetTrigger("off");
@@ -97,10 +92,11 @@ public class IngridientsCook : MonoBehaviour
         Debug.Log("TryGetIngridient" + DataHolder.Wizzard.CurrentIngridient.IngridientType);
         Consume();
     }
-    public Ingridient GiveReadyIngridient()
+    public void GiveReadyIngridient()
     {
         Ingridient ingridient = DataHolder.Factory.AddIngridient(ReadyIngridient[Is_Occupide], transform.position);
-        return ingridient;
+        ingridient.gameObject.layer = LayerMask.NameToLayer("Default");
+        
     }
     private void Consume()
     {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4038858007089304511}
   - component: {fileID: -5064406976550237247}
   - component: {fileID: -2460388075439493409}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Bowl_of_Steamed_Star_Fruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,6 @@ MonoBehaviour:
   IngridientType: 8
   Colider: {fileID: -5064406976550237247}
   StickToMouse: 0
-  Renderer: {fileID: 505699494775234469}
 --- !u!58 &-5064406976550237247
 CircleCollider2D:
   m_ObjectHideFlags: 0
