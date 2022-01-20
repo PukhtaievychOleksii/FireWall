@@ -75,6 +75,8 @@ public class IngridientsCook : MonoBehaviour
                 audioSource.Stop();
                 mortarAnim.SetTrigger("off");
                 IngrediedtPripering.gameObject.SetActive(false);
+
+                effectsSteam.Stop();
             }
         }
         

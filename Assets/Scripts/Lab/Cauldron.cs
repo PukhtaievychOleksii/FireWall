@@ -48,7 +48,7 @@ public class Cauldron : MonoBehaviour
         IngrediedtPripering.gameObject.SetActive(false);
 
         effectsSteamCoocking.Stop();
-        spoonAnimation.SetTrigger("off");
+        //spoonAnimation.SetTrigger("off");
 
         soundeffectUpdater.UpdateEffect(audioSource);
         pairsOfIngredientTypeSpriteName.Add(IngridientsType.Infusion, spritesForDict[3]);
@@ -95,8 +95,11 @@ public class Cauldron : MonoBehaviour
                 IsOccupide = false;
                 ActiveRecepyCooking = 0;
                 spoonAnimation.SetTrigger("off");
+                Debug.Log("OOOOOOOOFFFFFFFF");
                 
                 IngrediedtPripering.gameObject.SetActive(false);
+
+                effectsSteamCoocking.Stop();
             }
         }
         
@@ -193,6 +196,7 @@ public class Cauldron : MonoBehaviour
                     audioSource.Play();
                     effectsSteamCoocking.Play();
                     spoonAnimation.SetTrigger("on");
+                    Debug.Log("OOOOOOOONNNNNNNN");
                     RemoveCanvasRecepy();
 
 

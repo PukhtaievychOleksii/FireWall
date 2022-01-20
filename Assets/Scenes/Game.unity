@@ -889,7 +889,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.485
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -14900,7 +14900,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 0.485
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -19844,7 +19844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7627235781380632942, guid: 379a77b1d190d5f44950d34962d6873a, type: 3}
       propertyPath: looping
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7627235781380632942, guid: 379a77b1d190d5f44950d34962d6873a, type: 3}
       propertyPath: lengthInSec
