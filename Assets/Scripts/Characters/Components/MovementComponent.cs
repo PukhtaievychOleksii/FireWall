@@ -18,8 +18,17 @@ public class MovementComponent : MonoBehaviour
     {
         if(IShouldMove && VariablesFilled() && !PauseGame.GameIsPoused)
         {
-            Owner.transform.position = Vector3.MoveTowards(Owner.transform.position, Destination,MovingSpeed);
-            if (Owner.transform.position == Destination) IShouldMove = false;
+            if (Destination.x < Owner.transform.position.x)
+            {
+                Owner.transform.position = new Vector3(Owner.transform.position.x - Time.deltaTime * MovingSpeed, Owner.transform.position.y);
+                if (Owner.transform.position.x <= Destination.x) IShouldMove = false;
+            }
+            else 
+            {
+                Owner.transform.position = new Vector3(Owner.transform.position.x + Time.deltaTime * MovingSpeed, Owner.transform.position.y);
+                if (Owner.transform.position.x >= Destination.x) IShouldMove = false;
+            }
+            //Vector3.MoveTowards(Owner.transform.position, Destination,MovingSpeed);
         }
     }
 

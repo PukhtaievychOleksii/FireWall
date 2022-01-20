@@ -51,7 +51,6 @@ public class Virus : Character, ICanAttack, IDamageable
 
     public void OnDeath()
     {
-        Debug.Log("POSLEDNIIIII");
         DataHolder.Wizzard.UpdateScoreKilledMonsters();
         DataHolder.Labaratory.Culdorn.RemoveRecepy();
         Destroy(gameObject);
