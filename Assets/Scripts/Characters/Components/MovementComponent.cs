@@ -18,7 +18,11 @@ public class MovementComponent : MonoBehaviour
     {
         if(IShouldMove && VariablesFilled() && !PauseGame.GameIsPoused)
         {
-            if (Destination.x < Owner.transform.position.x)
+            if(gameObject.GetComponent<Wizzard>() != null)
+            {
+                Owner.transform.position = Vector3.MoveTowards(Owner.transform.position, Vector3.Lerp(Owner.transform.position, Destination, 0.065f),MovingSpeed / 50);
+            }
+            else if (Destination.x < Owner.transform.position.x)
             {
                 Owner.transform.position = new Vector3(Owner.transform.position.x - Time.deltaTime * MovingSpeed, Owner.transform.position.y);
                 if (Owner.transform.position.x <= Destination.x) IShouldMove = false;
