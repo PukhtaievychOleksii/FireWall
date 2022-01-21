@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6020701363797933537}
   - component: {fileID: 8266965922877226992}
   - component: {fileID: 6842105130782538199}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: left_hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 146828622218513785}
   - component: {fileID: 4506270612431133268}
   - component: {fileID: -4524701823918316189}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Virus2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,6 +170,7 @@ MonoBehaviour:
   MovingSpeed: 0.5
   Destination: {x: 0, y: 0, z: 0}
   IShouldMove: 0
+  Owner: {fileID: 0}
 --- !u!50 &4506270612431133268
 Rigidbody2D:
   serializedVersion: 4
@@ -218,7 +219,7 @@ GameObject:
   - component: {fileID: 9469882603981187}
   - component: {fileID: 4144631058841791643}
   - component: {fileID: 3376076751514902370}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +323,7 @@ GameObject:
   - component: {fileID: 7726363645676709757}
   - component: {fileID: 7714827778891974752}
   - component: {fileID: 6324363700222493773}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: right_hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
