@@ -64,4 +64,10 @@ public static class DataHolder
         SoundManager = manager;
     }*/
 
+    public static BattleField BattleField { get; private set; }
+
+    public static void SetBattleField(BattleField battleField){
+        BattleField = battleField;
+    }
+
 }

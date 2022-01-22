@@ -5,21 +5,20 @@ using UnityEngine;
 public class BattleField : MonoBehaviour
 {
     public GameObject BattleCursor;
-    private float BattleCursorSizeX;
-    private float BattleCursorSizeY;
+
+    private Color InitialCursorColor;
     void Start()
     {
-        BattleCursor.SetActive(false);
-        SpriteRenderer Renderer = BattleCursor.GetComponent<SpriteRenderer>();
-        BattleCursorSizeX = Renderer.sprite.bounds.size.x;
-        BattleCursorSizeY = Renderer.sprite.bounds.size.y;
+        BattleCursor.SetActive(false);   
+        DataHolder.SetBattleField(this);
+        InitialCursorColor = BattleCursor.GetComponent<SpriteRenderer>().color;
         
     }
 
     void Update()
     {
         Vector2 CursorPos = DataHolder.MainCamera.ScreenToWorldPoint(Input.mousePosition);
-        CursorPos = new Vector2(CursorPos.x /*+ BattleCursorSizeX / 2*/, CursorPos.y /*+ BattleCursorSizeY / 2*/);
+        CursorPos = new Vector2(CursorPos.x, CursorPos.y);
         BattleCursor.transform.position = CursorPos;
     }
 
@@ -32,12 +31,28 @@ public class BattleField : MonoBehaviour
         DataHolder.Cannon.CanShoot = true;
         Cursor.visible = false;
         BattleCursor.SetActive(true);
+        SetCursorUnAimed();
+        
         
     }
     private void OnMouseExit()
     {
         DataHolder.Cannon.CanShoot = false;
-        Cursor.visible = true;
+        UnityEngine.Cursor.visible = true;
         BattleCursor.SetActive(false);
+    }
+
+
+    public void SetCursorAimed()
+    {
+        
+        BattleCursor.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        BattleCursor.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+    public  void SetCursorUnAimed()
+    {
+        
+        BattleCursor.GetComponent<SpriteRenderer>().color = InitialCursorColor;
+        BattleCursor.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }

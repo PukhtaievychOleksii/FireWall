@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    [HideInInspector]
     public Game Game;
+    [HideInInspector]
     public GameObject CharacterGameObject;
+    [HideInInspector]
     public MovementComponent MovementComponent;
     // Start is called before the first frame update
    
