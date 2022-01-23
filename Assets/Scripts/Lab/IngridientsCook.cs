@@ -73,10 +73,18 @@ public class IngridientsCook : MonoBehaviour
                 GiveReadyIngridient();
                 Is_Occupide = -1;
                 audioSource.Stop();
-                mortarAnim.SetTrigger("off");
+
+                if (this.gameObject.name == "Mortar")
+                {
+                    mortarAnim.SetTrigger("off");
+                }
+
                 IngrediedtPripering.gameObject.SetActive(false);
 
-                effectsSteam.Stop();
+                if (this.gameObject.name == "Steamer")
+                {
+                    effectsSteam.Stop();
+                }
             }
         }
         
