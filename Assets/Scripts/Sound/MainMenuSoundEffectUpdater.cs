@@ -10,7 +10,11 @@ public class MainMenuSoundEffectUpdater : MonoBehaviour
     public void Update()
     {
         soundEffectUpdater.UpdateEffect(audioSourceClick);
-        soundEffectUpdater.UpdateMain(audioSourceMainSound);
+        if (audioSourceMainSound != null)
+        {
+            soundEffectUpdater.UpdateMain(audioSourceMainSound);
+        }
+        
     }
     public void ClickOnButton()
     {

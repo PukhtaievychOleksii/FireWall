@@ -16296,7 +16296,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72460e4c3f289834ab1a8e5721cd19c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1658033911}
+  audioSourceClick: {fileID: 1658033911}
+  audioSourceMainSound: {fileID: 0}
+  soundEffectUpdater: {fileID: 533044474}
 --- !u!82 &1658033911
 AudioSource:
   m_ObjectHideFlags: 0
