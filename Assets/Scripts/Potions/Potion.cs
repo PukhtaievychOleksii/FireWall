@@ -43,7 +43,7 @@ public class Potion : Projectile
     // Update is called once per frame
     void Update()
     {
-        if (PauseGame.GameIsPoused) {
+        if (PauseGame.GameIsPaused) {
             soundeffectUpdater.UpdateEffect(audioSource);
             return;
         }

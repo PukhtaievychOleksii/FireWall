@@ -44,7 +44,7 @@ public class IngridientsCook : MonoBehaviour
     {
         if (Is_Occupide >= 0)
         {
-            if (PauseGame.GameIsPoused)
+            if (PauseGame.GameIsPaused)
             {
                 soundeffectUpdater.UpdateEffect(audioSource);
                 return;
@@ -142,6 +142,8 @@ public class IngridientsCook : MonoBehaviour
     private void OnMouseEnter()
     {
         IsMouseOver = true;
+        DataHolder.Labaratory.EnableLabCursor();
+        
     }
 
     private void OnMouseExit()

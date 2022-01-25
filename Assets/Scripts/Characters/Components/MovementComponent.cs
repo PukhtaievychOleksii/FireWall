@@ -16,7 +16,7 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IShouldMove && VariablesFilled() && !PauseGame.GameIsPoused)
+        if(IShouldMove && VariablesFilled() && !PauseGame.GameIsPaused)
         {
             if(gameObject.GetComponent<Wizzard>() != null)
             {

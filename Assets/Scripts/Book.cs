@@ -7,7 +7,7 @@ public class Book : MonoBehaviour
     public GameObject BookWithRecepis;
     void OnMouseEnter()
     {
-        if (PauseGame.GameIsPoused) return;
+        if (PauseGame.GameIsPaused) return;
         BookWithRecepis.SetActive(true);
     }
 

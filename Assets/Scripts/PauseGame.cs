@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class PauseGame : MonoBehaviour
+public class PauseGame : MonoBehaviour/*, IPointerEnterHandler, IPointerExitHandler*/
 {
-    public static bool GameIsPoused = false;
+    public static bool GameIsPaused = false;
     public static bool MenuIsActive = false;
     public static bool MenuIsActiveOptions = false;
     private static bool LoadedSettings = false;
@@ -25,7 +26,7 @@ public class PauseGame : MonoBehaviour
     }
     public static void SetCanvasDeffoult() 
     {
-        GameIsPoused = false;
+        GameIsPaused = false;
         MenuIsActive = false;
         MenuIsActiveOptions = false;
         LoadedSettings = false;
@@ -38,7 +39,12 @@ public class PauseGame : MonoBehaviour
         MenuIsActiveOptions = true;
         } // becouse script is used in MainMenu Scene
         Debug.Log("SetCanvasActiveEndOfGame   AFTER");
-        GameIsPoused = !GameIsPoused;
+        GameIsPaused = !GameIsPaused;
+        if (GameIsPaused == false)
+        {
+            if(DataHolder.Wizzard.CurrentLocation == Location.BattleField) DataHolder.BattleField.EnableBattleCursor();
+            if (DataHolder.Wizzard.CurrentLocation == Location.Labaratory) DataHolder.Labaratory.EnableLabCursor();
+        }
         EndOfGame = !EndOfGame;
     }
 
@@ -52,7 +58,12 @@ public class PauseGame : MonoBehaviour
     public static void SetCanvasActive()
     {
         
-        GameIsPoused = !GameIsPoused;
+        GameIsPaused = !GameIsPaused;
+        if (GameIsPaused == false)
+        {
+            if (DataHolder.Wizzard.CurrentLocation == Location.BattleField) DataHolder.BattleField.EnableBattleCursor();
+            if (DataHolder.Wizzard.CurrentLocation == Location.Labaratory) DataHolder.Labaratory.EnableLabCursor();
+        }
         MenuIsActive = !MenuIsActive;
         LoadedSettings = false;
 
@@ -64,16 +75,25 @@ public class PauseGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameIsPoused)
+        if (GameIsPaused)
         {
             //DataHolder.SoundManager.UpdateSound();
 
         }
-        CanvasMainBaground.SetActive(GameIsPoused);
+        else
+        {
+
+        }
+        CanvasMainBaground.SetActive(GameIsPaused);
         CanvasMainManu.SetActive(MenuIsActive);
         CanvasMainManuOptions.SetActive(MenuIsActiveOptions);
         CanvasEndOfGame.SetActive(EndOfGame);
-
+        if (GameIsPaused || MenuIsActive || MenuIsActiveOptions || EndOfGame)
+        {
+            DataHolder.BattleField.DisableBattleCursor();
+            DataHolder.Labaratory.DisableLabCursor();
+        }
+        //else if (DataHolder.BattleField.BattleCursorObject.active == false) DataHolder.BattleField.EnableBattleCursor();
 
 
         /*if (MenuIsActive)
@@ -87,4 +107,8 @@ public class PauseGame : MonoBehaviour
         }*/
 
     }
+
+  
+
+
 }

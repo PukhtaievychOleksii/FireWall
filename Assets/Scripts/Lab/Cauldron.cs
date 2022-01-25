@@ -68,7 +68,7 @@ public class Cauldron : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PauseGame.GameIsPoused)
+        if (PauseGame.GameIsPaused)
         {
             soundeffectUpdater.UpdateEffect(audioSource);
             return;
@@ -445,10 +445,14 @@ public class Cauldron : MonoBehaviour
     private void OnMouseEnter()
     {
         IsMouseOver = true;
+        DataHolder.Labaratory.EnableLabCursor();
+        
     }
 
     private void OnMouseExit()
     {
         IsMouseOver = false;
     }
+
+
 }

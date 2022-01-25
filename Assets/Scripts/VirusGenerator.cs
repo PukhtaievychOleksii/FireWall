@@ -20,7 +20,7 @@ public class VirusGenerator : MonoBehaviour
 // Update is called once per frame
 void Update()
     {
-        if (PauseGame.GameIsPoused) return;
+        if (PauseGame.GameIsPaused) return;
         TimeToNextVirusSpawn -= Time.deltaTime;
         if (TimeBettwenVirusesSpawn >= 7.5f && TimeToNextVirusSpawn < 0) // 5 monsters in 40sek
         {

@@ -42,7 +42,7 @@ public class Wizzard : Character
     // Update is called once per frame
     void Update()
     {
-        if (PauseGame.GameIsPoused)
+        if (PauseGame.GameIsPaused)
         {
             soundeffectUpdater.UpdateMain(audioSource);
             return;

@@ -39,6 +39,8 @@ public class IngridientSource : MonoBehaviour
     public void OnMouseEnter()
     {
         IsMouseOver = true;
+        DataHolder.Labaratory.EnableLabCursor();
+        
     }
 
     public void OnMouseExit()

@@ -7,13 +7,11 @@ public class Wall : MonoBehaviour , IDamageable
     public float HealthPoint = 2;
     private AudioSource audioSource;
     public SoundEffectUpdater soundeffectUpdater;
-    [SerializeField]
-    private Game Game;//must be set in Unity
+    public GameObject LabCursor;
+
 
     void Start()
     {
-        /* alarm = GetComponentInChildren<Alarm>();
-         alarm.OnAlarm += DataHolder.EffectsHandler.PlayAlarmEffects;*/
         audioSource = GetComponent<AudioSource>();
         soundeffectUpdater.UpdateEffect(audioSource);
     }
@@ -21,7 +19,7 @@ public class Wall : MonoBehaviour , IDamageable
     // Update is called once per frame
     void Update()
     {
-        if (PauseGame.GameIsPoused)
+        if (PauseGame.GameIsPaused)
         {
             soundeffectUpdater.UpdateEffect(audioSource);
             return;
@@ -55,10 +53,8 @@ public class Wall : MonoBehaviour , IDamageable
             HealthPoint -= Damage;
             DataHolder.UIHandler.RemoveHeart();
         }
-        else {
-            
-            Game.Match.OnDefeated?.Invoke(); 
-        }
+      
         
     }
+
 }

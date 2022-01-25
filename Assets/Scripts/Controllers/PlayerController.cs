@@ -17,7 +17,7 @@ public class PlayerController : Controller
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (PauseGame.GameIsPoused && PauseGame.MenuIsActiveOptions)
+            if (PauseGame.GameIsPaused && PauseGame.MenuIsActiveOptions)
             {
                 PauseGame.SetCanvasActiveOptions();
                 return;
@@ -26,7 +26,7 @@ public class PlayerController : Controller
             PauseGame.SetCanvasActive();
             
         }
-        if (PauseGame.GameIsPoused) return;
+        if (PauseGame.GameIsPaused) return;
         
 
         if (Input.GetKeyDown(KeyCode.Tab) && ControlledCharacter is Wizzard) (ControlledCharacter as Wizzard).ChangeLocation();
@@ -47,10 +47,11 @@ public class PlayerController : Controller
                     DataHolder.Labaratory.Culdorn.TryGetIngridient();
                 }
 
-                if (DataHolder.Labaratory.Thresh.IsMouseOver)
+                if (DataHolder.Labaratory.Trash.IsMouseOver)
                 {
-                    DataHolder.Labaratory.Thresh.TryDeleteIngridient();
+                    DataHolder.Labaratory.Trash.TryDeleteIngridient();
                 }
+                DataHolder.Labaratory.LabCursor.GetComponent<LabCursor>().StartMagicEffect();
 
             }
         }

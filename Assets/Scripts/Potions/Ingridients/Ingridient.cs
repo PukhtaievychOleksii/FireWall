@@ -39,13 +39,7 @@ public class Ingridient : MonoBehaviour
         {
             return;
         }
-        /*
-         * if i add corectli the wey of clicking this could be deleted
-         if (DataHolder.Wizzard.CurrentIngridient != null)
-        {
-            DataHolder.Labaratory.RemoveIngridient();
-        }
-        */
+        
         DataHolder.Wizzard.CurrentIngridient = this;
         if (Colider != null)
         {
@@ -59,5 +53,11 @@ public class Ingridient : MonoBehaviour
 
         StickToMouse = true;
     }
+
+    private void OnMouseEnter()
+    {
+        DataHolder.Labaratory.EnableLabCursor();
+    }
+
 
 }
