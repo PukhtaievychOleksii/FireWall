@@ -4073,6 +4073,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633023888}
   m_CullTransparentMesh: 1
+--- !u!95 &667476509 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5836978710264218639, guid: 64ead30e36e10a847b7164300c14e44a, type: 3}
+  m_PrefabInstance: {fileID: 1029171264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &673248926
 GameObject:
   m_ObjectHideFlags: 0
@@ -7077,6 +7082,11 @@ PolygonCollider2D:
       - {x: -0.98316026, y: -0.39600286}
       - {x: 0.9856937, y: -0.42322996}
       - {x: 0.5685539, y: 0.40674213}
+--- !u!95 &1105412723 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1625885305055926364, guid: 64ead30e36e10a847b7164300c14e44a, type: 3}
+  m_PrefabInstance: {fileID: 1029171264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1107269039
 GameObject:
   m_ObjectHideFlags: 0
@@ -7412,6 +7422,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1176497210 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4743845626346405462, guid: 64ead30e36e10a847b7164300c14e44a, type: 3}
+  m_PrefabInstance: {fileID: 1029171264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1194595647
 GameObject:
   m_ObjectHideFlags: 0
@@ -15341,6 +15356,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BattleCursor: {fileID: 1943374176}
+  CursorAnimator:
+  - {fileID: 1105412723}
+  - {fileID: 667476509}
+  - {fileID: 1802110234}
+  - {fileID: 1176497210}
 --- !u!61 &1564542558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17813,6 +17833,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1802110234 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5760559163673013293, guid: 64ead30e36e10a847b7164300c14e44a, type: 3}
+  m_PrefabInstance: {fileID: 1029171264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1804746481
 GameObject:
   m_ObjectHideFlags: 0
@@ -19594,7 +19619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2081397360
 RectTransform:
   m_ObjectHideFlags: 0
