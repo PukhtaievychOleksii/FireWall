@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 463823438202290609, guid: 279e6cef36749874d801625e33564098, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 463823438202290609, guid: 279e6cef36749874d801625e33564098, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.39753774
+      objectReference: {fileID: 0}
+    - target: {fileID: 463823438202290609, guid: 279e6cef36749874d801625e33564098, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.29355645
+      objectReference: {fileID: 0}
     - target: {fileID: 2883009185127632643, guid: 279e6cef36749874d801625e33564098, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -63,6 +75,18 @@ PrefabInstance:
       propertyPath: PotionImage
       value: 
       objectReference: {fileID: 21300000, guid: 1ab77e398d0cb87409931204099ea548, type: 3}
+    - target: {fileID: 3806566790800803954, guid: 279e6cef36749874d801625e33564098, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.5943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806566790800803954, guid: 279e6cef36749874d801625e33564098, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.4096411
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806566790800803954, guid: 279e6cef36749874d801625e33564098, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.13120325
+      objectReference: {fileID: 0}
     - target: {fileID: 4461697432955114930, guid: 279e6cef36749874d801625e33564098, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -77,6 +101,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4461697432955114930, guid: 279e6cef36749874d801625e33564098, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461697432955114930, guid: 279e6cef36749874d801625e33564098, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5370866044657080695, guid: 279e6cef36749874d801625e33564098, type: 3}

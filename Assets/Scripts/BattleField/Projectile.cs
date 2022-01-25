@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour,ICanAttack
     private Vector3 destination;
     public float HitTime;
     public float Damage;
+
+    bool alreadyExploded = false;
    
     void Start()
     {
@@ -26,7 +28,12 @@ public class Projectile : MonoBehaviour,ICanAttack
            
             if (this is Potion)
             {
-                (this as Potion).Explode();
+                if (alreadyExploded == false)
+                {
+                    (this as Potion).Explode();
+                    alreadyExploded = true;
+                }
+
                 StartCoroutine((this as Potion).DestroyPotion());
 
             }

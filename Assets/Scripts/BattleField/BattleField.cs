@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BattleField : MonoBehaviour
 {
-    public GameObject BattleCursorObject;
-    public Vector3 CursorSpawnPosition;
+    public GameObject BattleCursor;
+    public Animator[] CursorAnimator;
+
+
     private Color InitialCursorColor;
     void Start()
     {
@@ -44,15 +46,13 @@ public class BattleField : MonoBehaviour
 
     public void SetCursorAimed()
     {
-
-        BattleCursorObject.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        BattleCursorObject.GetComponent<SpriteRenderer>().color = Color.red;
-    }
-    public void SetCursorUnAimed()
-    {
-
-        BattleCursorObject.GetComponent<SpriteRenderer>().color = InitialCursorColor;
-        BattleCursorObject.transform.localScale = new Vector3(1f, 1f, 1f);
+        for (int i = 0; i < 4; i++)
+        {
+            //CursorAnimator[i].SetTrigger("off");
+            CursorAnimator[i].SetBool("active", true);
+        }
+        //BattleCursor.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        BattleCursor.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     public void EnableBattleCursor()
@@ -69,8 +69,12 @@ public class BattleField : MonoBehaviour
 
     public void RestartCursor()
     {
-        Vector3 pos = BattleCursorObject.transform.position;
-        BattleCursorObject.transform.position = CursorSpawnPosition;
-        BattleCursorObject.transform.position = pos;
+        for (int i = 0; i < 4; i++)
+	{	
+            //CursorAnimator[i].SetTrigger("off");
+            CursorAnimator[i].SetBool("active", false);
+        }
+        BattleCursor.GetComponent<SpriteRenderer>().color = InitialCursorColor;
+        //BattleCursor.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }
