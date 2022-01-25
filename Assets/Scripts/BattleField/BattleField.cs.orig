@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class BattleField : MonoBehaviour
 {
+<<<<<<< HEAD
     public GameObject BattleCursorObject;
+    public Vector3 CursorSpawnPosition;
+=======
+    public GameObject BattleCursor;
     public Animator[] CursorAnimator;
 
-
+>>>>>>> 07d14a1992328ea8d6e760bafd3d58f9133aed02
     private Color InitialCursorColor;
     void Start()
     {
         BattleCursorObject.SetActive(false);
+        BattleCursorObject.transform.position = CursorSpawnPosition;
         DataHolder.SetBattleField(this);
         InitialCursorColor = BattleCursorObject.GetComponent<SpriteRenderer>().color;
 
@@ -45,26 +50,27 @@ public class BattleField : MonoBehaviour
 
     public void SetCursorAimed()
     {
+<<<<<<< HEAD
+
+        BattleCursorObject.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        BattleCursorObject.GetComponent<SpriteRenderer>().color = Color.red;
+    }
+    public void SetCursorUnAimed()
+    {
+
+        BattleCursorObject.GetComponent<SpriteRenderer>().color = InitialCursorColor;
+        BattleCursorObject.transform.localScale = new Vector3(1f, 1f, 1f);
+=======
         for (int i = 0; i < 4; i++)
         {
             //CursorAnimator[i].SetTrigger("off");
             CursorAnimator[i].SetBool("active", true);
         }
         //BattleCursor.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-        BattleCursorObject.GetComponent<SpriteRenderer>().color = Color.red;
+        BattleCursor.GetComponent<SpriteRenderer>().color = Color.red;
+>>>>>>> 07d14a1992328ea8d6e760bafd3d58f9133aed02
     }
 
-
-    public void SetCursorUnAimed()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            //CursorAnimator[i].SetTrigger("off");
-            CursorAnimator[i].SetBool("active", false);
-        }
-        BattleCursorObject.GetComponent<SpriteRenderer>().color = DataHolder.BattleField.InitialCursorColor;
-
-    }
     public void EnableBattleCursor()
     {
         BattleCursorObject.SetActive(true);
@@ -79,12 +85,18 @@ public class BattleField : MonoBehaviour
 
     public void RestartCursor()
     {
+<<<<<<< HEAD
+        Vector3 pos = BattleCursorObject.transform.position;
+        BattleCursorObject.transform.position = CursorSpawnPosition;
+        BattleCursorObject.transform.position = pos;
+=======
         for (int i = 0; i < 4; i++)
-	{	
+        {
             //CursorAnimator[i].SetTrigger("off");
             CursorAnimator[i].SetBool("active", false);
         }
-        BattleCursorObject.GetComponent<SpriteRenderer>().color = InitialCursorColor;
+        BattleCursor.GetComponent<SpriteRenderer>().color = InitialCursorColor;
         //BattleCursor.transform.localScale = new Vector3(1f, 1f, 1f);
+>>>>>>> 07d14a1992328ea8d6e760bafd3d58f9133aed02
     }
 }
