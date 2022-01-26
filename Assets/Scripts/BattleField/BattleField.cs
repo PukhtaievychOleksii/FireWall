@@ -67,14 +67,15 @@ public class BattleField : MonoBehaviour
     }
     public void EnableBattleCursor()
     {
+        //Cursor.visible = false; 
         BattleCursorObject.SetActive(true);
-        Cursor.visible = false;
+        
     }
 
     public void DisableBattleCursor()
     {
         BattleCursorObject.SetActive(false);
-        Cursor.visible = true;
+        //Cursor.visible = true;
     }
 
     public void RestartCursor()

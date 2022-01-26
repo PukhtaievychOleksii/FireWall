@@ -17,17 +17,26 @@ public class PlayerController : Controller
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            
             if (PauseGame.GameIsPaused && PauseGame.MenuIsActiveOptions)
             {
                 PauseGame.SetCanvasActiveOptions();
                 return;
+
             }
-            
             PauseGame.SetCanvasActive();
             
+
+
         }
-        if (PauseGame.GameIsPaused) return;
-        
+        if (PauseGame.GameIsPaused) 
+        {
+            
+            return;
+        } 
+
+       
+
 
         if (Input.GetKeyDown(KeyCode.Tab) && ControlledCharacter is Wizzard) (ControlledCharacter as Wizzard).ChangeLocation();
 

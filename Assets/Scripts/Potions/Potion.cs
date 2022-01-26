@@ -89,9 +89,7 @@ public class Potion : Projectile
         if (!IShouldFade)
         {
             soundeffectUpdater.UpdateEffect(audioSource);
-            //DataHolder.SoundManager.UpdateSoundEffect(AudioSource);
             audioSource.Play();
-            Debug.Log("som tuna PLAY SOUND GLASS BREAK");
         }
         IShouldFade = true;
         

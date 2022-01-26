@@ -22,6 +22,7 @@ public class IngridientsCook : MonoBehaviour
 
     public ParticleSystem effectsSteam;
     public Animator mortarAnim;
+    public string setting;
 
     void Start()
     {
@@ -59,7 +60,7 @@ public class IngridientsCook : MonoBehaviour
             }
             
             CookingTime -= Time.deltaTime;
-            if (audioClips.ToArray().Length > 0 && !audioSource.isPlaying) // cuting bord sounds
+            if (audioClips.ToArray().Length > 0 && !audioSource.isPlaying && AdvacentSetting.CuttingBoardSound) // cuting bord sounds
             {
                 Debug.Log("som tuna");
                 AudioClip audioClip = RandomAudioClip();
@@ -72,7 +73,14 @@ public class IngridientsCook : MonoBehaviour
                 CookingTime = TimeToNextCookingTime;
                 GiveReadyIngridient();
                 Is_Occupide = -1;
+                /*if ((setting == "CuttingBoardSoundONOFF" ) ||
+                    (setting == "GrinderSoundONOFF") ||
+                     (setting == "SteemerSoundONOFF" && AdvacentSetting.SteemerSound))
+                {
+                    audioSource.Stop();
+                }*/
                 audioSource.Stop();
+                //audioSource.Stop();
 
                 if (this.gameObject.name == "Mortar")
                 {
@@ -128,7 +136,16 @@ public class IngridientsCook : MonoBehaviour
     {
         IngrediedtPripering.gameObject.SetActive(true);
         Destroy(DataHolder.Wizzard.CurrentIngridient.gameObject);
-        audioSource.Play();
+        //if "AlarmSoundONOFF", "CuttingBoardSoundONOFF",
+        //"SteemerSoundONOFF", "GrinderSoundONOFF",
+        if ((setting == "CuttingBoardSoundONOFF" && AdvacentSetting.CuttingBoardSound) ||
+            (setting == "GrinderSoundONOFF" && AdvacentSetting.GrinderSound) ||
+            (setting == "SteemerSoundONOFF" && AdvacentSetting.SteemerSound))
+        {
+            audioSource.Play();
+        }
+        
+        //audioSource.Play();
         if (this.gameObject.name == "Steamer")
         {
             effectsSteam.Play();

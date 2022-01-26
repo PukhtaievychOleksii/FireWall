@@ -27,9 +27,12 @@ public class Alarm : MonoBehaviour
 
     public void OnAlarm()
     {
+
         gameObject.SetActive(true);
         //renderer.enabled = true;
         DataHolder.EffectsHandler.StartAlarmEffects();
+        audioSource.mute = !AdvacentSetting.AlarmSound;
+        
     }
 
     public void StopAlarm()

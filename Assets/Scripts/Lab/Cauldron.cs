@@ -39,6 +39,7 @@ public class Cauldron : MonoBehaviour
     public Animator spoonAnimation;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,7 +121,6 @@ public class Cauldron : MonoBehaviour
     public void TryGetIngridient()
     {
         if (IsPoopOccupide) return;
-        Debug.Log("som tuna click");
         if (IsOccupide && CookingTime > 0)
         {
             CookingTime -= SpeedUpProcess;
@@ -193,7 +193,10 @@ public class Cauldron : MonoBehaviour
                     IsOccupide = true;
                     ActiveRecepyCooking = IsCorectRecepy;
                     IngrediedtPripering.gameObject.SetActive(true);
-                    audioSource.Play();
+                    if (AdvacentSetting.CuldronSound)
+                    {
+                        audioSource.Play();
+                    }
                     effectsSteamCoocking.Play();
                     spoonAnimation.SetTrigger("on");
                     Debug.Log("OOOOOOOONNNNNNNN");
@@ -206,8 +209,21 @@ public class Cauldron : MonoBehaviour
                 {
                     // missing ingrediets
                     Debug.Log("Missing ingredient");
-                    SomthingInCuldron.SetActive(true);
-                    CertainRecepyFounded();
+                    if (AdvacentSetting.CuldronHower)
+                    {
+                        SomthingInCuldron.SetActive(true);
+                        CertainRecepyFounded();
+                    }
+                    else 
+                    {
+                        SomthingInCuldron.SetActive(false);
+                        for (int index = 0; index < ActiveRecepyCanvasHolderForItems.Count; index++)
+                        {
+                            ActiveRecepyShowItems[index].SetActive(false);
+                        }
+                    }
+                    
+                    
                     
                 }
             }

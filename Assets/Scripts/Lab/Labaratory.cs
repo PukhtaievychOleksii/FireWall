@@ -55,7 +55,7 @@ public class Labaratory : MonoBehaviour
 
     public void EnableLabCursor()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
         LabCursor.SetActive(true);
         LabCursor.GetComponentInChildren<SpriteRenderer>().enabled = true;
         //LabCursor.GetComponentInChildren<LabCursor>().SetMagicEffect(true);
@@ -63,8 +63,8 @@ public class Labaratory : MonoBehaviour
 
     public void DisableLabCursor()
     {
-        Cursor.visible = true;
-        //LabCursor.SetActive(false);
+        //Cursor.visible = true;
+        LabCursor.SetActive(false);
         LabCursor.GetComponentInChildren<SpriteRenderer>().enabled = false;
        // LabCursor.GetComponentInChildren<LabCursor>().SetMagicEffect(false);
     }

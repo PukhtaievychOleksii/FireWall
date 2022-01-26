@@ -58,10 +58,10 @@ public class Wizzard : Character
 
     public void ChangeLocation()
     {
-        Debug.Log("change loacation");
+        //Debug.Log("change loacation");
         if (CurrentLocation == Location.BattleField)
         {
-            Debug.Log("Location.BattleField");
+            //Debug.Log("Location.BattleField");
             MoveTo(Game.LabPoint.transform.position);
             CurrentLocation = Location.Labaratory;
             // meaby add some w8 time
@@ -72,7 +72,7 @@ public class Wizzard : Character
         }
         else
         {
-            Debug.Log("Location.Labaratory");
+            //Debug.Log("Location.Labaratory");
             MoveTo(Game.WatchPoint.transform.position);
             CurrentLocation = Location.BattleField;
             DataHolder.Labaratory.Culdorn.SomthingInCuldron.SetActive(false);

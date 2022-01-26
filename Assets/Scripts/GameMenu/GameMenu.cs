@@ -8,11 +8,18 @@ public class GameMenu : MonoBehaviour
     
     public void ResumeGame() {
         PauseGame.SetCanvasActive();
+        Cursor.visible = false;
+        
     }
     public void GoToOptions()
     {
         PauseGame.SetCanvasActiveOptions();
         
+    }
+    public void GoToAdvacet()
+    {
+        PauseGame.SetCanvasAdvacetOptions();
+
     }
     public void RetryGame(bool WitchMenu)
     {

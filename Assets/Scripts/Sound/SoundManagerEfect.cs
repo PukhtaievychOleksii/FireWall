@@ -34,9 +34,11 @@ public class SoundManagerEfect : MonoBehaviour
     public void SaveVolume()
     {
         PlayerPrefs.SetFloat("EffectVolume", EffectVolume);
+        //PlayerPrefs.Save();
     }
     public void LoadVolume()
     {
+        Debug.Log("LOADING SOUND EFFECT");
         EffectVolume = PlayerPrefs.GetFloat("EffectVolume");
         VolumeEfectSlider.value = EffectVolume;
     }
@@ -51,6 +53,7 @@ public class SoundManagerEfect : MonoBehaviour
         {
             EffectVolume = PlayerPrefs.GetFloat("EffectVolume");
         }
+        
     }
 
 

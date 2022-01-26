@@ -7,6 +7,7 @@ public class PauseGame : MonoBehaviour/*, IPointerEnterHandler, IPointerExitHand
 {
     public static bool GameIsPaused = false;
     public static bool MenuIsActive = false;
+    public static bool MenuIsActiveAdvacetOptions = false;
     public static bool MenuIsActiveOptions = false;
     private static bool LoadedSettings = false;
     private static bool EndOfGame = false;
@@ -17,28 +18,31 @@ public class PauseGame : MonoBehaviour/*, IPointerEnterHandler, IPointerExitHand
     public GameObject CanvasMainBaground;
     public GameObject CanvasMainManu;
     public GameObject CanvasMainManuOptions;
+    public GameObject AdvacetOptions;
     public GameObject CanvasEndOfGame;
 
     private void Start()
     {
-       
-        
+        Cursor.visible = GameIsPaused;
+
     }
     public static void SetCanvasDeffoult() 
     {
         GameIsPaused = false;
         MenuIsActive = false;
         MenuIsActiveOptions = false;
+        MenuIsActiveAdvacetOptions = false;
         LoadedSettings = false;
         EndOfGame = false;
-}
+        //Cursor.visible = GameIsPaused;
+    }
     public static void SetCanvasActiveEndOfGame(bool IsFromMenu)
     {
-        Debug.Log("SetCanvasActiveEndOfGame   BEFORE");
+        //Debug.Log("SetCanvasActiveEndOfGame   BEFORE");
         if (IsFromMenu) { return; 
-        MenuIsActiveOptions = true;
+        //MenuIsActiveOptions = true;
         } // becouse script is used in MainMenu Scene
-        Debug.Log("SetCanvasActiveEndOfGame   AFTER");
+        //Debug.Log("SetCanvasActiveEndOfGame   AFTER");
         GameIsPaused = !GameIsPaused;
         if (GameIsPaused == false)
         {
@@ -54,18 +58,42 @@ public class PauseGame : MonoBehaviour/*, IPointerEnterHandler, IPointerExitHand
         MenuIsActiveOptions = !MenuIsActiveOptions;
         MenuIsActive = !MenuIsActive;
     }
-    
+    public static void SetCanvasAdvacetOptions()
+    {
+        MenuIsActiveOptions = !MenuIsActiveOptions;
+        MenuIsActiveAdvacetOptions = !MenuIsActiveAdvacetOptions;
+    }
     public static void SetCanvasActive()
     {
         
         GameIsPaused = !GameIsPaused;
+        Cursor.visible = GameIsPaused;
+
+        /*
         if (GameIsPaused == false)
         {
-            if (DataHolder.Wizzard.CurrentLocation == Location.BattleField) DataHolder.BattleField.EnableBattleCursor();
-            if (DataHolder.Wizzard.CurrentLocation == Location.Labaratory) DataHolder.Labaratory.EnableLabCursor();
+            Debug.Log("CURSOR OFF");
+            //Cursor.visible = true;
+            if (DataHolder.Wizzard.CurrentLocation == Location.BattleField) 
+            { 
+                Debug.Log("CURSOR OFF 1"); 
+                DataHolder.BattleField.EnableBattleCursor(); 
+            }
+            if (DataHolder.Wizzard.CurrentLocation == Location.Labaratory)
+            {
+                Debug.Log("CURSOR OFF 2");
+                DataHolder.Labaratory.EnableLabCursor();
+            }
         }
+        else
+        {
+            DataHolder.BattleField.DisableBattleCursor();
+            DataHolder.Labaratory.DisableLabCursor();
+        }*/
+
         MenuIsActive = !MenuIsActive;
         LoadedSettings = false;
+
 
 
 
@@ -79,20 +107,24 @@ public class PauseGame : MonoBehaviour/*, IPointerEnterHandler, IPointerExitHand
         {
             //DataHolder.SoundManager.UpdateSound();
 
+            Cursor.visible = true;
         }
         else
         {
-
+            Cursor.visible = false;
         }
         CanvasMainBaground.SetActive(GameIsPaused);
         CanvasMainManu.SetActive(MenuIsActive);
         CanvasMainManuOptions.SetActive(MenuIsActiveOptions);
         CanvasEndOfGame.SetActive(EndOfGame);
-        if (GameIsPaused || MenuIsActive || MenuIsActiveOptions || EndOfGame)
+        AdvacetOptions.SetActive(MenuIsActiveAdvacetOptions);
+        //Cursor.visible = GameIsPaused;
+
+        /*if (GameIsPaused || MenuIsActive || MenuIsActiveOptions || EndOfGame)
         {
             DataHolder.BattleField.DisableBattleCursor();
             DataHolder.Labaratory.DisableLabCursor();
-        }
+        }*/
         //else if (DataHolder.BattleField.BattleCursorObject.active == false) DataHolder.BattleField.EnableBattleCursor();
 
 
