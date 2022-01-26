@@ -44,7 +44,7 @@ public class AdvacentSetting : MonoBehaviour
             }
         }
        
-        setDefoultBegin();
+        SetDefoultBegin();
         //PlayerPrefs.Save();
 
     }
@@ -62,7 +62,8 @@ public class AdvacentSetting : MonoBehaviour
             case "GrinderHowerONOFF": PlayerPrefs.SetInt(setting, On_OFF);  break;
             case "CuldronHowerONOFF": PlayerPrefs.SetInt(setting, On_OFF);  break;
             default:
-                break;
+            break;
+                
         }
     }
     public void LoadSetting(string setting)
@@ -85,7 +86,7 @@ public class AdvacentSetting : MonoBehaviour
         }
 
     }
-    public void setDefoultBegin()
+    public void SetDefoultBegin()
     {
         TugleButtons[0].isOn = AlarmSound;
         TugleButtons[1].isOn = CuttingBoardSound;
@@ -100,18 +101,24 @@ public class AdvacentSetting : MonoBehaviour
     
     public void UpdatePrefecis(string setting) 
     {
+        if (setting == null) return;
         bool is_ON_OFF = PlayerPrefs.GetInt(setting) == 1;
         switch (setting)
         {
-            case "AlarmSoundONOFF": AlarmSound = !AlarmSound; SaveSetting("AlarmSoundONOFF", GenerateValueIntPreferece(AlarmSound));  break;
-            case "CuttingBoardSoundONOFF": CuttingBoardSound = !CuttingBoardSound; SaveSetting("CuttingBoardSoundONOFF", GenerateValueIntPreferece(CuttingBoardSound)); break;
+            case "AlarmSoundONOFF": AlarmSound = !TugleButtons[0].isOn; SaveSetting("AlarmSoundONOFF", GenerateValueIntPreferece(AlarmSound));  break;
+            case "CuttingBoardSoundONOFF": CuttingBoardSound = !TugleButtons[1].isOn; SaveSetting("CuttingBoardSoundONOFF", GenerateValueIntPreferece(CuttingBoardSound)); break;
             case "SteemerSoundONOFF": SteemerSound = !SteemerSound; SaveSetting("SteemerSoundONOFF", GenerateValueIntPreferece(SteemerSound)); break;
             case "GrinderSoundONOFF": GrinderSound = !GrinderSound; SaveSetting("GrinderSoundONOFF", GenerateValueIntPreferece(GrinderSound)); break;
             case "CuldronSoundONOFF": CuldronSound = !CuldronSound; SaveSetting("CuldronSoundONOFF", GenerateValueIntPreferece(CuldronSound)); break;
             case "CuttingBoardHowerONOFF": CuttingBoardHower = !CuttingBoardHower; SaveSetting("CuttingBoardHowerONOFF", GenerateValueIntPreferece(CuttingBoardHower)); break;
             case "SteemerHowerONOFF": SteemerHower = !SteemerHower; SaveSetting("SteemerHowerONOFF", GenerateValueIntPreferece(SteemerHower)); break;
             case "GrinderHowerONOFF": GrinderHower = !GrinderHower; SaveSetting("GrinderHowerONOFF", GenerateValueIntPreferece(GrinderHower)); break;
-            case "CuldronHowerONOFF": CuldronHower = !CuldronHower; SaveSetting("CuldronHowerONOFF", GenerateValueIntPreferece(CuldronHower)); break;
+            case "CuldronHowerONOFF":
+                Debug.Log(CuldronHower);
+                CuldronHower = !TugleButtons[8].isOn; 
+                SaveSetting("CuldronHowerONOFF", GenerateValueIntPreferece(CuldronHower));
+                Debug.Log(CuldronHower);
+                break;
             default:
                 break;
         }
