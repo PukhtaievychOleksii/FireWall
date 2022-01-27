@@ -548,7 +548,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 23
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2061,7 +2061,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.25
+  m_fontSize: 40
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2286,7 +2286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Grinder Hower
+  m_text: Grinder Hover
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
   m_sharedMaterial: {fileID: -5401581587176209018, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
@@ -2313,7 +2313,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 21.15
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2884,7 +2884,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.7
+  m_fontSize: 60.8
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4642,7 +4642,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 19.4
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4993,7 +4993,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Advacet
+  m_text: Advaced
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
   m_sharedMaterial: {fileID: -5401581587176209018, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
@@ -5020,7 +5020,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.8
+  m_fontSize: 42.65
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5203,7 +5203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Culdron Sound
+  m_text: Cauldron Sound
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
   m_sharedMaterial: {fileID: -5401581587176209018, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
@@ -5230,7 +5230,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 19.4
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5817,7 +5817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Culdron Hower
+  m_text: Cauldron Hover
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
   m_sharedMaterial: {fileID: -5401581587176209018, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
@@ -5844,7 +5844,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 19.4
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9765,7 +9765,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Advacet options
+  m_text: Advaced options
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
   m_sharedMaterial: {fileID: -5401581587176209018, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
@@ -9792,7 +9792,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 96.5
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10001,7 +10001,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cutting Board Hower
+  m_text: Cutting Board Hover
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
   m_sharedMaterial: {fileID: -5401581587176209018, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
@@ -10028,7 +10028,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 19.4
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16688,7 +16688,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.15
+  m_fontSize: 60.8
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -19938,7 +19938,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.25
+  m_fontSize: 40
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -21413,7 +21413,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Steemer Sound
+  m_text: Steamer Sound
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
   m_sharedMaterial: {fileID: -5401581587176209018, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
@@ -21440,7 +21440,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 19.4
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -22647,7 +22647,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 20.55
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23473,7 +23473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Steemer Hower
+  m_text: Steamer Hover
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
   m_sharedMaterial: {fileID: -5401581587176209018, guid: 2dd31a9429e274547bc6678b85ee1bb9, type: 2}
@@ -23500,7 +23500,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 19.4
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -24073,7 +24073,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48.85
+  m_fontSize: 100
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
