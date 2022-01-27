@@ -42,7 +42,6 @@ public class SoundManagerMain : MonoBehaviour
     }
     public void LoadVolume()
     {
-        Debug.Log("LOADING SOUND MAIN" );
         MasterVolume = PlayerPrefs.GetFloat("MasterVolume");
         VolumeMainSlider.value = MasterVolume;
         if (MainMenu)

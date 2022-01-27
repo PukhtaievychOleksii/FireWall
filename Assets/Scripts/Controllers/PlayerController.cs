@@ -18,8 +18,13 @@ public class PlayerController : Controller
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             
-            if (PauseGame.GameIsPaused && PauseGame.MenuIsActiveOptions)
+            if (PauseGame.GameIsPaused && (PauseGame.MenuIsActiveOptions || PauseGame.MenuIsActiveAdvacetOptions))
             {
+                if (PauseGame.MenuIsActiveAdvacetOptions)
+                {
+                    PauseGame.SetCanvasAdvacetOptions();
+                    return;
+                }
                 PauseGame.SetCanvasActiveOptions();
                 return;
 

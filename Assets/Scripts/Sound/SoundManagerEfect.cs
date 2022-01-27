@@ -38,7 +38,6 @@ public class SoundManagerEfect : MonoBehaviour
     }
     public void LoadVolume()
     {
-        Debug.Log("LOADING SOUND EFFECT");
         EffectVolume = PlayerPrefs.GetFloat("EffectVolume");
         VolumeEfectSlider.value = EffectVolume;
     }

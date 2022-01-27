@@ -13,10 +13,10 @@ public class HoweroverShower : MonoBehaviour
     }
     void OnMouseEnter()
     {
-        
-        if (setting == "CuttingBoardHowerONOFF" && AdvacentSetting.CuttingBoardHower)
+        howerBowlObject.SetActive(AdvacentSetting.GetSetting(setting));
+        /*if (setting == "CuttingBoardHowerONOFF" && AdvacentSetting.CuttingBoardHower)
         {
-            howerBowlObject.SetActive(true);
+            howerBowlObject.SetActive(!AdvacentSetting.GetSetting(setting));
         }
         else if (setting == "SteemerHowerONOFF" && AdvacentSetting.SteemerHower)
         {
@@ -25,8 +25,8 @@ public class HoweroverShower : MonoBehaviour
         else if (setting == "GrinderHowerONOFF" && AdvacentSetting.GrinderHower)
         {
             howerBowlObject.SetActive(true);
-        }
-       
+        }*/
+
     }
     void OnMouseExit()
     {

@@ -765,6 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundeffectUpdater: {fileID: 8229117845101652258, guid: 38e7e3b857dda0849b8d616649649bd4, type: 3}
+  setting: AlarmSoundONOFF
 --- !u!82 &72321178
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17262,7 +17263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: -5.0000076, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1473224778
@@ -20077,6 +20078,8 @@ MonoBehaviour:
   IngrediedtPripering: {fileID: 84324783}
   effectsSteamCoocking: {fileID: 1194998747}
   spoonAnimation: {fileID: 1541222386}
+  setting: CuldronSoundONOFF
+  settingHower: CuldronHowerONOFF
 --- !u!82 &1715592308
 AudioSource:
   m_ObjectHideFlags: 0

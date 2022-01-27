@@ -47,6 +47,7 @@ public class IngridientsCook : MonoBehaviour
         {
             if (PauseGame.GameIsPaused)
             {
+                audioSource.mute = !AdvacentSetting.GetSetting(setting);
                 soundeffectUpdater.UpdateEffect(audioSource);
                 return;
             }
@@ -60,9 +61,8 @@ public class IngridientsCook : MonoBehaviour
             }
             
             CookingTime -= Time.deltaTime;
-            if (audioClips.ToArray().Length > 0 && !audioSource.isPlaying && AdvacentSetting.CuttingBoardSound) // cuting bord sounds
+            if (audioClips.ToArray().Length > 0 && !audioSource.isPlaying ) // cuting bord sounds
             {
-                Debug.Log("som tuna");
                 AudioClip audioClip = RandomAudioClip();
                 audioSource.PlayOneShot(audioClip);
             }
@@ -115,7 +115,6 @@ public class IngridientsCook : MonoBehaviour
     }
     public void TryGetIngridient()
     {
-        Debug.Log("som tuna click");
         if (Is_Occupide >= 0 && CookingTime > 0)
         {
             CookingTime -= SpeedUpProcess;
@@ -123,7 +122,6 @@ public class IngridientsCook : MonoBehaviour
 
         if (DataHolder.Wizzard.CurrentIngridient == null) return; 
         if (!CanBeConsumed(DataHolder.Wizzard.CurrentIngridient.IngridientType)) return;
-        Debug.Log("TryGetIngridient" + DataHolder.Wizzard.CurrentIngridient.IngridientType);
         Consume();
     }
     public void GiveReadyIngridient()
@@ -138,13 +136,14 @@ public class IngridientsCook : MonoBehaviour
         Destroy(DataHolder.Wizzard.CurrentIngridient.gameObject);
         //if "AlarmSoundONOFF", "CuttingBoardSoundONOFF",
         //"SteemerSoundONOFF", "GrinderSoundONOFF",
-        if ((setting == "CuttingBoardSoundONOFF" && AdvacentSetting.CuttingBoardSound) ||
+        /*if ((setting == "CuttingBoardSoundONOFF" && AdvacentSetting.CuttingBoardSound) ||
             (setting == "GrinderSoundONOFF" && AdvacentSetting.GrinderSound) ||
             (setting == "SteemerSoundONOFF" && AdvacentSetting.SteemerSound))
         {
             audioSource.Play();
-        }
-        
+        }*/
+        audioSource.Play();
+
         //audioSource.Play();
         if (this.gameObject.name == "Steamer")
         {

@@ -9,7 +9,6 @@ public class FlareEffect : MonoBehaviour
     void OnMouseEnter()
     {
         flare.SetTrigger("Hover");
-        Debug.Log("Mouse is over GameObject.");
     }
 
 }

@@ -7,6 +7,7 @@ public class Alarm : MonoBehaviour
     private AudioSource audioSource;
     private SpriteRenderer renderer;
     public SoundEffectUpdater soundeffectUpdater;
+    public string setting;
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -19,6 +20,7 @@ public class Alarm : MonoBehaviour
     {
         if (PauseGame.GameIsPaused)
         {
+            audioSource.mute = !AdvacentSetting.GetSetting(setting);
             soundeffectUpdater.UpdateEffect(audioSource);
             return;
         }
@@ -29,16 +31,13 @@ public class Alarm : MonoBehaviour
     {
 
         gameObject.SetActive(true);
-        //renderer.enabled = true;
         DataHolder.EffectsHandler.StartAlarmEffects();
-        audioSource.mute = !AdvacentSetting.AlarmSound;
         
     }
 
     public void StopAlarm()
     {
         gameObject.SetActive(false);
-        //renderer.enabled = false;
         DataHolder.EffectsHandler.StopAlarmEffeects();
     }
    

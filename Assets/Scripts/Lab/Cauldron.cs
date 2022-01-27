@@ -38,6 +38,9 @@ public class Cauldron : MonoBehaviour
     public ParticleSystem effectsSteamCoocking;
     public Animator spoonAnimation;
 
+    public string setting;
+    public string settingHower;
+
 
 
     // Start is called before the first frame update
@@ -71,6 +74,20 @@ public class Cauldron : MonoBehaviour
     {
         if (PauseGame.GameIsPaused)
         {
+            audioSource.mute = !AdvacentSetting.GetSetting(setting);
+            if (!AdvacentSetting.GetSetting(settingHower))
+            {
+                SomthingInCuldron.SetActive(false);
+                for (int index = 0; index < ActiveRecepyCanvasHolderForItems.Count; index++)
+                {
+                    ActiveRecepyShowItems[index].SetActive(false);
+                }
+            }
+            else 
+            {
+                SomthingInCuldron.SetActive(true);
+                CertainRecepyFounded();
+            }
             soundeffectUpdater.UpdateEffect(audioSource);
             return;
         }
@@ -96,7 +113,6 @@ public class Cauldron : MonoBehaviour
                 IsOccupide = false;
                 ActiveRecepyCooking = 0;
                 spoonAnimation.SetTrigger("off");
-                Debug.Log("OOOOOOOOFFFFFFFF");
                 
                 IngrediedtPripering.gameObject.SetActive(false);
 
@@ -193,13 +209,9 @@ public class Cauldron : MonoBehaviour
                     IsOccupide = true;
                     ActiveRecepyCooking = IsCorectRecepy;
                     IngrediedtPripering.gameObject.SetActive(true);
-                    if (AdvacentSetting.CuldronSound)
-                    {
-                        audioSource.Play();
-                    }
+                    audioSource.Play();
                     effectsSteamCoocking.Play();
                     spoonAnimation.SetTrigger("on");
-                    Debug.Log("OOOOOOOONNNNNNNN");
                     RemoveCanvasRecepy();
 
 
@@ -208,20 +220,12 @@ public class Cauldron : MonoBehaviour
                 else
                 {
                     // missing ingrediets
-                    Debug.Log("Missing ingredient");
-                    if (AdvacentSetting.CuldronHower)
+                    if (AdvacentSetting.GetSetting(settingHower))
                     {
                         SomthingInCuldron.SetActive(true);
                         CertainRecepyFounded();
                     }
-                    else 
-                    {
-                        SomthingInCuldron.SetActive(false);
-                        for (int index = 0; index < ActiveRecepyCanvasHolderForItems.Count; index++)
-                        {
-                            ActiveRecepyShowItems[index].SetActive(false);
-                        }
-                    }
+                    
                     
                     
                     
@@ -230,7 +234,6 @@ public class Cauldron : MonoBehaviour
             else
             {
                 // make poop
-                Debug.Log("Wrong recepy");
                 GiveReadyIngridientPoop();
                 
                 RemoveRecepy();
@@ -442,7 +445,6 @@ public class Cauldron : MonoBehaviour
     }
     public void RemoveRecepy() {
 
-        Debug.Log("remove recepiii");
         ActiveRecepy.Clear();
         RemoveCanvasRecepy();
     }
