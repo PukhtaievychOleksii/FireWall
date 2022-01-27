@@ -6,6 +6,7 @@ public class BattleField : MonoBehaviour
 {
     public GameObject BattleCursorObject;
     public Animator[] CursorAnimator;
+    public List<SpriteRenderer> CursorRenderers;
 
 
     private Color InitialCursorColor;
@@ -13,7 +14,7 @@ public class BattleField : MonoBehaviour
     {
         BattleCursorObject.SetActive(false);
         DataHolder.SetBattleField(this);
-        InitialCursorColor = BattleCursorObject.GetComponent<SpriteRenderer>().color;
+        InitialCursorColor = CursorRenderers[0].color;
 
     }
 
@@ -52,6 +53,10 @@ public class BattleField : MonoBehaviour
         }
         //BattleCursor.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         BattleCursorObject.GetComponent<SpriteRenderer>().color = Color.red;
+        foreach(SpriteRenderer renderer in CursorRenderers)
+        {
+            renderer.color = Color.red;
+        }
     }
 
 
@@ -62,12 +67,16 @@ public class BattleField : MonoBehaviour
             //CursorAnimator[i].SetTrigger("off");
             CursorAnimator[i].SetBool("active", false);
         }
-        BattleCursorObject.GetComponent<SpriteRenderer>().color = DataHolder.BattleField.InitialCursorColor;
+        //BattleCursorObject.GetComponent<SpriteRenderer>().color = DataHolder.BattleField.InitialCursorColor;
+        foreach (SpriteRenderer renderer in CursorRenderers)
+        {
+            renderer.color = InitialCursorColor;
+        }
 
     }
     public void EnableBattleCursor()
     {
-        Cursor.visible = false; 
+        //Cursor.visible = false; 
         BattleCursorObject.SetActive(true);
         
     }

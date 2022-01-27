@@ -425,6 +425,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51222903}
   m_CullTransparentMesh: 1
+--- !u!212 &51613479 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2818245654183973554, guid: 64ead30e36e10a847b7164300c14e44a, type: 3}
+  m_PrefabInstance: {fileID: 1029171264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &52412231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1774,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225312509}
   m_CullTransparentMesh: 1
+--- !u!212 &268177159 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5313105854931177215, guid: 64ead30e36e10a847b7164300c14e44a, type: 3}
+  m_PrefabInstance: {fileID: 1029171264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &279308542
 GameObject:
   m_ObjectHideFlags: 0
@@ -8768,6 +8778,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!212 &1006440315 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5488212952282563128, guid: 64ead30e36e10a847b7164300c14e44a, type: 3}
+  m_PrefabInstance: {fileID: 1029171264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1008802014
 GameObject:
   m_ObjectHideFlags: 0
@@ -9450,6 +9465,11 @@ PolygonCollider2D:
       - {x: -0.98316026, y: -0.39600286}
       - {x: 0.9856937, y: -0.42322996}
       - {x: 0.5685539, y: 0.40674213}
+--- !u!212 &1097932944 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5782376456463600574, guid: 64ead30e36e10a847b7164300c14e44a, type: 3}
+  m_PrefabInstance: {fileID: 1029171264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1105412723 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1625885305055926364, guid: 64ead30e36e10a847b7164300c14e44a, type: 3}
@@ -18498,6 +18518,11 @@ MonoBehaviour:
   - {fileID: 667476509}
   - {fileID: 1802110234}
   - {fileID: 1176497210}
+  CursorRenderers:
+  - {fileID: 51613479}
+  - {fileID: 1006440315}
+  - {fileID: 1097932944}
+  - {fileID: 268177159}
 --- !u!61 &1564542558
 BoxCollider2D:
   m_ObjectHideFlags: 0
