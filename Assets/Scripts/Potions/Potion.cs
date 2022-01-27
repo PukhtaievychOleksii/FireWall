@@ -20,6 +20,7 @@ public class Potion : Projectile
     public float DamageRadius;
     public float ActiveDamageTime;
     public float FadingTime;
+    public float RotationPerSecond;
     [HideInInspector]
     public string Name;
     public Transform ScalingSpace;//must be set in Unity
@@ -59,6 +60,7 @@ public class Potion : Projectile
                 ExplosionZone.Renderer.color = color;
             }
         }
+        transform.Rotate(0, 0, RotationPerSecond * Time.deltaTime);
     }
 
     private void SetAppropriateScaling()

@@ -6,9 +6,9 @@ public class Cannon : MonoBehaviour
 {
     public Camera MainCamera;
     public Potion Projectile;
-    public AudioClip CanonCanShoot;
-    public AudioClip CanonCanNOTShoot;
-    public AudioSource audioSource;
+    private AudioClip CanonCanShoot;
+    private AudioClip CanonCanNOTShoot;
+    private AudioSource audioSource;
     public SoundEffectUpdater soundeffectUpdater;
     public bool CanShoot = false;
     void Start()
@@ -33,11 +33,12 @@ public class Cannon : MonoBehaviour
     public void FollowMouse()
     {
 
-     
-        float ZRot = Quaternion.LookRotation(MainCamera.ScreenToWorldPoint(Input.mousePosition)).z;
-        float WRot = Quaternion.LookRotation(MainCamera.ScreenToViewportPoint(Input.mousePosition)).w;
-        gameObject.transform.rotation  =  new Quaternion(0,0,ZRot,WRot);
-        
+
+        /* float ZRot = Quaternion.LookRotation(MainCamera.ScreenToWorldPoint(Input.mousePosition)).z;
+         float WRot = Quaternion.LookRotation(MainCamera.ScreenToViewportPoint(Input.mousePosition)).w;
+         gameObject.transform.rotation  =  new Quaternion(0,0,ZRot,WRot);*/
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(MainCamera.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, MainCamera.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x) * Mathf.Rad2Deg);
+
     }
 
     public void FireOnTarget(Vector3 target)

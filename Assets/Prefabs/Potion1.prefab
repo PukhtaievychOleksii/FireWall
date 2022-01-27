@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121900683791322303}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.87055445, y: -0.6235915, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children:
   - {fileID: 2772694968342070245}
   m_Father: {fileID: 0}
@@ -123,6 +123,7 @@ MonoBehaviour:
   DamageRadius: 10
   ActiveDamageTime: 0.5
   FadingTime: 3
+  RotationPerSecond: -60
   Name: Potion1
   ScalingSpace: {fileID: 2772694968342070245}
   audioSource: {fileID: 0}

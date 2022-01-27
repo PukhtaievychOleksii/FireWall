@@ -8792,13 +8792,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008802014}
-  m_LocalRotation: {x: -0, y: -0, z: -0.03949048, w: 0.99921995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8870559, y: 0.030000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1912608419}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.526}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1008802016
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17263,7 +17263,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5.0000305, y: 0}
+<<<<<<< HEAD
+  m_AnchoredPosition: {x: -5.0000153, y: 0}
+=======
+  m_AnchoredPosition: {x: -5, y: 0}
+>>>>>>> 92bc3c1ec24c7f0311213561951db1e877de3855
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1473224778
@@ -22013,6 +22017,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 519420031}
   Projectile: {fileID: 0}
+  CanonCanShoot: {fileID: 0}
+  CanonCanNOTShoot: {fileID: 0}
+  audioSource: {fileID: 0}
   soundeffectUpdater: {fileID: 8229117845101652258, guid: 38e7e3b857dda0849b8d616649649bd4, type: 3}
   CanShoot: 0
 --- !u!82 &1912608421
@@ -22154,6 +22161,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f602ddbae55281408186842f1ea3872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TugleButtons:
+  - {fileID: 104713056}
+  - {fileID: 371278053}
+  - {fileID: 894040127}
+  - {fileID: 705106888}
+  - {fileID: 1002425974}
+  - {fileID: 1938940289}
+  - {fileID: 1005458338}
+  - {fileID: 1013240548}
+  - {fileID: 2028275071}
 --- !u!1 &1920905502
 GameObject:
   m_ObjectHideFlags: 0
