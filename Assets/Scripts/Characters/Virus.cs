@@ -52,7 +52,7 @@ public class Virus : Character, ICanAttack, IDamageable
     public void OnDeath()
     {
         DataHolder.Wizzard.UpdateScoreKilledMonsters();
-        DataHolder.Labaratory.Culdorn.RemoveRecepy();
+        //DataHolder.Labaratory.Culdorn.RemoveRecepy();
         Destroy(gameObject);
        
     }
